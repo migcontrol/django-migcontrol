@@ -1,6 +1,8 @@
 Migration Control website
 =========================
 
+This is an example.
+
 This website is based on:
 
 * Django
