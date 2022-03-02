@@ -28,7 +28,7 @@ msgstr ""
 
 #: archive/models.py:49 archive/models.py:90
 msgid "country"
-msgstr ""
+msgstr "Land"
 
 #: archive/models.py:83
 msgid "organization type"
