@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<h1 class="migcontrol-page-title">{{ page.title }}</h1>
+
+<p>This listing will be improved over time.</p>
+
+<ul>
+{% for business_page in business_pages %}
+  <li><a href="{{ business_page.url }}">{{ business_page.title }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock content %}

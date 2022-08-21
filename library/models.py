@@ -1,9 +1,11 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
+from django_countries.fields import CountryField
 from modelcluster.fields import ParentalKey
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.admin.edit_handlers import InlinePanel
+from wagtail.admin.edit_handlers import PageChooserPanel
 from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField
@@ -15,6 +17,93 @@ from wagtail.images import get_image_model_string
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
+
+
+@register_snippet
+class RegionSnippet(TranslatableMixin, models.Model):
+
+    name = models.CharField(
+        verbose_name=_("region name"),
+        help_text=_("Some geographical area, may intersect with other areas"),
+        max_length=255,
+    )
+
+    panels = [
+        FieldPanel("name"),
+    ]
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+@register_snippet
+class TopicSnippet(TranslatableMixin, models.Model):
+
+    name = models.CharField(
+        verbose_name=_("topic name"),
+        help_text=_("A topic for the library, can intersect with other topics"),
+        max_length=255,
+    )
+
+    panels = [
+        FieldPanel("name"),
+    ]
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+@register_snippet
+class IndustrySnippet(TranslatableMixin, models.Model):
+
+    name = models.CharField(
+        verbose_name=_("topic name"),
+        help_text=_("A topic for the library, can intersect with other topics"),
+        max_length=255,
+    )
+
+    panels = [
+        FieldPanel("name"),
+    ]
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+@register_snippet
+class BusinessCategorySnippet(TranslatableMixin, models.Model):
+
+    name = models.CharField(
+        verbose_name=_("topic name"),
+        help_text=_("A topic for the library, can intersect with other topics"),
+        max_length=255,
+    )
+
+    panels = [
+        FieldPanel("name"),
+    ]
+
+    def __str__(self):
+        return f"{self.name}"
+
+
+@register_snippet
+class BusinessPageSourceSnippet(TranslatableMixin, models.Model):
+    title = models.CharField(max_length=100, verbose_name=_("Stage Name"))
+    url = models.URLField(max_length=512, verbose_name=_("URL"), null=True, blank=True)
+    page_link = models.ForeignKey(
+        Page,
+        null=True,
+        blank=True,
+        verbose_name=_("Internal page"),
+        on_delete=models.CASCADE,
+    )
+
+    panels = [
+        FieldPanel("title", classname="title full"),
+        FieldPanel("url"),
+        PageChooserPanel("page_link"),
+    ]
 
 
 class LibraryIndexPage(Page):
@@ -50,40 +139,6 @@ class LibraryIndexPage(Page):
         context["filter_form"] = filter_form
         context["media_pages"] = qs
         return context
-
-
-@register_snippet
-class RegionSnippet(TranslatableMixin, models.Model):
-
-    name = models.CharField(
-        verbose_name=_("region name"),
-        help_text=_("Some geographical area, may intersect with other areas"),
-        max_length=255,
-    )
-
-    panels = [
-        FieldPanel("name"),
-    ]
-
-    def __str__(self):
-        return f"{self.name}"
-
-
-@register_snippet
-class TopicSnippet(TranslatableMixin, models.Model):
-
-    name = models.CharField(
-        verbose_name=_("topic name"),
-        help_text=_("A topic for the library, can intersect with other topics"),
-        max_length=255,
-    )
-
-    panels = [
-        FieldPanel("name"),
-    ]
-
-    def __str__(self):
-        return f"{self.name}"
 
 
 class MediaPageRegion(models.Model):
@@ -201,3 +256,188 @@ class MediaPage(Page):
         InlinePanel("regions", label="regions"),
         InlinePanel("topics", label="topics"),
     ]
+
+
+class BusinessIndexPage(Page):
+    template = "library/business/index.html"
+
+    body = StreamField(
+        [
+            ("heading", blocks.CharBlock(classname="full title")),
+            ("paragraph", blocks.RichTextBlock()),
+            ("image", ImageChooserBlock()),
+        ],
+        verbose_name="body",
+        blank=True,
+        help_text="The main contents of the page",
+    )
+    content_panels = [
+        FieldPanel("title", classname="full title"),
+        StreamFieldPanel("body"),
+    ]
+
+    def get_context(self, request):
+        context = super().get_context(request)
+        context["business_pages"] = self.get_children().live().type(BusinessPage)
+        return context
+
+
+class BusinessPageRegion(models.Model):
+    page = ParentalKey(
+        "library.BusinessPage",
+        on_delete=models.CASCADE,
+        related_name="businespage_regions",
+    )
+    region = models.ForeignKey(
+        "library.RegionSnippet", on_delete=models.CASCADE, related_name="businesses"
+    )
+
+    panels = [
+        SnippetChooserPanel("region"),
+    ]
+
+    class Meta:
+        unique_together = ("page", "region")
+
+
+class BusinessPageIndustry(models.Model):
+    page = ParentalKey(
+        "library.BusinessPage",
+        on_delete=models.CASCADE,
+        related_name="businespage_industries",
+    )
+    industry = models.ForeignKey(
+        "library.IndustrySnippet", on_delete=models.CASCADE, related_name="businesses"
+    )
+
+    panels = [
+        SnippetChooserPanel("industry"),
+    ]
+
+    class Meta:
+        unique_together = ("page", "industry")
+
+
+class BusinessPageBusinessCategory(models.Model):
+    page = ParentalKey(
+        "library.BusinessPage",
+        on_delete=models.CASCADE,
+        related_name="businespage_categories",
+    )
+    business_category = models.ForeignKey(
+        "library.BusinessCategorySnippet",
+        on_delete=models.CASCADE,
+        related_name="businesses",
+    )
+
+    panels = [
+        SnippetChooserPanel("business_category"),
+    ]
+
+    class Meta:
+        unique_together = ("page", "business_category")
+
+
+class BusinessPageBusinessPageSource(models.Model):
+    page = ParentalKey(
+        "library.BusinessPage",
+        on_delete=models.CASCADE,
+        related_name="businespage_sources",
+    )
+    businesspage_source = models.ForeignKey(
+        "library.BusinessPageSourceSnippet",
+        on_delete=models.CASCADE,
+        related_name="businesses",
+    )
+
+    panels = [
+        SnippetChooserPanel("businesspage_source"),
+    ]
+
+    class Meta:
+        unique_together = ("page", "businesspage_source")
+
+
+class BusinessPage(Page):
+    template = "library/business/business_page.html"
+
+    organization_type = models.CharField(
+        verbose_name=_("organization type"),
+        blank=True,
+        null=True,
+        max_length=255,
+    )
+
+    country_jurisdiction = CountryField(
+        verbose_name=_("country"),
+        blank=True,
+        default="",
+        help_text=_(
+            "Home country/jurisdiction of the organization (where it's registered)"
+        ),
+    )
+
+    city_jurisdiction = models.CharField(
+        verbose_name=_("city"),
+        blank=True,
+        null=True,
+        help_text=_(
+            "Home city/jurisdiction of the organization (where it's registered)"
+        ),
+        max_length=512,
+    )
+
+    branches = RichTextField(
+        blank=True,
+        verbose_name=_("Branches (subsidiaries)"),
+        help_text=_(
+            "Use this to name other brands or country offices owned by the same company. This text is free-form for now and until there is a desired data model for mapping branches."
+        ),
+    )
+
+    regions = models.ManyToManyField(
+        RegionSnippet, through=BusinessPageRegion, blank=True
+    )
+
+    industries = models.ManyToManyField(
+        IndustrySnippet, through=BusinessPageIndustry, blank=True
+    )
+
+    business_categories = models.ManyToManyField(
+        BusinessCategorySnippet, through=BusinessPageBusinessCategory, blank=True
+    )
+
+    sources = models.ManyToManyField(
+        BusinessPageSourceSnippet, through=BusinessPageBusinessPageSource, blank=True
+    )
+
+    about = RichTextField(
+        blank=True,
+    )
+    eu_border_contribution = RichTextField(
+        blank=True,
+    )
+
+    website = models.URLField(blank=True, null=True)
+
+    authors = models.CharField(
+        max_length=1024,
+        blank=True,
+        null=True,
+        verbose_name=_("authors"),
+    )
+
+    content_panels = Page.content_panels + [
+        FieldPanel("organization_type"),
+        FieldPanel("country_jurisdiction"),
+        FieldPanel("city_jurisdiction"),
+        FieldPanel("about"),
+        FieldPanel("eu_border_contribution"),
+        FieldPanel("website"),
+        InlinePanel("businespage_regions", label=_("Regions")),
+        InlinePanel("businespage_industries", label=_("Industries")),
+        InlinePanel("businespage_categories", label=_("Business categories")),
+        InlinePanel("sources", label=_("Sources")),
+    ]
+
+    meta_panels = Page.promote_panels + ["authors"]
