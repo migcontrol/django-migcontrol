@@ -154,7 +154,7 @@ def get_jurisdictions(locations, page, index):
     locations = locations.replace(", ", ",")
     for location in locations.split(","):
         if not pattern_country_code.findall(location):
-            return []
+            return None, location
         country = pattern_country_code.findall(location)[0].strip().lower()
         if country == "uk":
             country = "gb"

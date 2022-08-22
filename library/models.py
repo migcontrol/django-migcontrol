@@ -437,7 +437,7 @@ class BusinessPage(Page):
         InlinePanel("businespage_regions", label=_("Regions")),
         InlinePanel("businespage_industries", label=_("Industries")),
         InlinePanel("businespage_categories", label=_("Business categories")),
-        InlinePanel("sources", label=_("Sources")),
+        InlinePanel("businespage_sources", label=_("Sources")),
     ]
 
     meta_panels = Page.promote_panels + ["authors"]
