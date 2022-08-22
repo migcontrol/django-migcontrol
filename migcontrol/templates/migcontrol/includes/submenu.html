@@ -1,0 +1,30 @@
+{% load migcontrol_tags wagtailcore_tags %}
+
+{% if page.depth > maxdepth|default:2 %}
+
+    {% get_sub_menus page maxdepth=maxdepth fixed_level=fixed_level as sub_menus %}
+    {% for ancestor in sub_menus %}
+
+      {% get_menu ancestor ignore_show=True specific=specific|default:"" as this_sub_menu %}
+
+      {% if this_sub_menu %}
+      <nav class="navbar navbar-expand-md navbar-dark bg-primary migcontrol-navbar-secondary">
+        <div class="container">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link{% if page.url == nav.url %} active{% endif %}" href="{{ ancestor.url }}">{{ ancestor }}:</a>
+            </li>
+            {% for menuitem in this_sub_menu %}
+              <li class="nav-item">
+                <a class="nav-link{% if page.id == menuitem.id %} active{% endif %}" href="{{ menuitem.url }}">{{ menuitem.title }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </nav>
+      {% endif %}
+
+
+    {% endfor %}
+
+  {% endif %}

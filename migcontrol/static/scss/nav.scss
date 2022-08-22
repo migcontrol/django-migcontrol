@@ -52,6 +52,11 @@ ul.lang-chooser {
     color: $dark;
 }
 
+.migcontrol-navbar-secondary .navbar-nav .nav-item > .nav-link.active {
+    color: $white;
+    text-decoration: underline;
+}
+
 .navbar .navbar-brand {
     max-width: 300px;
     img {
