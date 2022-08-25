@@ -80,3 +80,11 @@ ul.lang-chooser {
 nav.migcontrol-navbar-main {
     margin-bottom: 0px;
 }
+
+.migcontrol-navbar-secondary .navbar-nav > .nav-item > a.nav-link:hover {
+    color: $migcontrol-dark-grey;
+}
+
+.migcontrol-navbar-secondary .navbar-nav > .nav-item:first-child a {
+    padding-left: 0;
+}

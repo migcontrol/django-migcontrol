@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -7,10 +8,22 @@
 
 <p>This listing will be improved over time.</p>
 
-<ul>
-{% for business_page in business_pages %}
-  <li><a href="{{ business_page.url }}">{{ business_page.title }}</a></li>
-{% endfor %}
-</ul>
+<div class="accordion" id="accordionExample">
+
+  {% for business_page in business_pages %}
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading{{ business_page.id }}">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ business_page.id }}" aria-expanded="{% if forloop.first %}true{% endif %}" aria-controls="collapse{{ business_page.id }}">
+        {{ business_page.title }}
+      </button>
+    </h2>
+    <div id="collapse{{ business_page.id }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="heading{{ business_page.id }}" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
 {% endblock content %}
