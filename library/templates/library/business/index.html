@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load i18n %}
+{% load wagtailcore_tags %}
 
 {% block content %}
 
@@ -19,7 +20,23 @@
     </h2>
     <div id="collapse{{ business_page.id }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="heading{{ business_page.id }}" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        <table class="table table-condensed table-bordered">
+          <tr>
+            <th>{% trans "Registered office" %}</th>
+            <td>
+              {{ business_page.country_jurisdiction|default:_("Unspecified") }}
+              {% if business_page.city_jurisdiction %}
+                - {{ business_page.city_jurisdiction }}
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>{% trans "Other branches" %}</th>
+            <td>{{ business_page.branches|default:_("None / Unspecified")|linebreaksbr }}</td>
+          </tr>
+        </table>
+        {{ business_page.about|richtext|truncatewords_html:100 }}
+        <a href="{{ business_page.url }}" class="btn btn-primary">{% trans "Read more" %}</a>
       </div>
     </div>
   </div>

@@ -278,7 +278,9 @@ class BusinessIndexPage(Page):
 
     def get_context(self, request):
         context = super().get_context(request)
-        context["business_pages"] = self.get_children().live().type(BusinessPage)
+        context["business_pages"] = (
+            self.get_children().live().type(BusinessPage).specific()
+        )
         return context
 
 
