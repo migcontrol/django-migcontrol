@@ -89,7 +89,7 @@ class BusinessCategorySnippet(TranslatableMixin, models.Model):
 
 @register_snippet
 class BusinessPageSourceSnippet(TranslatableMixin, models.Model):
-    title = models.CharField(max_length=100, verbose_name=_("Stage Name"))
+    title = models.CharField(max_length=100, verbose_name=_("Source Name"))
     url = models.URLField(max_length=512, verbose_name=_("URL"), null=True, blank=True)
     page_link = models.ForeignKey(
         Page,
@@ -104,6 +104,9 @@ class BusinessPageSourceSnippet(TranslatableMixin, models.Model):
         FieldPanel("url"),
         PageChooserPanel("page_link"),
     ]
+
+    def __str__(self):
+        return f"{self.title} ({self.url})"
 
 
 class LibraryIndexPage(Page):

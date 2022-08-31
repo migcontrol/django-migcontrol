@@ -11,7 +11,7 @@
   <tr>
     <th>{% trans "Registered office" %}</th>
     <td>
-      {{ page.country_jurisdiction|default:_("Unspecified") }}
+      {{ page.country_jurisdiction.name|default:_("Unspecified") }}
       {% if page.city_jurisdiction %}
         - {{ page.city_jurisdiction }}
       {% endif %}
@@ -21,6 +21,50 @@
     <th>{% trans "Other branches" %}</th>
     <td>{{ page.branches|default:_("None / Unspecified")|linebreaksbr }}</td>
   </tr>
+  <tr>
+    <th>{% trans "Website" %}</th>
+    <td>{{ page.website|urlize|default:_("None / Unspecified") }}</td>
+  </tr>
+  <tr>
+    <th>{% trans "Regions" %}</th>
+    <td>
+      {% for region in page.regions.all %}
+        {{ region }}{% if not forloop.last %}, {% endif %}
+      {% empty %}
+        {% trans "Unspecified" %}
+      {% endfor %}
+    </td>
+  </tr>
+  <tr>
+    <th>{% trans "Industries" %}</th>
+    <td>
+      {% for industry in page.industries.all %}
+        {{ industry }}{% if not forloop.last %}, {% endif %}
+      {% empty %}
+        {% trans "Unspecified" %}
+      {% endfor %}
+    </td>
+  </tr>
+  <tr>
+    <th>{% trans "Categories" %}</th>
+    <td>
+      {% for business_category in page.business_categories.all %}
+        {{ business_category }}{% if not forloop.last %}, {% endif %}
+      {% empty %}
+        {% trans "Unspecified" %}
+      {% endfor %}
+    </td>
+  </tr>
+  <tr>
+    <th>{% trans "Sources" %}</th>
+    <td>
+      {% for source in page.sources.all %}
+        {{ source.title }}: {{ source.url|urlize }}{% if not forloop.last %}<br>{% endif %}
+      {% empty %}
+        {% trans "Unspecified" %}
+      {% endfor %}
+    </td>
+  </tr>
 </table>
 
 <h2>{% trans "About the company" %}</h2>
@@ -28,6 +72,12 @@
 
 <h2>{% trans "Contribution to the EU border regime" %}</h2>
 {{ page.eu_border_contribution|default:_("<p>Text in progress</p>")|richtext }}
+
+<p>
+  <em>
+    {% trans "Last update:" %} {{ page.last_published_at|date:"DATETIME_FORMAT" }}
+  </em>
+</p>
 
 <p>
   <a href="{{ page.get_parent.url }}" class="btn btn-outline-primary"><i class="fa fa-angle-double-left"></i> {% trans "Back to index" %}</a>
