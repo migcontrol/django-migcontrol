@@ -24,7 +24,7 @@
           <tr>
             <th>{% trans "Registered office" %}</th>
             <td>
-              {{ business_page.country_jurisdiction|default:_("Unspecified") }}
+              {{ business_page.country_jurisdiction.name|default:_("Unspecified") }}
               {% if business_page.city_jurisdiction %}
                 - {{ business_page.city_jurisdiction }}
               {% endif %}
