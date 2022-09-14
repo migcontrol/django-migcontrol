@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     "blog",
     "home",
     "search",
-    "archive",
     "library",
     "images",
     "wiki",
