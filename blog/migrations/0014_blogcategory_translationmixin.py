@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('wagtailcore', '0066_collection_management_permissions'),
-        ('blog', '0012_alter_blogpage_body_mixed'),
+        ('blog', '0013_blogindexpage_hide_toc'),
     ]
 
     operations = [
