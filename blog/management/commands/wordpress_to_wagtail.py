@@ -29,8 +29,6 @@ from wagtail.core.models import Page
 from wagtail.images import get_image_model
 from wagtail_footnotes.models import Footnote
 
-from archive.models import ArchivePageLocation
-from archive.models import LocationPage
 from blog.models import BlogCategory
 from blog.models import BlogCategoryBlogPage
 from blog.models import BlogPageTag
@@ -152,48 +150,35 @@ def url_or_none_mapping(url, page, index):
         return None
 
 
-def get_locations(locations, page, index):
+def get_jurisdictions(locations, page, index):
     locations = locations.replace(", ", ",")
     for location in locations.split(","):
         if not pattern_country_code.findall(location):
-            return []
+            return None, location
         country = pattern_country_code.findall(location)[0].strip().lower()
         if country == "uk":
             country = "gb"
         location_name = re.sub(re.compile(r"(\s*\([a-zA-Z]{2}\))"), "", location)
         slug = slugify(location_name) + "-" + slugify(f"{country}")
         print(f"{slug} {country}")
-        try:
-            location_page = LocationPage.objects.get(
-                slug=slug,
-            )
-        except LocationPage.DoesNotExist:
-            location_page = LocationPage(
-                country=country,
-                name=location_name,
-                title=location_name,
-                slug=slug,
-            )
-            index.add_child(instance=location_page)
-        try:
-            archive_location_page = ArchivePageLocation.objects.get(
-                page=page,
-                location=location_page,
-            )
-        except ArchivePageLocation.DoesNotExist:
-            archive_location_page = ArchivePageLocation.objects.create(
-                location=location_page,
-                page=page,
-            )
-        yield archive_location_page
+        return country, location_name
+    return None, None
+
+
+def get_jurisdiction_country(locations, page, index):
+    return get_jurisdictions(locations, page, index)[0]
+
+
+def get_jurisdiction_city(locations, page, index):
+    return get_jurisdictions(locations, page, index)[1]
 
 
 # {app.model: {wp_meta_key: (attr_name, mapping_func)}}
 WP_POSTMETA_MAPPING = {
-    "archive.archivepage": {
-        "branche": ("organization_type", noop_mapping),
-        "land": ("country", get_country),
-        "standorte": ("locations", get_locations),
+    "library.businesspage": {
+        "branche": ("_tmp_branche", noop_mapping),
+        "land": ("jurisdiction_country", get_country),
+        "standorte": ("jurisdiction_city", get_jurisdiction_city),
         "kurztext": ("search_description", noop_mapping),
     },
     "blog.blogpage": {},
@@ -209,7 +194,7 @@ WP_POSTMETA_MAPPING = {
 }
 
 
-def get_archive_page_mapping(
+def get_business_page_mapping(
     index,
     locale,
     post_id,
@@ -230,9 +215,9 @@ def get_archive_page_mapping(
         # Not automatic mapping at the moment, we do it manually to check if
         # search_description is already set
         # "search_description": excerpt,
-        "owner": user,
+        # "owner": user,
         # "authors": authors,
-        "description": body,
+        "about": body,
         "locale": locale,
         "live": published,
         "first_published_at": date,
@@ -352,15 +337,15 @@ def get_blog_page_mapping(
 
 
 WP_POST_MAPPING = {
-    "archive.archivepage": get_archive_page_mapping,
+    "library.businesspage": get_business_page_mapping,
     "blog.blogpage": get_blog_page_mapping,
     "wiki.wikipage": get_wiki_page_mapping,
     "library.mediapage": get_media_page_mapping,
 }
 
-# Model field name to store the imported body (unfortynately varies)
+# Model field name to store the imported body (unfortunately varies)
 WP_HTML_BODY_FIELD = {
-    "archive.archivepage": "description",
+    "library.businesspage": "about",
     "blog.blogpage": "body_richtext",
     "wiki.wikipage": "description",
     "library.mediapage": "body",
@@ -699,7 +684,10 @@ class Command(BaseCommand):
                 ),
             )
         if "[mfn]" in body:
-            raise Exception("Found remaining footnote tag in body {}".format(body))
+            print(
+                "WARNING! Contents contain unclosed [mfn] tags, needs to be fixed manually"
+            )
+            # raise Exception("Found remaining footnote tag in body {}".format(body))
         setattr(page, self.body_field_name, body)
         page.save()
 
@@ -1077,6 +1065,7 @@ class Command(BaseCommand):
         if not new_entry.authors:
             new_entry.authors = authors
 
+        print(f"Saving new page {new_entry.title}")
         new_entry.save()
 
         # Set the header image if the model has that attribute

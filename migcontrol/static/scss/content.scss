@@ -6,6 +6,11 @@
     p, blockquote, h1, h2, h3, h4, h5, ul, ol {
         max-width: 700px;
     }
+
+    .accordion-header {
+        max-width: none;
+    }
+
     blockquote {
         border-left: 3px solid #ccc;
         padding-left: 10px;

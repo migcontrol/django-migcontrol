@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+
+<h1 class="migcontrol-page-title">{{ page.title }}</h1>
+
+<p>This listing will be improved over time.</p>
+
+<div class="accordion" id="accordionExample">
+
+  {% for business_page in business_pages %}
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="heading{{ business_page.id }}">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ business_page.id }}" aria-expanded="{% if forloop.first %}true{% endif %}" aria-controls="collapse{{ business_page.id }}">
+        {{ business_page.title }}
+      </button>
+    </h2>
+    <div id="collapse{{ business_page.id }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="heading{{ business_page.id }}" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <table class="table table-condensed table-bordered">
+          <tr>
+            <th>{% trans "Registered office" %}</th>
+            <td>
+              {{ business_page.country_jurisdiction.name|default:_("Unspecified") }}
+              {% if business_page.city_jurisdiction %}
+                - {{ business_page.city_jurisdiction }}
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <th>{% trans "Other branches" %}</th>
+            <td>{{ business_page.branches|default:_("None / Unspecified")|linebreaksbr }}</td>
+          </tr>
+        </table>
+        {{ business_page.about|richtext|truncatewords_html:100 }}
+        <a href="{{ business_page.url }}" class="btn btn-primary">{% trans "Read more" %}</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content %}

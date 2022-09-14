@@ -27,6 +27,7 @@ from wagtail.core import hooks
 from wagtail.core.fields import RichTextField
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
+from wagtail.core.models.i18n import TranslatableMixin
 from wagtail.core.templatetags.wagtailcore_tags import richtext
 from wagtail.documents import get_document_model_string
 from wagtail.images import get_image_model_string
@@ -153,7 +154,7 @@ class BlogIndexPage(ArticleBase, Page):
 
 
 @register_snippet
-class BlogCategory(models.Model):
+class BlogCategory(TranslatableMixin, models.Model):
     name = models.CharField(max_length=80, verbose_name=("Category Name"))
     slug = models.SlugField(unique=True, max_length=80)
     parent = models.ForeignKey(
@@ -174,6 +175,7 @@ class BlogCategory(models.Model):
         ordering = ["name"]
         verbose_name = "Blog Category"
         verbose_name_plural = "Blog Categories"
+        unique_together = [("translation_key", "locale")]
 
     panels = [
         FieldPanel("name"),

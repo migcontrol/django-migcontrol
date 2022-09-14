@@ -4,6 +4,7 @@ from django import template
 from django.contrib.staticfiles import finders
 from django.core.exceptions import ValidationError
 from django.core.files.storage import FileSystemStorage
+from django.utils import translation
 from django.utils.safestring import mark_safe
 from sorl.thumbnail import get_thumbnail
 from wagtail.core.models import Page
@@ -129,3 +130,40 @@ def richtext_footnotes(context, html):
         return page.footnotes_list.index(footnote) + 1
 
     return mark_safe(FIND_FOOTNOTE_TAG.sub(replace_tag, html))
+
+
+# Retrieves the top menu items - the immediate children of the parent page
+# The has_menu_children method is necessary because the bootstrap menu requires
+# a dropdown class to be applied to a parent
+@register.simple_tag(takes_context=True)
+def get_menu(context, page=None, ignore_show=False, specific=True):
+    if page:
+        root_page = page
+    else:
+        language = translation.get_language()
+        root_page = Page.objects.get(depth=3, slug=language)  # @UndefinedVariable
+
+    children = root_page.get_children().filter(live=True, show_in_menus=True)
+
+    if specific:
+        children = children
+
+    if not ignore_show:
+        children = children.filter(show_in_menus=True)
+    return children.specific()
+
+
+@register.simple_tag(takes_context=False)
+def get_sub_menus(page, fixed_level=None, maxdepth=2, specific=True):
+    maxdepth = maxdepth or 2
+    pages = (
+        page.get_ancestors(inclusive=True).filter(live=True).filter(depth__gt=maxdepth)
+    )
+    if fixed_level:
+        pages = pages.filter(depth=fixed_level)
+    return pages.specific()
+
+
+@register.filter("startswith")
+def startswith(text, starts):
+    return text.startswith(starts)

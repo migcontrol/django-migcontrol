@@ -95,8 +95,7 @@
         <ul class="navbar-nav ms-auto">
          {% for nav in site_root.get_children.live.in_menu %}
           <li class="nav-item">
-            {% slugurl_localized 'about' as about_url %}
-            <a class="nav-link{% if page.url == nav.url %} active{% endif %}" href="{{ nav.url }}">{{ nav.title }}</a>
+            <a class="nav-link{% if request.path|startswith:nav.url %} active{% endif %}" href="{{ nav.url }}">{{ nav.title }}</a>
           </li>
           {% endfor %}
         </ul>
@@ -114,6 +113,9 @@
 
   </nav>
 
+  {% block submenu %}
+    {% include "migcontrol/includes/submenu.html" %}
+  {% endblock %}
 
 
   {% block before_content %}{% endblock %}

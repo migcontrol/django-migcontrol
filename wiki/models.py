@@ -3,6 +3,7 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
+from modelcluster.fields import ParentalKey
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.admin.edit_handlers import InlinePanel
 from wagtail.admin.edit_handlers import StreamFieldPanel
@@ -10,11 +11,31 @@ from wagtail.core import blocks
 from wagtail.core.fields import RichTextField
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
+from wagtail.core.models.i18n import TranslatableMixin
 from wagtail.core.templatetags.wagtailcore_tags import richtext
 from wagtail.images import get_image_model_string
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.snippets.edit_handlers import SnippetChooserPanel
+from wagtail.snippets.models import register_snippet
 
 from migcontrol.utils import get_toc
+
+
+@register_snippet
+class WikiCategorySnippet(TranslatableMixin, models.Model):
+
+    name = models.CharField(
+        verbose_name=_("topic name"),
+        help_text=_("A topic for the library, can intersect with other topics"),
+        max_length=255,
+    )
+
+    panels = [
+        FieldPanel("name"),
+    ]
+
+    def __str__(self):
+        return f"{self.name}"
 
 
 class WikiIndexPage(Page):
@@ -41,6 +62,26 @@ class WikiIndexPage(Page):
             self.get_children().live().type(WikiPage).order_by("title")
         )
         return context
+
+
+class WikiPageWikiCategory(models.Model):
+    page = ParentalKey(
+        "wiki.WikiPage",
+        on_delete=models.CASCADE,
+        related_name="wiki_categories",
+    )
+    wiki_category = models.ForeignKey(
+        "wiki.WikiCategorySnippet",
+        on_delete=models.CASCADE,
+        related_name="wikipages",
+    )
+
+    panels = [
+        SnippetChooserPanel("wiki_category"),
+    ]
+
+    class Meta:
+        unique_together = ("page", "wiki_category")
 
 
 class WikiPage(Page):
@@ -104,6 +145,7 @@ class WikiPage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel("country"),
+        InlinePanel("wiki_categories", label=_("Wiki categories")),
         FieldPanel("description"),
         FieldPanel("authors"),
         InlinePanel("footnotes", label="Footnotes"),
