@@ -2,7 +2,6 @@
 {% load static %}
 {% load wagtailcore_tags %}
 {% block content %}
-<h1 class="migcontrol-page-title">A special template for the front page</h1>
 <div class="card-group">
   <div class="card">
     <img src="..." class="card-img-top" alt="...">
@@ -36,7 +35,6 @@
     </div>
   </div>
 </div>
-  Stay tuned, as we will be adding a special way of rendering the fields of the <code>HomePage</code> model as well as new Wagtail blocks especially for front-page like contents.
 
 {% for block in page.body %}
     {% include_block block %}
