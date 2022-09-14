@@ -291,7 +291,7 @@ class BusinessPageRegion(models.Model):
     page = ParentalKey(
         "library.BusinessPage",
         on_delete=models.CASCADE,
-        related_name="businespage_regions",
+        related_name="businesspage_regions",
     )
     region = models.ForeignKey(
         "library.RegionSnippet", on_delete=models.CASCADE, related_name="businesses"
@@ -309,7 +309,7 @@ class BusinessPageIndustry(models.Model):
     page = ParentalKey(
         "library.BusinessPage",
         on_delete=models.CASCADE,
-        related_name="businespage_industries",
+        related_name="businesspage_industries",
     )
     industry = models.ForeignKey(
         "library.IndustrySnippet", on_delete=models.CASCADE, related_name="businesses"
@@ -327,7 +327,7 @@ class BusinessPageBusinessCategory(models.Model):
     page = ParentalKey(
         "library.BusinessPage",
         on_delete=models.CASCADE,
-        related_name="businespage_categories",
+        related_name="businesspage_categories",
     )
     business_category = models.ForeignKey(
         "library.BusinessCategorySnippet",
@@ -347,7 +347,7 @@ class BusinessPageBusinessPageSource(models.Model):
     page = ParentalKey(
         "library.BusinessPage",
         on_delete=models.CASCADE,
-        related_name="businespage_sources",
+        related_name="businesspage_sources",
     )
     businesspage_source = models.ForeignKey(
         "library.BusinessPageSourceSnippet",
@@ -439,10 +439,10 @@ class BusinessPage(Page):
         FieldPanel("about"),
         FieldPanel("eu_border_contribution"),
         FieldPanel("website"),
-        InlinePanel("businespage_regions", label=_("Regions")),
-        InlinePanel("businespage_industries", label=_("Industries")),
-        InlinePanel("businespage_categories", label=_("Business categories")),
-        InlinePanel("businespage_sources", label=_("Sources")),
+        InlinePanel("businesspage_regions", label=_("Regions")),
+        InlinePanel("businesspage_industries", label=_("Industries")),
+        InlinePanel("businesspage_categories", label=_("Business categories")),
+        InlinePanel("businesspage_sources", label=_("Sources")),
     ]
 
     meta_panels = Page.promote_panels + ["authors"]
