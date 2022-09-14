@@ -684,7 +684,10 @@ class Command(BaseCommand):
                 ),
             )
         if "[mfn]" in body:
-            raise Exception("Found remaining footnote tag in body {}".format(body))
+            print(
+                "WARNING! Contents contain unclosed [mfn] tags, needs to be fixed manually"
+            )
+            # raise Exception("Found remaining footnote tag in body {}".format(body))
         setattr(page, self.body_field_name, body)
         page.save()
 
@@ -1062,6 +1065,7 @@ class Command(BaseCommand):
         if not new_entry.authors:
             new_entry.authors = authors
 
+        print(f"Saving new page {new_entry.title}")
         new_entry.save()
 
         # Set the header image if the model has that attribute
