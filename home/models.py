@@ -31,7 +31,8 @@ class HomePage(Page):
                         ("blog", SlideshowBlog()),
                         ("page", SlideshowPage()),
                         ("raw", SlideshowFreeform()),
-                    ]
+                    ],
+                    template="home/blocks/carousel.html",
                 ),
             ),
         ],
