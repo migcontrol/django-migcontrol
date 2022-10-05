@@ -1,0 +1,14 @@
+{% load i18n %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+<div class="row">
+<div class="col-md-7">
+{% image blog_page.header_image fill-800x450-c100 class="d-block img-fluid w-100" %}
+</div>
+<div class="col-md-5 migcontrol-carousel-caption">
+  <p class=""><small class="text-muted">{{ blog_page.date|date:"F jS, Y" }}</small></p>
+  <h5>{{ blog_page.title }}</h5>
+  <p>{{ blog_page.body_richtext|richtext|striptags|truncatewords_html:30 }}</p>
+  <p><a href="{% pageurl blog_page %}" class="btn btn-dark">{% trans "Read more" %}</a></p>
+</div>
+</div>

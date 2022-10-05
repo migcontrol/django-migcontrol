@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+<div class="row">
+<div class="col-md-7">
+{% image self.image fill-800x450-c100 class="d-block img-fluid w-100" %}
+</div>
+<div class="col-md-5 migcontrol-carousel-caption">
+  <h5>{{ self.page.title }}</h5>
+  <p>{{ self.page.specific.get_body|striptags|truncatewords_html:30 }}</p>
+  <p><a href="{% pageurl self.page %}" class="btn btn-dark">{% trans "Read more" %}</a></p>
+</div>
+</div>

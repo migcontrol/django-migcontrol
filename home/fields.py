@@ -6,18 +6,44 @@ from wagtail.core.blocks.struct_block import StructBlock
 from wagtail.images.blocks import ImageChooserBlock
 
 
-class SlideshowBlog(StructBlock):
+class CarouselBlog(StructBlock):
+
     latest_blog_post = BooleanBlock(required=False)
     blog_post = PageChooserBlock(page_type="blog.BlogPage", required=False)
 
+    def get_context(self, value, parent_context=None):
 
-class SlideshowPage(StructBlock):
+        from blog.models import BlogPage
+
+        context = super().get_context(value, parent_context=parent_context)
+        if value["latest_blog_post"]:
+            context["blog_page"] = (
+                BlogPage.objects.live()
+                .exclude(header_image=None)
+                .order_by("-id")
+                .first()
+            )
+        else:
+            context["blog_page"] = value["blog_post"]
+        return context
+
+    class Meta:
+        template = "home/blocks/carousel_blog.html"
+
+
+class CarouselPage(StructBlock):
     image = ImageChooserBlock()
     page = PageChooserBlock()
 
+    class Meta:
+        template = "home/blocks/carousel_page.html"
 
-class SlideshowFreeform(StructBlock):
+
+class CarouselRaw(StructBlock):
     image = ImageChooserBlock()
     headline = CharBlock()
     description = RichTextBlock()
     read_more = PageChooserBlock()
+
+    class Meta:
+        template = "home/blocks/carousel_raw.html"

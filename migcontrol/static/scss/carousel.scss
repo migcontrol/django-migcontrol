@@ -1,0 +1,10 @@
+.migcontrol-carousel-caption {
+    background: $primary;
+    color: $white;
+    padding: 20px;
+    padding-right: 110px;
+    padding-bottom: 0px;
+    p small.text-muted {
+        color: lighten($primary, 25) !important;
+    }
+}

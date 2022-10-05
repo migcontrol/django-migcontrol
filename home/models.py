@@ -8,9 +8,9 @@ from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
 from wagtail.images.blocks import ImageChooserBlock
 
-from home.fields import SlideshowBlog
-from home.fields import SlideshowFreeform
-from home.fields import SlideshowPage
+from home.fields import CarouselBlog
+from home.fields import CarouselPage
+from home.fields import CarouselRaw
 from migcontrol.utils import get_toc
 
 
@@ -28,9 +28,9 @@ class HomePage(Page):
                 "carousel",
                 blocks.StreamBlock(
                     [
-                        ("blog", SlideshowBlog()),
-                        ("page", SlideshowPage()),
-                        ("raw", SlideshowFreeform()),
+                        ("blog", CarouselBlog()),
+                        ("page", CarouselPage()),
+                        ("raw", CarouselRaw()),
                     ],
                     template="home/blocks/carousel.html",
                 ),
