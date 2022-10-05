@@ -12,6 +12,7 @@ from home.fields import CarouselBlog
 from home.fields import CarouselPage
 from home.fields import CarouselRaw
 from home.fields import FeatureBlock
+from home.fields import SectionCardBlock
 from migcontrol.utils import get_toc
 
 
@@ -35,6 +36,15 @@ class HomePage(Page):
                         ("raw", CarouselRaw()),
                     ],
                     template="home/blocks/carousel.html",
+                ),
+            ),
+            (
+                "section_cards",
+                blocks.StreamBlock(
+                    [
+                        ("section", SectionCardBlock()),
+                    ],
+                    template="home/blocks/section_cards.html",
                 ),
             ),
         ],

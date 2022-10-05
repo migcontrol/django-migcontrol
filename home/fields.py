@@ -57,3 +57,11 @@ class FeatureBlock(StructBlock):
 
     class Meta:
         template = "home/blocks/feature.html"
+
+
+class SectionCardBlock(StructBlock):
+    headline = CharBlock()
+    description = RichTextBlock()
+
+    class Meta:
+        template = "home/blocks/section_card.html"
