@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+<div class="container migcontrol-featureblock">
+<div class="migcontrol-featureblock-inner">
+<div class="row">
+<div class="col-md-3">
+  <p class="text-muted">{{ self.sub_headline }}</p>
+  <h1>{{ self.headline }}</h1>
+</div>
+<div class="col-md-9">
+  {{ self.description|richtext }}
+  <p><a href="{% pageurl self.read_more %}" class="btn btn-primary">{% trans "Read more" %}</a></p>
+</div>
+</div>
+</div>
+</div>

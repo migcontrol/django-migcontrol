@@ -93,3 +93,12 @@
 h1, h2, h3, h4, h5 {
     font-weight: bold;
 }
+
+.migcontrol-featureblock-inner {
+    padding: 20px;
+    p {
+        max-width: 600px;
+        font-size: 120%;
+    }
+    border-bottom: 1px solid $gray-300;
+}

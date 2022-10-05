@@ -47,3 +47,13 @@ class CarouselRaw(StructBlock):
 
     class Meta:
         template = "home/blocks/carousel_raw.html"
+
+
+class FeatureBlock(StructBlock):
+    headline = CharBlock()
+    sub_headline = CharBlock()
+    description = RichTextBlock()
+    read_more = PageChooserBlock()
+
+    class Meta:
+        template = "home/blocks/feature.html"

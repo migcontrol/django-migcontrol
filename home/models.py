@@ -11,6 +11,7 @@ from wagtail.images.blocks import ImageChooserBlock
 from home.fields import CarouselBlog
 from home.fields import CarouselPage
 from home.fields import CarouselRaw
+from home.fields import FeatureBlock
 from migcontrol.utils import get_toc
 
 
@@ -24,6 +25,7 @@ class HomePage(Page):
             ("heading", blocks.CharBlock(classname="full title")),
             ("paragraph", blocks.RichTextBlock()),
             ("image", ImageChooserBlock()),
+            ("feature", FeatureBlock()),
             (
                 "carousel",
                 blocks.StreamBlock(
