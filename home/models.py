@@ -8,6 +8,11 @@ from wagtail.core.fields import StreamField
 from wagtail.core.models import Page
 from wagtail.images.blocks import ImageChooserBlock
 
+from home.fields import CarouselBlog
+from home.fields import CarouselPage
+from home.fields import CarouselRaw
+from home.fields import FeatureBlock
+from home.fields import SectionCardBlock
 from migcontrol.utils import get_toc
 
 
@@ -21,11 +26,37 @@ class HomePage(Page):
             ("heading", blocks.CharBlock(classname="full title")),
             ("paragraph", blocks.RichTextBlock()),
             ("image", ImageChooserBlock()),
+            ("feature", FeatureBlock()),
+            (
+                "carousel",
+                blocks.StreamBlock(
+                    [
+                        ("blog", CarouselBlog()),
+                        ("page", CarouselPage()),
+                        ("raw", CarouselRaw()),
+                    ],
+                    template="home/blocks/carousel.html",
+                ),
+            ),
+            (
+                "section_cards",
+                blocks.StreamBlock(
+                    [
+                        ("section", SectionCardBlock()),
+                    ],
+                    template="home/blocks/section_cards.html",
+                ),
+            ),
         ],
         verbose_name="body",
         blank=True,
         help_text="The main contents of the page",
     )
+
+    content_panels = [
+        FieldPanel("title", classname="full title"),
+        StreamFieldPanel("body"),
+    ]
 
 
 class ArticleBase(models.Model):

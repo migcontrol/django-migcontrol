@@ -1,0 +1,21 @@
+.migcontrol-carousel-caption {
+    background: $primary;
+    color: $white;
+    padding: 20px;
+    padding-right: 8%;
+    padding-bottom: 0px;
+    p small.text-muted {
+        color: lighten($primary, 25) !important;
+    }
+}
+
+.carousel-control-prev, .carousel-control-next {
+    max-width: 120px;
+}
+
+.migcontrol-container-very-wide {
+    @extend .container;
+    max-width: 1300px;
+    padding-left: 0;
+    padding-right: 0;
+}
