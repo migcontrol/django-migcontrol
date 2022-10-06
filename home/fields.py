@@ -18,9 +18,10 @@ class CarouselBlog(StructBlock):
         context = super().get_context(value, parent_context=parent_context)
         if value["latest_blog_post"]:
             context["blog_page"] = (
-                BlogPage.objects.live()
+                BlogPage.objects.descendant_of(context["page"])
+                .live()
                 .exclude(header_image=None)
-                .order_by("-id")
+                .order_by("-date", "-id")
                 .first()
             )
         else:

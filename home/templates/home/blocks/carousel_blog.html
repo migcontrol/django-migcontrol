@@ -7,8 +7,10 @@
 </div>
 <div class="col-md-5 migcontrol-carousel-caption">
   <p class=""><small class="text-muted">{{ blog_page.date|date:"F jS, Y" }}</small></p>
-  <h5>{{ blog_page.title }}</h5>
+  <h5>{{ blog_page.title|default:_("No blog pages published") }}</h5>
+  {% if blog_page %}
   <p>{{ blog_page.body_richtext|richtext|striptags|truncatewords_html:30 }}</p>
   <p><a href="{% pageurl blog_page %}" class="btn btn-dark">{% trans "Read more" %}</a></p>
+  {% endif %}
 </div>
 </div>
