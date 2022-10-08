@@ -71,8 +71,8 @@ class SectionCardBlock(StructBlock):
 
 class OrganizationsCardBlock(StructBlock):
     headline = CharBlock()
-    description = RichTextBlock()
-    organizatoins = SnippetChooserBlock("home.Organizations")
+    sub_headline = CharBlock()
+    organizations = SnippetChooserBlock("home.OrganizationCollection")
 
     class Meta:
-        template = "home/blocks/section_card.html"
+        template = "home/blocks/organization_collection_card.html"
