@@ -1,12 +1,18 @@
 from bs4 import BeautifulSoup
 from django.db import models  # noqa
 from django.template.defaultfilters import slugify
+from django.utils.translation import gettext_lazy as _
+from modelcluster.fields import ParentalKey
+from modelcluster.models import ClusterableModel
 from wagtail.admin.edit_handlers import FieldPanel
+from wagtail.admin.edit_handlers import InlinePanel
 from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.core import blocks
 from wagtail.core.fields import StreamField
+from wagtail.core.models import Orderable
 from wagtail.core.models import Page
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.snippets.models import register_snippet
 
 from home.fields import CarouselBlog
 from home.fields import CarouselPage
@@ -129,3 +135,47 @@ class Article(ArticleBase, Page):
     """
 
     pass
+
+
+class Organization(models.Model):
+
+    name = models.CharField(max_length=512)
+
+    website = models.URLField(
+        max_length=1024,
+    )
+
+    def __str__(self):
+        return f"Organization: {self.name}"
+
+
+# The real model which combines the abstract model, an
+# Orderable helper class, and what amounts to a ForeignKey link
+# to the model we want to add related links to (BookPage)
+class OrganizationRelation(Orderable, Organization):
+    page = ParentalKey(
+        "OrganizationCollection", on_delete=models.CASCADE, related_name="organizations"
+    )
+
+
+@register_snippet
+class OrganizationCollection(ClusterableModel):
+    name = models.CharField(
+        max_length=128,
+        help_text=_(
+            "Name this something, i.e. 'collaborators shown on the main landing page'"
+        ),
+        unique=True,
+    )
+
+    def __str__(self):
+        return f"Organization Collection: {self.name}"
+
+    class Meta:
+        verbose_name = _("Organization collection")
+        verbose_name_plural = _("Organization collections")
+
+    panels = [
+        FieldPanel("name"),
+        InlinePanel("organizations", heading=_("Organizations")),
+    ]

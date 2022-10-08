@@ -4,6 +4,7 @@ from wagtail.core.blocks.field_block import PageChooserBlock
 from wagtail.core.blocks.field_block import RichTextBlock
 from wagtail.core.blocks.struct_block import StructBlock
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.snippets.blocks import SnippetChooserBlock
 
 
 class CarouselBlog(StructBlock):
@@ -63,6 +64,15 @@ class FeatureBlock(StructBlock):
 class SectionCardBlock(StructBlock):
     headline = CharBlock()
     description = RichTextBlock()
+
+    class Meta:
+        template = "home/blocks/section_card.html"
+
+
+class OrganizationsCardBlock(StructBlock):
+    headline = CharBlock()
+    description = RichTextBlock()
+    organizatoins = SnippetChooserBlock("home.Organizations")
 
     class Meta:
         template = "home/blocks/section_card.html"
