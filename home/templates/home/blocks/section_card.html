@@ -6,6 +6,7 @@
     <div class="card-body">
       <h2 class="card-title">{{ self.headline }}</h2>
       <p class="card-text">{{ self.description }}</p>
+      <a href="{% pageurl self.read_more %}" class="btn btn-primary">{% trans "Read more" %}</a>
     </div>
   </div>
 </div>

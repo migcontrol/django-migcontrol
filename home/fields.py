@@ -64,6 +64,7 @@ class FeatureBlock(StructBlock):
 class SectionCardBlock(StructBlock):
     headline = CharBlock()
     description = RichTextBlock()
+    read_more = PageChooserBlock()
 
     class Meta:
         template = "home/blocks/section_card.html"
