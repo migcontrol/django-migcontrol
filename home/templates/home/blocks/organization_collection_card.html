@@ -1,0 +1,22 @@
+{% load i18n %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+<div class="container migcontrol-featureblock">
+<div class="migcontrol-featureblock-inner">
+<div class="row">
+<div class="col-md-3">
+  <p class="text-muted">{{ self.sub_headline }}</p>
+  <h1>{{ self.headline }}</h1>
+</div>
+<div class="col-md-9">
+  <ul class="migcontrol-organizations-2-columns">
+  {% for organization in self.organizations.organizations.all %}
+    <li>
+      <a href="{{ organization.website }}" target="_blank">{{ organization.name }}</a>
+    </li>
+  {% endfor %}
+  </ul>
+</div>
+</div>
+</div>
+</div>
