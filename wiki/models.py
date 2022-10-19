@@ -59,7 +59,17 @@ class WikiIndexPage(Page):
     def get_context(self, request):
         context = super().get_context(request)
         context["wiki_pages"] = (
-            self.get_children().live().type(WikiPage).order_by("title")
+            self.get_children()
+            .live()
+            .type(WikiPage)
+            .specific()
+            .values(
+                "title",
+                "url_path",
+                "locale__language_code",
+                "wikipage__wiki_categories__wiki_category__name",
+            )
+            .order_by("wikipage__wiki_categories__wiki_category__name", "title")
         )
         return context
 
