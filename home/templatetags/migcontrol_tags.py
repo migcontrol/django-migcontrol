@@ -167,3 +167,11 @@ def get_sub_menus(page, fixed_level=None, maxdepth=2, specific=True):
 @register.filter("startswith")
 def startswith(text, starts):
     return text.startswith(starts)
+
+
+@register.filter()
+def migcontrol_relative_url_path(url_path, locale_id):
+
+    url_parts = url_path.split("/")
+    url_parts = [""] + [locale_id] + url_parts[2:]
+    return "/".join(url_parts)

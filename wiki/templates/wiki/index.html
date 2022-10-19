@@ -1,16 +1,45 @@
 {% extends "base.html" %}
 {% load static %}
+{% load wagtailcore_tags %}
+{% load migcontrol_tags %}
+{% load i18n %}
 
 {% block content %}
 
 <h1 class="migcontrol-page-title">{{ page.title }}</h1>
 
-On this page, we'll list all the entries of the wiki by their categories (TODO).
-
-<ul>
-{% for wiki_page in wiki_pages %}
-  <li><a href="{{ wiki_page.url }}">{{ wiki_page.title }}</a></li>
+{% for block in page.body %}
+  {% include_block block %}
 {% endfor %}
-</ul>
+
+{% for category in wiki_categories %}
+{{ category }}
+{% endfor %}
+
+<h2 class="mb-3">{% trans "Categories" %}</h2>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+  {% for wiki_page in wiki_pages %}
+    {% ifchanged wiki_page.wikipage__wiki_categories__wiki_category__name %}
+      {% if not forloop.first %}
+      </ul>
+      </div>
+      </div>
+      {% endif %}
+      <div class="col">
+      <div class="card">
+        <div class="card-header">
+          {{ wiki_page.wikipage__wiki_categories__wiki_category__name|default:_("Uncategorized") }}
+        </div>
+      <ul class="list-group list-group-flush">
+    {% endifchanged %}
+    <li class="list-group-item"><a href="{{ wiki_page.url_path|migcontrol_relative_url_path:wiki_page.locale__language_code }}">{{ wiki_page.title }}</a></li>
+  {% endfor %}
+  </ul>
+  </div>
+  </div>
+
+</div>
 
 {% endblock content %}
