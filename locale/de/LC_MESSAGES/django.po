@@ -24,7 +24,7 @@ msgstr "Ort"
 
 #: archive/models.py:45
 msgid "Typically a city name or region"
-msgstr ""
+msgstr "Typischerweise ein Städtename oder eine Region"
 
 #: archive/models.py:49 archive/models.py:90
 msgid "country"
