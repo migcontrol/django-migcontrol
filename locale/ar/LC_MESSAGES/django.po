@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-30 21:14+0000\n"
+"POT-Creation-Date: 2022-12-17 14:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,82 +19,326 @@ msgstr ""
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: archive/models.py:44
-msgid "location name"
-msgstr ""
-
-#: archive/models.py:45
-msgid "Typically a city name or region"
-msgstr ""
-
-#: archive/models.py:49 archive/models.py:90
-msgid "country"
-msgstr ""
-
-#: archive/models.py:83
-msgid "organization type"
-msgstr ""
-
-#: archive/models.py:105
-msgid "Author"
-msgstr ""
-
-#: archive/templates/archive/archive_page.html:11
-msgid "Organization type"
-msgstr ""
-
-#: archive/templates/archive/archive_page.html:12
-msgid "Countries"
-msgstr ""
-
-#: archive/templates/archive/archive_page.html:13
-msgid "Location"
-msgstr ""
-
-#: archive/templates/archive/archive_page.html:19
-msgid "Back to index"
-msgstr ""
-
-#: blog/templates/blog/blog_post.html:11
+#: blog/templates/blog/blog_post.html:12
 msgid "written by"
 msgstr ""
 
-#: blog/templates/blog/index.html:38
+#: blog/templates/blog/index.html:9
+msgid "Filter by language"
+msgstr ""
+
+#: blog/templates/blog/index.html:21
+msgid "Filter by category"
+msgstr ""
+
+#: blog/templates/blog/index.html:60
+#: home/templates/home/blocks/carousel_blog.html:13
+#: home/templates/home/blocks/carousel_page.html:11
+#: home/templates/home/blocks/carousel_raw.html:11
+#: home/templates/home/blocks/feature.html:13
+#: home/templates/home/blocks/section_card.html:9
+#: library/templates/library/business/index.html:39
 msgid "Read more"
 msgstr ""
 
-#: blog/templates/blog/index.html:49
+#: blog/templates/blog/index.html:71
 msgid "Older"
 msgstr ""
 
-#: blog/templates/blog/index.html:52
+#: blog/templates/blog/index.html:74
 msgid "Newer"
 msgstr ""
 
-#: migcontrol/templates/base.html:100
-msgid "Wiki"
+#: home/models.py:168
+msgid ""
+"Name this something, i.e. 'collaborators shown on the main landing page'"
+msgstr ""
+
+#: home/models.py:177
+msgid "Organization collection"
+msgstr ""
+
+#: home/models.py:178
+msgid "Organization collections"
+msgstr ""
+
+#: home/models.py:182
+msgid "Organizations"
+msgstr ""
+
+#: home/templates/home/blocks/carousel_blog.html:10
+msgid "No blog pages published"
+msgstr ""
+
+#: home/templatetags/bootstrap_tags.py:34
+msgid "Submit"
+msgstr ""
+
+#: library/forms.py:16
+msgid "Region"
+msgstr ""
+
+#: library/forms.py:21
+msgid "Topic"
+msgstr ""
+
+#: library/forms.py:25 library/templates/library/media_page.html:38
+msgid "Media type"
+msgstr ""
+
+#: library/forms.py:30 library/templates/library/index.html:32
+msgid "Title"
+msgstr ""
+
+#: library/forms.py:31 library/templates/library/index.html:35
+#: library/templates/library/media_page.html:32
+msgid "Publisher"
+msgstr ""
+
+#: library/forms.py:32
+msgid "Date added"
+msgstr ""
+
+#: library/models.py:26
+msgid "region name"
+msgstr ""
+
+#: library/models.py:27
+msgid "Some geographical area, may intersect with other areas"
+msgstr ""
+
+#: library/models.py:43 library/models.py:60 library/models.py:77
+#: wiki/models.py:28
+msgid "topic name"
+msgstr ""
+
+#: library/models.py:44 library/models.py:61 library/models.py:78
+#: wiki/models.py:29
+msgid "A topic for the library, can intersect with other topics"
+msgstr ""
+
+#: library/models.py:92
+msgid "Source Name"
+msgstr ""
+
+#: library/models.py:93
+msgid "URL"
+msgstr ""
+
+#: library/models.py:98
+msgid "Internal page"
+msgstr ""
+
+#: library/models.py:196 library/models.py:432
+msgid "authors"
+msgstr ""
+
+#: library/models.py:203
+msgid "full title"
+msgstr ""
+
+#: library/models.py:210
+msgid "publisher or journal"
+msgstr ""
+
+#: library/models.py:217
+msgid "year of publication"
+msgstr ""
+
+#: library/models.py:222
+msgid "media type"
+msgstr ""
+
+#: library/models.py:231
+msgid "Link (URL)"
+msgstr ""
+
+#: library/models.py:370
+msgid "organization type"
+msgstr ""
+
+#: library/models.py:377 wiki/models.py:94
+msgid "country"
+msgstr ""
+
+#: library/models.py:381
+msgid "Home country/jurisdiction of the organization (where it's registered)"
+msgstr ""
+
+#: library/models.py:386
+msgid "city"
+msgstr ""
+
+#: library/models.py:390
+msgid "Home city/jurisdiction of the organization (where it's registered)"
+msgstr ""
+
+#: library/models.py:397
+msgid "Branches (subsidiaries)"
+msgstr ""
+
+#: library/models.py:399
+msgid ""
+"Use this to name other brands or country offices owned by the same company. "
+"This text is free-form for now and until there is a desired data model for "
+"mapping branches."
+msgstr ""
+
+#: library/models.py:442
+#: library/templates/library/business/business_page.html:29
+#: library/templates/library/media_page.html:54
+msgid "Regions"
+msgstr ""
+
+#: library/models.py:443
+#: library/templates/library/business/business_page.html:39
+msgid "Industries"
+msgstr ""
+
+#: library/models.py:444
+msgid "Business categories"
+msgstr ""
+
+#: library/models.py:445
+#: library/templates/library/business/business_page.html:59
+msgid "Sources"
+msgstr ""
+
+#: library/templates/library/business/business_page.html:12
+#: library/templates/library/business/index.html:25
+msgid "Registered office"
+msgstr ""
+
+#: library/templates/library/business/business_page.html:14
+#: library/templates/library/business/business_page.html:34
+#: library/templates/library/business/business_page.html:44
+#: library/templates/library/business/business_page.html:54
+#: library/templates/library/business/business_page.html:64
+#: library/templates/library/business/index.html:27
+#: library/templates/library/index.html:49
+#: library/templates/library/index.html:51
+#: library/templates/library/media_page.html:29
+#: library/templates/library/media_page.html:32
+#: library/templates/library/media_page.html:35
+#: library/templates/library/media_page.html:38
+msgid "Unspecified"
+msgstr ""
+
+#: library/templates/library/business/business_page.html:21
+#: library/templates/library/business/index.html:34
+msgid "Other branches"
+msgstr ""
+
+#: library/templates/library/business/business_page.html:22
+#: library/templates/library/business/business_page.html:26
+#: library/templates/library/business/index.html:35
+msgid "None / Unspecified"
+msgstr ""
+
+#: library/templates/library/business/business_page.html:25
+msgid "Website"
+msgstr ""
+
+#: library/templates/library/business/business_page.html:49
+msgid "Categories"
+msgstr ""
+
+#: library/templates/library/business/business_page.html:70
+msgid "About the company"
+msgstr ""
+
+#: library/templates/library/business/business_page.html:73
+msgid "Contribution to the EU border regime"
+msgstr ""
+
+#: library/templates/library/business/business_page.html:74
+msgid "<p>Text in progress</p>"
+msgstr ""
+
+#: library/templates/library/business/business_page.html:78
+msgid "Last update:"
+msgstr ""
+
+#: library/templates/library/business/business_page.html:83
+#: library/templates/library/media_page.html:67
+#: wiki/templates/wiki/wiki_page.html:30
+msgid "Back to index"
+msgstr ""
+
+#: library/templates/library/index.html:9
+msgid "Search filter"
+msgstr ""
+
+#: library/templates/library/index.html:15
+msgid "Filter"
+msgstr ""
+
+#: library/templates/library/index.html:23
+msgid "results"
+msgstr ""
+
+#: library/templates/library/index.html:38
+msgid "Added"
+msgstr ""
+
+#: library/templates/library/index.html:41
+msgid "Media"
+msgstr ""
+
+#: library/templates/library/media_page.html:21
+#: wiki/templates/wiki/wiki_page.html:22
+msgid "Last updated"
+msgstr ""
+
+#: library/templates/library/media_page.html:29
+msgid "Full title"
+msgstr ""
+
+#: library/templates/library/media_page.html:35
+msgid "Year"
+msgstr ""
+
+#: library/templates/library/media_page.html:41
+msgid "Link"
+msgstr ""
+
+#: library/templates/library/media_page.html:41
+msgid "None provided"
+msgstr ""
+
+#: library/templates/library/media_page.html:44
+msgid "Topics"
+msgstr ""
+
+#: library/templates/library/media_page.html:49
+#: library/templates/library/media_page.html:59
+msgid "None added"
 msgstr ""
 
 #: migcontrol/templates/base.html:105
 msgid "Search"
 msgstr ""
 
-#: migcontrol/templates/base.html:133
+#: migcontrol/templates/base.html:141
 msgid "Subscribe to our monthly review"
 msgstr ""
 
-#: migcontrol/templates/base.html:135
+#: migcontrol/templates/base.html:143
 msgid "Show all issues"
 msgstr ""
 
-#: migcontrol/templates/base.html:141
+#: migcontrol/templates/base.html:149 migcontrol/templates/base.html:150
 msgid "Email"
 msgstr ""
 
-#: migcontrol/templates/base.html:145
+#: migcontrol/templates/base.html:154
 msgid "Subscribe"
 msgstr ""
 
-#: migcontrol/templates/base.html:153
+#: migcontrol/templates/base.html:163
 msgid "Social Media"
+msgstr ""
+
+#: wiki/models.py:148
+msgid "Wiki categories"
 msgstr ""
