@@ -20,6 +20,9 @@
 <p class="text-primary">
   <span class="fa fa-clock"></span>
   {% trans "Last updated" %} {{ page.last_published_at|default:page.first_published_at|date:"F jS, Y" }}
+    {% if page.authors %}
+    - {% trans "written by" %}: {{ page.authors|default:"" }}
+    {% endif %}
 </p>
 
 {% richtext_footnotes page.get_body %}
