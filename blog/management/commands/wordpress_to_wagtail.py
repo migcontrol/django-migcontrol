@@ -286,7 +286,7 @@ def get_wiki_page_mapping(
         # search_description is already set
         # "search_description": excerpt,
         "owner": user,
-        # "authors": authors,
+        "authors": "",  # force to be nothing because data isn't relevant
         "description": body,
         "locale": locale,
         "live": published,
@@ -676,6 +676,7 @@ class Command(BaseCommand):
                 footnote = Footnote.objects.create(
                     page=page, text=mfn.group(1), uuid=uuid4()
                 )
+            print(mfn.group(0))
             body = body.replace(
                 mfn.group(0),
                 """<footnote id="{}">[{}]</footnote>""".format(
@@ -684,6 +685,8 @@ class Command(BaseCommand):
                 ),
             )
         if "[mfn]" in body:
+            # This is because Wordpress creates illegal syntax with unclosed [mfn] tags
+            # with impossible HTML structures, like [mfn]asasdsad</p><p>adsasd[/mfn] ???
             print(
                 "WARNING! Contents contain unclosed [mfn] tags, needs to be fixed manually"
             )
