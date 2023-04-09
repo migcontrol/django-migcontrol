@@ -24,11 +24,11 @@ msgstr "von"
 
 #: blog/templates/blog/index.html:9
 msgid "Filter by language"
-msgstr ""
+msgstr "Nach Sprache filtern"
 
 #: blog/templates/blog/index.html:21
 msgid "Filter by category"
-msgstr ""
+msgstr "Nach Kategorie filtern"
 
 #: blog/templates/blog/index.html:60
 #: home/templates/home/blocks/carousel_blog.html:13
