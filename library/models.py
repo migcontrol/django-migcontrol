@@ -5,8 +5,6 @@ from django_countries.fields import CountryField
 from modelcluster.fields import ParentalKey
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.admin.edit_handlers import InlinePanel
-from wagtail.admin.edit_handlers import PageChooserPanel
-from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField
 from wagtail.core.fields import StreamField
@@ -15,7 +13,6 @@ from wagtail.core.templatetags.wagtailcore_tags import richtext
 from wagtail.images import get_image_model_string
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Page
-from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 
 
@@ -102,7 +99,7 @@ class BusinessPageSourceSnippet(TranslatableMixin, models.Model):
     panels = [
         FieldPanel("title", classname="title full"),
         FieldPanel("url"),
-        PageChooserPanel("page_link"),
+        FieldPanel("page_link"),
     ]
 
     def __str__(self):
@@ -124,7 +121,7 @@ class LibraryIndexPage(Page):
     )
     content_panels = [
         FieldPanel("title", classname="full title"),
-        StreamFieldPanel("body"),
+        FieldPanel("body"),
     ]
 
     def get_context(self, request):
@@ -153,7 +150,7 @@ class MediaPageRegion(models.Model):
     )
 
     panels = [
-        SnippetChooserPanel("region"),
+        FieldPanel("region"),
     ]
 
     class Meta:
@@ -169,7 +166,7 @@ class MediaPageTopic(models.Model):
     )
 
     panels = [
-        SnippetChooserPanel("topic"),
+        FieldPanel("topic"),
     ]
 
     class Meta:
@@ -276,7 +273,7 @@ class BusinessIndexPage(Page):
     )
     content_panels = [
         FieldPanel("title", classname="full title"),
-        StreamFieldPanel("body"),
+        FieldPanel("body"),
     ]
 
     def get_context(self, request):
@@ -298,7 +295,7 @@ class BusinessPageRegion(models.Model):
     )
 
     panels = [
-        SnippetChooserPanel("region"),
+        FieldPanel("region"),
     ]
 
     class Meta:
@@ -316,7 +313,7 @@ class BusinessPageIndustry(models.Model):
     )
 
     panels = [
-        SnippetChooserPanel("industry"),
+        FieldPanel("industry"),
     ]
 
     class Meta:
@@ -336,7 +333,7 @@ class BusinessPageBusinessCategory(models.Model):
     )
 
     panels = [
-        SnippetChooserPanel("business_category"),
+        FieldPanel("business_category"),
     ]
 
     class Meta:
@@ -356,7 +353,7 @@ class BusinessPageBusinessPageSource(models.Model):
     )
 
     panels = [
-        SnippetChooserPanel("businesspage_source"),
+        FieldPanel("businesspage_source"),
     ]
 
     class Meta:
