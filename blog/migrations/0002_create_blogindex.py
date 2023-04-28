@@ -7,7 +7,7 @@ def create_blogindex(apps, schema_editor):
     BlogIndexPage = apps.get_model('blog.BlogIndexPage')
     ContentType = apps.get_model('contenttypes.ContentType')
     Locale = apps.get_model('wagtailcore.Locale')
-    from wagtail.core.models import Page  # noqa
+    from wagtail.models import Page  # noqa
 
     # Create content type for blogindexpage model
     blogindex_content_type, __ = ContentType.objects.get_or_create(

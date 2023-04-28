@@ -7,9 +7,9 @@ from django.core.files.storage import FileSystemStorage
 from django.utils import translation
 from django.utils.safestring import mark_safe
 from sorl.thumbnail import get_thumbnail
-from wagtail.core.models import Page
 from wagtail.core.models import Site
 from wagtail.core.templatetags.wagtailcore_tags import pageurl
+from wagtail.models import Page
 
 
 register = template.Library()

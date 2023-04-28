@@ -25,8 +25,8 @@ from django.utils.html import linebreaks
 from django.utils.text import slugify
 from PIL import Image as PILImage
 from wagtail.core.models import Locale
-from wagtail.core.models import Page
 from wagtail.images import get_image_model
+from wagtail.models import Page
 from wagtail_footnotes.models import Footnote
 
 from blog.models import BlogCategory

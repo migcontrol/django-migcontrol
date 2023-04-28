@@ -10,11 +10,11 @@ from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.core import blocks
 from wagtail.core.fields import RichTextField
 from wagtail.core.fields import StreamField
-from wagtail.core.models import Page
 from wagtail.core.models.i18n import TranslatableMixin
 from wagtail.core.templatetags.wagtailcore_tags import richtext
 from wagtail.images import get_image_model_string
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.models import Page
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 
