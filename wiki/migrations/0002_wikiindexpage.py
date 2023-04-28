@@ -7,7 +7,7 @@ def create_wikiindex(apps, schema_editor):
     WikiIndexPage = apps.get_model('wiki.WikiIndexPage')
     ContentType = apps.get_model('contenttypes.ContentType')
     Locale = apps.get_model('wagtailcore.Locale')
-    from wagtail.core.models import Page  # noqa
+    from wagtail.models import Page  # noqa
 
     # Create content type for wikiindexpage model
     wikiindex_content_type, __ = ContentType.objects.get_or_create(

@@ -10,8 +10,8 @@ from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.core import blocks
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Orderable
-from wagtail.core.models import Page
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.models import Page
 from wagtail.snippets.models import register_snippet
 
 from home.fields import CarouselBlog

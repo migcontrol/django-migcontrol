@@ -7,7 +7,7 @@ def create_businessindex(apps, schema_editor):
     BusinessIndexPage = apps.get_model('library.BusinessIndexPage')
     ContentType = apps.get_model('contenttypes.ContentType')
     Locale = apps.get_model('wagtailcore.Locale')
-    from wagtail.core.models import Page  # noqa
+    from wagtail.models import Page  # noqa
 
     # Create content type for libraryindexpage model
     businessindex_content_type, __ = ContentType.objects.get_or_create(

@@ -26,13 +26,13 @@ from wagtail.core import blocks
 from wagtail.core import hooks
 from wagtail.core.fields import RichTextField
 from wagtail.core.fields import StreamField
-from wagtail.core.models import Page
 from wagtail.core.models.i18n import TranslatableMixin
 from wagtail.core.templatetags.wagtailcore_tags import richtext
 from wagtail.documents import get_document_model_string
 from wagtail.images import get_image_model_string
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.images.edit_handlers import ImageChooserPanel
+from wagtail.models import Page
 from wagtail.search import index
 from wagtail.snippets.models import register_snippet
 from wagtail_footnotes.blocks import RichTextBlockWithFootnotes
