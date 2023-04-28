@@ -6,7 +6,6 @@ from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.admin.edit_handlers import InlinePanel
-from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.core import blocks
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Orderable
@@ -63,7 +62,7 @@ class HomePage(Page):
 
     content_panels = [
         FieldPanel("title", classname="full title"),
-        StreamFieldPanel("body"),
+        FieldPanel("body"),
     ]
 
 
@@ -85,7 +84,7 @@ class ArticleBase(models.Model):
     )
     content_panels = [
         FieldPanel("title", classname="full title"),
-        StreamFieldPanel("body"),
+        FieldPanel("body"),
         FieldPanel("hide_toc"),
     ]
 

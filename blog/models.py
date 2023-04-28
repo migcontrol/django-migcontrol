@@ -21,7 +21,6 @@ from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.admin.edit_handlers import FieldRowPanel
 from wagtail.admin.edit_handlers import InlinePanel
 from wagtail.admin.edit_handlers import MultiFieldPanel
-from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.core import blocks
 from wagtail.core import hooks
 from wagtail.core.fields import RichTextField
@@ -31,7 +30,6 @@ from wagtail.core.templatetags.wagtailcore_tags import richtext
 from wagtail.documents import get_document_model_string
 from wagtail.images import get_image_model_string
 from wagtail.images.blocks import ImageChooserBlock
-from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.models import Page
 from wagtail.search import index
 from wagtail.snippets.models import register_snippet
@@ -432,9 +430,9 @@ BlogPage.content_panels = [
         ],
         heading="Tags and Categories",
     ),
-    ImageChooserPanel("header_image"),
+    FieldPanel("header_image"),
     FieldPanel("body_richtext", classname="collapsed"),
-    StreamFieldPanel("body_mixed"),
+    FieldPanel("body_mixed"),
 ]
 
 
