@@ -13,7 +13,7 @@ class NewsletterSignup(CreateView):
     template_name = "home/newsletter_signup.html"
 
     @method_decorator(ratelimit(key="ip", rate="10/d", block=True))
-    @method_decorator(ratelimit(key="ip", rate="50/h", block=True))
+    @method_decorator(ratelimit(key="ip", rate="5/h", block=True))
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
 
