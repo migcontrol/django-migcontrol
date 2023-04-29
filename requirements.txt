@@ -10,3 +10,4 @@ wagtail-footnotes>=0.8.1,<0.10
 lxml>=4.7
 sorl-thumbnail
 uTidylib==0.8
+django-ratelimit
