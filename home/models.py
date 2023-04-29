@@ -180,3 +180,28 @@ class OrganizationCollection(ClusterableModel):
         FieldPanel("name"),
         InlinePanel("organizations", heading=_("Organizations")),
     ]
+
+
+class NewsletterSignup(models.Model):
+    """
+    Register newsletter signups.
+    The list is processed manually according to privacy policy.
+    """
+
+    email = models.EmailField()
+    opt_out = models.BooleanField(
+        default=False,
+        help_text=_(
+            "Check this box if a user indicates that they do not want the newsletter "
+            "so we can avoid sending it to them in the future. However,"
+            "remember that deleting a user's email is preferable in most cases."
+        ),
+    )
+
+    created = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField(auto_now=True)
+
+    panels = [
+        FieldPanel("email"),
+        FieldPanel("opt_out"),
+    ]

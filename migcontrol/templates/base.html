@@ -153,10 +153,11 @@
       </p>
       <div class="row">
         <div class="col-md-6 mx-auto">
-          <form class="row">
+          <form class="row" method="POST" action="{% url "newsletter" %}">
+            {% csrf_token %}
             <div class="col-8">
               <label for="subscribe-email" class="visually-hidden">{% trans "Email" %}</label>
-              <input type="text" class="form-control" id="subscribe-email" placeholder="{% trans "Email" %}">
+              <input type="text" class="form-control" name="email" id="subscribe-email" placeholder="{% trans "Email" %}">
             </div>
 
             <div class="col-4 d-grid">

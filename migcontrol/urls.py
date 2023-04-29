@@ -9,6 +9,8 @@ from wagtail.documents import urls as wagtaildocs_urls
 from wagtail_footnotes import urls as footnotes_urls
 
 from blog import urls as blog_urls
+from home.views import NewsletterSignup
+from home.views import NewsletterSignupValid
 from search import views as search_views
 
 urlpatterns = [
@@ -33,5 +35,9 @@ urlpatterns += i18n_patterns(
     path("wagtail/", include(wagtailadmin_urls)),
     path("search/", search_views.search, name="search"),
     path("blog/", include(blog_urls)),
+    path("newsletter/", NewsletterSignup.as_view(), name="newsletter"),
+    path(
+        "newsletter/thanks/", NewsletterSignupValid.as_view(), name="newsletter_valid"
+    ),
     path("", include(wagtail_urls)),
 )
