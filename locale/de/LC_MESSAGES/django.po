@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-17 14:03+0000\n"
+"POT-Creation-Date: 2023-05-13 21:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: blog/templates/blog/blog_post.html:12
+#: blog/templates/blog/blog_post.html:12 wiki/templates/wiki/wiki_page.html:24
 msgid "written by"
 msgstr "von"
 
@@ -48,32 +48,52 @@ msgstr "Älter"
 msgid "Newer"
 msgstr "Neuer"
 
-#: home/models.py:168
+#: home/models.py:167
 msgid ""
 "Name this something, i.e. 'collaborators shown on the main landing page'"
 msgstr ""
 
-#: home/models.py:177
+#: home/models.py:176
 #, fuzzy
 #| msgid "Organization type"
 msgid "Organization collection"
 msgstr "Art der Organisation"
 
-#: home/models.py:178
+#: home/models.py:177
 #, fuzzy
 #| msgid "Organization type"
 msgid "Organization collections"
 msgstr "Art der Organisation"
 
-#: home/models.py:182
+#: home/models.py:181
 #, fuzzy
 #| msgid "Organization type"
 msgid "Organizations"
 msgstr "Art der Organisation"
 
+#: home/models.py:195
+msgid ""
+"Check this box if a user indicates that they do not want the newsletter so "
+"we can avoid sending it to them in the future. However,remember that "
+"deleting a user's email is preferable in most cases."
+msgstr ""
+
 #: home/templates/home/blocks/carousel_blog.html:10
 msgid "No blog pages published"
 msgstr ""
+
+#: home/templates/home/newsletter_signup.html:5
+msgid "Newsletter signup"
+msgstr ""
+
+#: home/templates/home/newsletter_signup.html:8
+msgid "We have signed you up. Thanks!"
+msgstr ""
+
+#: home/templates/home/newsletter_signup.html:14
+#: migcontrol/templates/base.html:164
+msgid "Subscribe"
+msgstr "Abonnieren"
 
 #: home/templatetags/bootstrap_tags.py:34
 msgid "Submit"
@@ -104,117 +124,117 @@ msgstr ""
 msgid "Date added"
 msgstr ""
 
-#: library/models.py:26
+#: library/models.py:23
 #, fuzzy
 #| msgid "location name"
 msgid "region name"
 msgstr "Ort"
 
-#: library/models.py:27
+#: library/models.py:24
 msgid "Some geographical area, may intersect with other areas"
 msgstr ""
 
-#: library/models.py:43 library/models.py:60 library/models.py:77
-#: wiki/models.py:28
+#: library/models.py:40 library/models.py:57 library/models.py:74
+#: wiki/models.py:26
 #, fuzzy
 #| msgid "location name"
 msgid "topic name"
 msgstr "Ort"
 
-#: library/models.py:44 library/models.py:61 library/models.py:78
-#: wiki/models.py:29
+#: library/models.py:41 library/models.py:58 library/models.py:75
+#: wiki/models.py:27
 msgid "A topic for the library, can intersect with other topics"
 msgstr ""
 
-#: library/models.py:92
+#: library/models.py:89
 msgid "Source Name"
 msgstr ""
 
-#: library/models.py:93
+#: library/models.py:90
 msgid "URL"
 msgstr ""
 
-#: library/models.py:98
+#: library/models.py:95
 msgid "Internal page"
 msgstr ""
 
-#: library/models.py:196 library/models.py:432
+#: library/models.py:193 library/models.py:429
 #, fuzzy
 #| msgid "Author"
 msgid "authors"
 msgstr "Autor*in"
 
-#: library/models.py:203
+#: library/models.py:200
 msgid "full title"
 msgstr ""
 
-#: library/models.py:210
+#: library/models.py:207
 msgid "publisher or journal"
 msgstr ""
 
-#: library/models.py:217
+#: library/models.py:214
 msgid "year of publication"
 msgstr ""
 
-#: library/models.py:222
+#: library/models.py:219
 msgid "media type"
 msgstr ""
 
-#: library/models.py:231
+#: library/models.py:228
 msgid "Link (URL)"
 msgstr ""
 
-#: library/models.py:370
+#: library/models.py:367
 msgid "organization type"
 msgstr "Art der Organisation"
 
-#: library/models.py:377 wiki/models.py:94
+#: library/models.py:374 wiki/models.py:102
 msgid "country"
 msgstr "Land"
 
-#: library/models.py:381
+#: library/models.py:378
 msgid "Home country/jurisdiction of the organization (where it's registered)"
 msgstr ""
 
-#: library/models.py:386
+#: library/models.py:383
 msgid "city"
 msgstr ""
 
-#: library/models.py:390
+#: library/models.py:387
 msgid "Home city/jurisdiction of the organization (where it's registered)"
 msgstr ""
 
-#: library/models.py:397
+#: library/models.py:394
 msgid "Branches (subsidiaries)"
 msgstr ""
 
-#: library/models.py:399
+#: library/models.py:396
 msgid ""
 "Use this to name other brands or country offices owned by the same company. "
 "This text is free-form for now and until there is a desired data model for "
 "mapping branches."
 msgstr ""
 
-#: library/models.py:442
+#: library/models.py:439
 #: library/templates/library/business/business_page.html:29
 #: library/templates/library/media_page.html:54
 msgid "Regions"
 msgstr ""
 
-#: library/models.py:443
+#: library/models.py:440
 #: library/templates/library/business/business_page.html:39
 #, fuzzy
 #| msgid "Countries"
 msgid "Industries"
 msgstr "Länder"
 
-#: library/models.py:444
+#: library/models.py:441
 #, fuzzy
 #| msgid "Blog Categories"
 msgid "Business categories"
 msgstr "Blog Kategorien"
 
-#: library/models.py:445
+#: library/models.py:442
 #: library/templates/library/business/business_page.html:59
 msgid "Sources"
 msgstr ""
@@ -255,6 +275,7 @@ msgid "Website"
 msgstr ""
 
 #: library/templates/library/business/business_page.html:49
+#: wiki/templates/wiki/index.html:19
 msgid "Categories"
 msgstr "Kategorien"
 
@@ -278,7 +299,7 @@ msgstr "Letzte Updates"
 
 #: library/templates/library/business/business_page.html:83
 #: library/templates/library/media_page.html:67
-#: wiki/templates/wiki/wiki_page.html:30
+#: wiki/templates/wiki/wiki_page.html:33
 msgid "Back to index"
 msgstr "Zum Verzeichnis"
 
@@ -297,7 +318,7 @@ msgid "results"
 msgstr ""
 
 #: library/templates/library/index.html:38
-msgid "Added"
+msgid "Year of Publication"
 msgstr ""
 
 #: library/templates/library/index.html:41
@@ -306,10 +327,8 @@ msgstr ""
 
 #: library/templates/library/media_page.html:21
 #: wiki/templates/wiki/wiki_page.html:22
-#, fuzzy
-#| msgid "Latest updates"
-msgid "Last updated"
-msgstr "Letzte Updates"
+msgid "Published"
+msgstr ""
 
 #: library/templates/library/media_page.html:29
 msgid "Full title"
@@ -336,35 +355,42 @@ msgstr ""
 msgid "None added"
 msgstr ""
 
-#: migcontrol/templates/base.html:105
+#: migcontrol/templates/base.html:114
 msgid "Search"
 msgstr "Suchen"
 
-#: migcontrol/templates/base.html:141
+#: migcontrol/templates/base.html:150
 msgid "Subscribe to our monthly review"
 msgstr "Abonniere unsere Presseschau"
 
-#: migcontrol/templates/base.html:143
+#: migcontrol/templates/base.html:152
 msgid "Show all issues"
 msgstr "Alle Ausgaben"
 
-#: migcontrol/templates/base.html:149 migcontrol/templates/base.html:150
+#: migcontrol/templates/base.html:159 migcontrol/templates/base.html:160
 msgid "Email"
 msgstr "Email"
 
-#: migcontrol/templates/base.html:154
-msgid "Subscribe"
-msgstr "Abonnieren"
-
-#: migcontrol/templates/base.html:163
+#: migcontrol/templates/base.html:173
 msgid "Social Media"
 msgstr "Social Media"
 
-#: wiki/models.py:148
+#: wiki/models.py:156
 #, fuzzy
 #| msgid "Categories"
 msgid "Wiki categories"
 msgstr "Kategorien"
+
+#: wiki/templates/wiki/index.html:33
+#, fuzzy
+#| msgid "Categories"
+msgid "Uncategorized"
+msgstr "Kategorien"
+
+#, fuzzy
+#~| msgid "Latest updates"
+#~ msgid "Last updated"
+#~ msgstr "Letzte Updates"
 
 #~ msgid "Location"
 #~ msgstr "Ort"
