@@ -1,6 +1,8 @@
 Migration Control website
 =========================
 
+New website at: https://new.migration-control.info
+
 This website is based on:
 
 * Django
