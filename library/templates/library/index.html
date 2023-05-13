@@ -6,23 +6,25 @@
 
 {% block sidebar %}
 
-<h4>{% trans "Search filter" %}</h4>
+  <h4>{% trans "Search filter" %}</h4>
 
-<form method="GET">
+  <form method="GET">
 
-  {% bootstrap_form filter_form %}
+    {% bootstrap_form filter_form %}
 
-  {% bootstrap_buttons submit=_("Filter") %}
+    {% bootstrap_buttons submit=_("Filter") %}
 
-</form>
+  </form>
+
+  {% for block in page.body %}
+    {% include_block block %}
+  {% endfor %}
 
 {% endblock %}
 
 {% block content %}
 
 <h1 class="migcontrol-page-title">{{ page.title }} ({{ media_pages.count }} {% trans "results" %})</h1>
-
-{% include_block page.body %}
 
 <table class="table table-sm table-bordered table-striped">
 
