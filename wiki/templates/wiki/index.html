@@ -4,13 +4,17 @@
 {% load migcontrol_tags %}
 {% load i18n %}
 
+{% block sidebar %}
+
+  {% for block in page.body %}
+    {% include_block block %}
+  {% endfor %}
+
+{% endblock sidebar %}
+
 {% block content %}
 
 <h1 class="migcontrol-page-title">{{ page.title }}</h1>
-
-{% for block in page.body %}
-  {% include_block block %}
-{% endfor %}
 
 {% for category in wiki_categories %}
 {{ category }}
