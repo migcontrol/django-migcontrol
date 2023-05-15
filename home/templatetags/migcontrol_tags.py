@@ -6,6 +6,7 @@ from django.core.exceptions import ValidationError
 from django.core.files.storage import FileSystemStorage
 from django.utils import translation
 from django.utils.safestring import mark_safe
+from django.utils.text import slugify
 from sorl.thumbnail import get_thumbnail
 from wagtail.core.models import Site
 from wagtail.core.templatetags.wagtailcore_tags import pageurl
@@ -175,3 +176,8 @@ def migcontrol_relative_url_path(url_path, locale_id):
     url_parts = url_path.split("/")
     url_parts = [""] + [locale_id] + url_parts[2:]
     return "/".join(url_parts)
+
+
+@register.filter()
+def slugify_unicode(words):
+    return slugify(words, allow_unicode=True)

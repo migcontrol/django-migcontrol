@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from django.db import models  # noqa
-from django.template.defaultfilters import slugify
+from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
@@ -116,7 +116,7 @@ class ArticleBase(models.Model):
                 getattr(soup, attr).unwrap()
 
         for element in soup.find_all(["h1", "h2", "h3", "h4", "h5"]):
-            element["id"] = "header-" + slugify(element.text)
+            element["id"] = "header-" + slugify(element.text, allow_unicode=True)
 
         return str(soup)
 
