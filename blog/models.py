@@ -11,8 +11,8 @@ from django.core.paginator import Paginator
 from django.db import models
 from django.db.models import Count
 from django.shortcuts import get_object_or_404
-from django.template.defaultfilters import slugify
 from django.utils.html import format_html
+from django.utils.text import slugify
 from modelcluster.fields import ParentalKey
 from modelcluster.tags import ClusterTaggableManager
 from taggit.models import Tag
@@ -343,7 +343,7 @@ class BlogPage(Page):
                 getattr(soup, attr).unwrap()
 
         for element in soup.find_all(["h1", "h2", "h3", "h4", "h5"]):
-            element["id"] = "header-" + slugify(element.text)
+            element["id"] = "header-" + slugify(element.text, allow_unicode=True)
 
         return str(soup)
 

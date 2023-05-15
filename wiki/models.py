@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 from django.db import models
-from django.template.defaultfilters import slugify
+from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 from modelcluster.fields import ParentalKey
@@ -180,6 +180,6 @@ class WikiPage(Page):
 
         # Now let's add some id=... attributes to all h{1,2,3,4,5}
         for element in soup.find_all(["h1", "h2", "h3", "h4", "h5"]):
-            element["id"] = "header-" + slugify(element.text)
+            element["id"] = "header-" + slugify(element.text, allow_unicode=True)
 
         return str(soup)
