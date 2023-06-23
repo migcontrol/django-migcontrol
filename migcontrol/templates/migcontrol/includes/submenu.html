@@ -19,6 +19,11 @@
                 <a class="nav-link{% if page.id == menuitem.id %} active{% endif %}" href="{{ menuitem.url }}">{{ menuitem.title }}</a>
               </li>
             {% endfor %}
+            {% if extra_link %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ extra_link_url }}">{{ extra_link }}</a>
+              </li>
+            {% endif %}
           </ul>
         </div>
       </nav>
