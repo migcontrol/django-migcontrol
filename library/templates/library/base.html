@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block submenu %}
+  {% include "migcontrol/includes/submenu.html" with extra_link=_("Monthly reviews") extra_link_url="/en/blog/category/monthly_review/" %}
+{% endblock %}
