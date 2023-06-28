@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "wagtail.contrib.redirects",
     "wagtail.contrib.sitemaps",
     "wagtail.contrib.styleguide",
+    "wagtail.contrib.table_block",
     "wagtail_localize",
     "wagtail_footnotes",
     "wagtail_localize.locales",

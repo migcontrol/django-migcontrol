@@ -6,11 +6,10 @@ from django_countries.fields import CountryField
 from modelcluster.fields import ParentalKey
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.admin.edit_handlers import InlinePanel
+from wagtail.contrib.table_block.blocks import TableBlock
 from wagtail.core import blocks
-from wagtail.core.fields import RichTextField
 from wagtail.core.fields import StreamField
 from wagtail.core.models.i18n import TranslatableMixin
-from wagtail.core.templatetags.wagtailcore_tags import richtext
 from wagtail.images import get_image_model_string
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Page
@@ -122,31 +121,67 @@ class WikiPage(Page):
         verbose_name=("Header image"),
     )
 
-    description = RichTextField(
-        features=[
-            "h1",
-            "h2",
-            "h3",
-            "h4",
-            "h5",
-            "h6",
-            "bold",
-            "italic",
-            "ol",
-            "ul",
-            "hr",
-            "link",
-            "document-link",
-            "image",
-            "embed",
-            "footnotes",
-            "code",
-            "superscript",
-            "subscript",
-            "strikethrough",
-            "blockquote",
-        ]
+    description = StreamField(
+        [
+            ("heading", blocks.CharBlock(form_classname="title")),
+            (
+                "rich_text",
+                blocks.RichTextBlock(
+                    features=[
+                        "h1",
+                        "h2",
+                        "h3",
+                        "h4",
+                        "h5",
+                        "h6",
+                        "bold",
+                        "italic",
+                        "ol",
+                        "ul",
+                        "hr",
+                        "link",
+                        "document-link",
+                        "image",
+                        "embed",
+                        "footnotes",
+                        "code",
+                        "superscript",
+                        "subscript",
+                        "strikethrough",
+                        "blockquote",
+                    ]
+                ),
+            ),
+            ("table", TableBlock()),
+            ("image", ImageChooserBlock()),
+        ],
+        use_json_field=True,
     )
+    # RichTextField(
+    #     features=[
+    #         "h1",
+    #         "h2",
+    #         "h3",
+    #         "h4",
+    #         "h5",
+    #         "h6",
+    #         "bold",
+    #         "italic",
+    #         "ol",
+    #         "ul",
+    #         "hr",
+    #         "link",
+    #         "document-link",
+    #         "image",
+    #         "embed",
+    #         "footnotes",
+    #         "code",
+    #         "superscript",
+    #         "subscript",
+    #         "strikethrough",
+    #         "blockquote",
+    #     ]
+    # )
 
     def get_display_country(self):
         return ", ".join(map(lambda c: c.name, self.country))
@@ -165,8 +200,9 @@ class WikiPage(Page):
         """
         return get_toc(self.get_body())
 
-    def get_body(self):  # noqa: max-complexity=11
-        body = richtext(self.description)
+    def get_body(self, context=None):  # noqa: max-complexity=11
+        context = context or {}
+        body = str(self.description.render_as_block(context=context))
 
         # Now let's add some id=... attributes to all h{1,2,3,4,5}
         soup = BeautifulSoup(body, "html5lib")

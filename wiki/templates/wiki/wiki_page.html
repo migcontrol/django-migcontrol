@@ -24,8 +24,8 @@
     - {% trans "written by" %}: {{ page.authors|default:"" }}
     {% endif %}
 </p>
-
-{% richtext_footnotes page.get_body %}
+  {% render_wiki_description_to_html page as body %}
+  {% richtext_footnotes body %}
 
 {% include "wagtail_footnotes/includes/footnotes.html" %}
 
