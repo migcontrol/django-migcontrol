@@ -98,6 +98,12 @@ def get_page_by_slug(parent, slug):
 
 
 @register.simple_tag(takes_context=True)
+def render_wiki_description_to_html(context, page):
+    context = context.flatten()
+    return page.get_body(context=context)
+
+
+@register.simple_tag(takes_context=True)
 def richtext_footnotes(context, html):
     """
     example: {% richtext_footnotes page.body|richtext %}
