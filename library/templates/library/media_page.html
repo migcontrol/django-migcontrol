@@ -38,7 +38,7 @@
     <th>{% trans "Media type" %}</th><td>{{ page.media_type|default:_("Unspecified") }}</td>
   </tr>
   <tr>
-    <th>{% trans "Link" %}</th><td>{% if page.link%}<a href="page.link" target="_blank">{{ page.link }}</a>{% else %}{% trans "None provided" %}{% endif %}</td>
+    <th>{% trans "Link" %}</th><td>{% if page.link%}<a href="{{ page.link }}" target="_blank">{{ page.link }}</a>{% else %}{% trans "None provided" %}{% endif %}</td>
   </tr>
   <tr>
     <th>{% trans "Topics" %}</th>
