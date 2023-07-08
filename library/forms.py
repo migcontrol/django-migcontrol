@@ -20,10 +20,6 @@ class LibraryFilterForm(forms.Form):
         required=False,
         label=_("Topic"),
     )
-    media_type = forms.CharField(
-        required=False,
-        label=_("Media type"),
-    )
 
     order_by = forms.ChoiceField(
         choices=[
@@ -53,9 +49,6 @@ class LibraryFilterForm(forms.Form):
 
         if cd["region"]:
             qs = qs.filter(mediapage__regions__region=cd["region"])
-
-        if cd["media_type"]:
-            qs = qs.filter(mediapage__media_type__icontains=cd["media_type"])
 
         if cd["order_by"]:
             qs = qs.order_by(cd["order_by"])
