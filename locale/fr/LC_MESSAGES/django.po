@@ -24,11 +24,11 @@ msgstr "écrit par"
 
 #: blog/templates/blog/index.html:9
 msgid "Filter by language"
-msgstr ""
+msgstr "Filtrer par langue"
 
 #: blog/templates/blog/index.html:21
 msgid "Filter by category"
-msgstr ""
+msgstr "Filtrer par catégorie"
 
 #: blog/templates/blog/index.html:60
 #: home/templates/home/blocks/carousel_blog.html:13
@@ -42,7 +42,7 @@ msgstr "Lire plus"
 
 #: blog/templates/blog/index.html:71
 msgid "Older"
-msgstr "Plus vieux"
+msgstr "Plus ancien"
 
 #: blog/templates/blog/index.html:74
 msgid "Newer"
@@ -52,6 +52,7 @@ msgstr "Plus récent"
 msgid ""
 "Name this something, i.e. 'collaborators shown on the main landing page'"
 msgstr ""
+"Nommez cet élément, par exemple 'collaborateurs affichés sur la page d'accueil principale'"
 
 #: home/models.py:176
 #, fuzzy
@@ -80,59 +81,59 @@ msgstr ""
 
 #: home/templates/home/blocks/carousel_blog.html:10
 msgid "No blog pages published"
-msgstr ""
+msgstr "Aucune page de blog publiée"
 
 #: home/templates/home/newsletter_signup.html:5
 msgid "Newsletter signup"
-msgstr ""
+msgstr "S'inscrire à la newsletter"
 
 #: home/templates/home/newsletter_signup.html:8
 msgid "We have signed you up. Thanks!"
-msgstr ""
+msgstr "Vous êtes inscrit. Merci!"
 
 #: home/templates/home/newsletter_signup.html:14
 #: migcontrol/templates/base.html:164
 msgid "Subscribe"
-msgstr "S'abonner à"
+msgstr "S'abonner"
 
 #: home/templatetags/bootstrap_tags.py:34
 msgid "Submit"
-msgstr ""
+msgstr "Envoyer"
 
 #: library/forms.py:16
 msgid "Region"
-msgstr ""
+msgstr "Région"
 
 #: library/forms.py:21
 msgid "Topic"
-msgstr ""
+msgstr "Sujet"
 
 #: library/forms.py:25 library/templates/library/media_page.html:38
 msgid "Media type"
-msgstr ""
+msgstr "Type de média"
 
 #: library/forms.py:30 library/templates/library/index.html:32
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 #: library/forms.py:31 library/templates/library/index.html:35
 #: library/templates/library/media_page.html:32
 msgid "Publisher"
-msgstr ""
+msgstr "Maison d'édition"
 
 #: library/forms.py:32
 msgid "Date added"
-msgstr ""
+msgstr "Date ajoutée"
 
 #: library/models.py:23
 #, fuzzy
 #| msgid "location name"
 msgid "region name"
-msgstr "nom du lieu"
+msgstr "nom de la région"
 
 #: library/models.py:24
 msgid "Some geographical area, may intersect with other areas"
-msgstr ""
+msgstr "Une certaine zone géographique, qui peut croiser d'autres zones"
 
 #: library/models.py:40 library/models.py:57 library/models.py:74
 #: wiki/models.py:26
@@ -144,43 +145,43 @@ msgstr "nom du lieu"
 #: library/models.py:41 library/models.py:58 library/models.py:75
 #: wiki/models.py:27
 msgid "A topic for the library, can intersect with other topics"
-msgstr ""
+msgstr "Un sujet de la bibliothèque, peut se croiser avec d'autres sujets"
 
 #: library/models.py:89
 msgid "Source Name"
-msgstr ""
+msgstr "Nom de source"
 
 #: library/models.py:90
 msgid "URL"
-msgstr ""
+msgstr "URL"
 
 #: library/models.py:95
 msgid "Internal page"
-msgstr ""
+msgstr "Page interne"
 
 #: library/models.py:193 library/models.py:429
 msgid "authors"
-msgstr ""
+msgstr "auteur·ice"
 
 #: library/models.py:200
 msgid "full title"
-msgstr ""
+msgstr "titre complet"
 
 #: library/models.py:207
 msgid "publisher or journal"
-msgstr ""
+msgstr "maison d'édition ou journal"
 
 #: library/models.py:214
 msgid "year of publication"
-msgstr ""
+msgstr "année de publication"
 
 #: library/models.py:219
 msgid "media type"
-msgstr ""
+msgstr "type de média"
 
 #: library/models.py:228
 msgid "Link (URL)"
-msgstr ""
+msgstr "Lien (URL)"
 
 #: library/models.py:367
 msgid "organization type"
@@ -192,19 +193,19 @@ msgstr "pays"
 
 #: library/models.py:378
 msgid "Home country/jurisdiction of the organization (where it's registered)"
-msgstr ""
+msgstr "Pays d'origine/juridiction de l'organisation (où elle est enregistrée)"
 
 #: library/models.py:383
 msgid "city"
-msgstr ""
+msgstr "ville"
 
 #: library/models.py:387
 msgid "Home city/jurisdiction of the organization (where it's registered)"
-msgstr ""
+msgstr "Ville/juridiction d'origine de l'organisation (où elle est enregistrée)"
 
 #: library/models.py:394
 msgid "Branches (subsidiaries)"
-msgstr ""
+msgstr "Agence (filiales)"
 
 #: library/models.py:396
 msgid ""
@@ -217,7 +218,7 @@ msgstr ""
 #: library/templates/library/business/business_page.html:29
 #: library/templates/library/media_page.html:54
 msgid "Regions"
-msgstr ""
+msgstr "Régions"
 
 #: library/models.py:440
 #: library/templates/library/business/business_page.html:39
@@ -235,12 +236,12 @@ msgstr "Catégories"
 #: library/models.py:442
 #: library/templates/library/business/business_page.html:59
 msgid "Sources"
-msgstr ""
+msgstr "Sources"
 
 #: library/templates/library/business/business_page.html:12
 #: library/templates/library/business/index.html:25
 msgid "Registered office"
-msgstr ""
+msgstr "Office registré"
 
 #: library/templates/library/business/business_page.html:14
 #: library/templates/library/business/business_page.html:34
@@ -255,22 +256,22 @@ msgstr ""
 #: library/templates/library/media_page.html:35
 #: library/templates/library/media_page.html:38
 msgid "Unspecified"
-msgstr ""
+msgstr "non spécifié"
 
 #: library/templates/library/business/business_page.html:21
 #: library/templates/library/business/index.html:34
 msgid "Other branches"
-msgstr ""
+msgstr "Autres agences"
 
 #: library/templates/library/business/business_page.html:22
 #: library/templates/library/business/business_page.html:26
 #: library/templates/library/business/index.html:35
 msgid "None / Unspecified"
-msgstr ""
+msgstr "Aucun·e / non spécifié"
 
 #: library/templates/library/business/business_page.html:25
 msgid "Website"
-msgstr ""
+msgstr "Site web"
 
 #: library/templates/library/business/business_page.html:49
 #: wiki/templates/wiki/index.html:19
@@ -279,15 +280,15 @@ msgstr "Catégories"
 
 #: library/templates/library/business/business_page.html:70
 msgid "About the company"
-msgstr ""
+msgstr "À propos de l'entreprise"
 
 #: library/templates/library/business/business_page.html:73
 msgid "Contribution to the EU border regime"
-msgstr ""
+msgstr "Contribution au régime frontalier de l'UE"
 
 #: library/templates/library/business/business_page.html:74
 msgid "<p>Text in progress</p>"
-msgstr ""
+msgstr "<p>Texte en cours</p>"
 
 #: library/templates/library/business/business_page.html:78
 #, fuzzy
@@ -309,49 +310,49 @@ msgstr "Recherche"
 
 #: library/templates/library/index.html:15
 msgid "Filter"
-msgstr ""
+msgstr "Filtrer"
 
 #: library/templates/library/index.html:23
 msgid "results"
-msgstr ""
+msgstr "résultats"
 
 #: library/templates/library/index.html:38
 msgid "Year of Publication"
-msgstr ""
+msgstr "Année de publication"
 
 #: library/templates/library/index.html:41
 msgid "Media"
-msgstr ""
+msgstr "Média"
 
 #: library/templates/library/media_page.html:21
 #: wiki/templates/wiki/wiki_page.html:22
 msgid "Published"
-msgstr ""
+msgstr "Publié"
 
 #: library/templates/library/media_page.html:29
 msgid "Full title"
-msgstr ""
+msgstr "Titre complet"
 
 #: library/templates/library/media_page.html:35
 msgid "Year"
-msgstr ""
+msgstr "Année"
 
 #: library/templates/library/media_page.html:41
 msgid "Link"
-msgstr ""
+msgstr "Lien"
 
 #: library/templates/library/media_page.html:41
 msgid "None provided"
-msgstr ""
+msgstr "Aucune donnée fournie"
 
 #: library/templates/library/media_page.html:44
 msgid "Topics"
-msgstr ""
+msgstr "Sujets"
 
 #: library/templates/library/media_page.html:49
 #: library/templates/library/media_page.html:59
 msgid "None added"
-msgstr ""
+msgstr "aucun ajout"
 
 #: migcontrol/templates/base.html:114
 msgid "Search"
@@ -359,7 +360,7 @@ msgstr "Recherche"
 
 #: migcontrol/templates/base.html:150
 msgid "Subscribe to our monthly review"
-msgstr "Subscribe to our press review"
+msgstr "S'abonner à notre revue mensuelle"
 
 #: migcontrol/templates/base.html:152
 msgid "Show all issues"
@@ -406,7 +407,7 @@ msgstr "Catégories"
 #~ msgstr "Catégorie Blog"
 
 #~ msgid "Category"
-#~ msgstr "Catégories de blogs"
+#~ msgstr "Catégorie"
 
 #~ msgid "Post date"
 #~ msgstr "Date de publication"
@@ -430,7 +431,7 @@ msgstr "Catégories"
 #~ msgstr "Contact"
 
 #~ msgid "About"
-#~ msgstr "À propos de"
+#~ msgstr "À propos"
 
 #~ msgid "Blog"
 #~ msgstr "Blog"
