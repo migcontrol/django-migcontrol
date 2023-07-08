@@ -16,6 +16,21 @@ from wagtail.models import Page
 from wagtail.snippets.models import register_snippet
 
 
+MEDIA_TYPES = [
+    ("PDF", "PDF"),
+    ("Article", _("Article")),
+    ("Website", _("Website")),
+    ("Report / PDF", _("Report / PDF")),
+    ("Essay", _("Essay")),
+    ("Broshure / PDF", _("Broshure / PDF")),
+    ("Website and Report", _("Website and Report")),
+    ("Book / PDF", _("Book / PDF")),
+    ("Book", _("Book")),
+    ("Book, PDF", _("Blog Post")),
+    ("Policy Document", _("Policy Document")),
+]
+
+
 @register_snippet
 class RegionSnippet(TranslatableMixin, models.Model):
 
@@ -131,7 +146,7 @@ class LibraryIndexPage(Page):
 
         filter_form = LibraryFilterForm(request.GET)
 
-        qs = self.get_children().live().type(MediaPage).order_by("title").specific()
+        qs = MediaPage.objects.all().live().order_by("title").specific()
 
         if filter_form.is_valid():
             qs = filter_form.apply_filter(qs)
@@ -219,6 +234,7 @@ class MediaPage(Page):
         verbose_name=_("media type"),
         blank=True,
         null=True,
+        choices=MEDIA_TYPES,
     )
 
     link = models.URLField(
