@@ -55,22 +55,19 @@ msgstr ""
 "Nommez cet élément, par exemple 'collaborateurs affichés sur la page d'accueil principale'"
 
 #: home/models.py:176
-#, fuzzy
 #| msgid "Organization type"
 msgid "Organization collection"
-msgstr "type d'organisation"
+msgstr "Type d'organisation"
 
 #: home/models.py:177
-#, fuzzy
 #| msgid "Organization type"
 msgid "Organization collections"
-msgstr "type d'organisation"
+msgstr "Type d'organisation"
 
 #: home/models.py:181
-#, fuzzy
 #| msgid "Organization type"
 msgid "Organizations"
-msgstr "type d'organisation"
+msgstr "Type d'organisation"
 
 #: home/models.py:195
 msgid ""
@@ -126,7 +123,6 @@ msgid "Date added"
 msgstr "Date ajoutée"
 
 #: library/models.py:23
-#, fuzzy
 #| msgid "location name"
 msgid "region name"
 msgstr "nom de la région"
@@ -137,7 +133,6 @@ msgstr "Une certaine zone géographique, qui peut croiser d'autres zones"
 
 #: library/models.py:40 library/models.py:57 library/models.py:74
 #: wiki/models.py:26
-#, fuzzy
 #| msgid "location name"
 msgid "topic name"
 msgstr "nom du lieu"
@@ -222,13 +217,11 @@ msgstr "Régions"
 
 #: library/models.py:440
 #: library/templates/library/business/business_page.html:39
-#, fuzzy
 #| msgid "Countries"
 msgid "Industries"
 msgstr "Pays"
 
 #: library/models.py:441
-#, fuzzy
 #| msgid "Categories"
 msgid "Business categories"
 msgstr "Catégories"
@@ -256,7 +249,7 @@ msgstr "Office registré"
 #: library/templates/library/media_page.html:35
 #: library/templates/library/media_page.html:38
 msgid "Unspecified"
-msgstr "non spécifié"
+msgstr "Non spécifié"
 
 #: library/templates/library/business/business_page.html:21
 #: library/templates/library/business/index.html:34
@@ -291,10 +284,9 @@ msgid "<p>Text in progress</p>"
 msgstr "<p>Texte en cours</p>"
 
 #: library/templates/library/business/business_page.html:78
-#, fuzzy
 #| msgid "Latest updates"
 msgid "Last update:"
-msgstr "Dernières mises à jour"
+msgstr "Dernières mises à jour:"
 
 #: library/templates/library/business/business_page.html:83
 #: library/templates/library/media_page.html:67
@@ -303,7 +295,6 @@ msgid "Back to index"
 msgstr "Retour à l'index"
 
 #: library/templates/library/index.html:9
-#, fuzzy
 #| msgid "Search"
 msgid "Search filter"
 msgstr "Recherche"
@@ -352,7 +343,7 @@ msgstr "Sujets"
 #: library/templates/library/media_page.html:49
 #: library/templates/library/media_page.html:59
 msgid "None added"
-msgstr "aucun ajout"
+msgstr "Aucun ajout"
 
 #: migcontrol/templates/base.html:114
 msgid "Search"
@@ -368,20 +359,18 @@ msgstr "Montrer tous les numéros"
 
 #: migcontrol/templates/base.html:159 migcontrol/templates/base.html:160
 msgid "Email"
-msgstr "e-mail"
+msgstr "E-mail"
 
 #: migcontrol/templates/base.html:173
 msgid "Social Media"
 msgstr "Médias sociaux"
 
 #: wiki/models.py:156
-#, fuzzy
 #| msgid "Categories"
 msgid "Wiki categories"
 msgstr "Catégories"
 
 #: wiki/templates/wiki/index.html:33
-#, fuzzy
 #| msgid "Categories"
 msgid "Uncategorized"
 msgstr "Catégories"
