@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-13 21:38+0000\n"
+"POT-Creation-Date: 2023-07-08 22:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,136 +107,179 @@ msgstr ""
 msgid "Topic"
 msgstr ""
 
-#: library/forms.py:25 library/templates/library/media_page.html:38
-msgid "Media type"
-msgstr ""
-
-#: library/forms.py:30 library/templates/library/index.html:32
+#: library/forms.py:26 library/templates/library/index.html:34
 msgid "Title"
 msgstr ""
 
-#: library/forms.py:31 library/templates/library/index.html:35
+#: library/forms.py:27 library/templates/library/index.html:37
 #: library/templates/library/media_page.html:32
 msgid "Publisher"
 msgstr ""
 
-#: library/forms.py:32
+#: library/forms.py:28
 msgid "Date added"
 msgstr ""
 
+#: library/models.py:21
+msgid "Article"
+msgstr ""
+
+#: library/models.py:22
+#: library/templates/library/business/business_page.html:25
+msgid "Website"
+msgstr ""
+
 #: library/models.py:23
+msgid "Report / PDF"
+msgstr ""
+
+#: library/models.py:24
+msgid "Essay"
+msgstr ""
+
+#: library/models.py:25
+msgid "Broshure / PDF"
+msgstr ""
+
+#: library/models.py:26
+msgid "Website and Report"
+msgstr ""
+
+#: library/models.py:27
+msgid "Book / PDF"
+msgstr ""
+
+#: library/models.py:28
+msgid "Book"
+msgstr ""
+
+#: library/models.py:29
+#, fuzzy
+#| msgid "Blog pages"
+msgid "Blog Post"
+msgstr "Blogseiten"
+
+#: library/models.py:30
+msgid "Policy Document"
+msgstr ""
+
+#: library/models.py:38
 #, fuzzy
 #| msgid "location name"
 msgid "region name"
 msgstr "Ort"
 
-#: library/models.py:24
+#: library/models.py:39
 msgid "Some geographical area, may intersect with other areas"
 msgstr ""
 
-#: library/models.py:40 library/models.py:57 library/models.py:74
+#: library/models.py:55 library/models.py:72 library/models.py:89
 #: wiki/models.py:26
 #, fuzzy
 #| msgid "location name"
 msgid "topic name"
 msgstr "Ort"
 
-#: library/models.py:41 library/models.py:58 library/models.py:75
+#: library/models.py:56 library/models.py:73 library/models.py:90
 #: wiki/models.py:27
 msgid "A topic for the library, can intersect with other topics"
 msgstr ""
 
-#: library/models.py:89
+#: library/models.py:104
 msgid "Source Name"
 msgstr ""
 
-#: library/models.py:90
+#: library/models.py:105
 msgid "URL"
 msgstr ""
 
-#: library/models.py:95
+#: library/models.py:110
 msgid "Internal page"
 msgstr ""
 
-#: library/models.py:193 library/models.py:429
+#: library/models.py:208 library/models.py:445
 #, fuzzy
 #| msgid "Author"
 msgid "authors"
 msgstr "Autor*in"
 
-#: library/models.py:200
+#: library/models.py:215
 msgid "full title"
 msgstr ""
 
-#: library/models.py:207
+#: library/models.py:222
 msgid "publisher or journal"
 msgstr ""
 
-#: library/models.py:214
+#: library/models.py:229
 msgid "year of publication"
 msgstr ""
 
-#: library/models.py:219
+#: library/models.py:234
 msgid "media type"
 msgstr ""
 
-#: library/models.py:228
+#: library/models.py:244
 msgid "Link (URL)"
 msgstr ""
 
-#: library/models.py:367
+#: library/models.py:383
 msgid "organization type"
 msgstr "Art der Organisation"
 
-#: library/models.py:374 wiki/models.py:102
+#: library/models.py:390 wiki/models.py:102
 msgid "country"
 msgstr "Land"
 
-#: library/models.py:378
+#: library/models.py:394
 msgid "Home country/jurisdiction of the organization (where it's registered)"
 msgstr ""
 
-#: library/models.py:383
+#: library/models.py:399
 msgid "city"
 msgstr ""
 
-#: library/models.py:387
+#: library/models.py:403
 msgid "Home city/jurisdiction of the organization (where it's registered)"
 msgstr ""
 
-#: library/models.py:394
+#: library/models.py:410
 msgid "Branches (subsidiaries)"
 msgstr ""
 
-#: library/models.py:396
+#: library/models.py:412
 msgid ""
 "Use this to name other brands or country offices owned by the same company. "
 "This text is free-form for now and until there is a desired data model for "
 "mapping branches."
 msgstr ""
 
-#: library/models.py:439
+#: library/models.py:455
 #: library/templates/library/business/business_page.html:29
 #: library/templates/library/media_page.html:54
 msgid "Regions"
 msgstr ""
 
-#: library/models.py:440
+#: library/models.py:456
 #: library/templates/library/business/business_page.html:39
 #, fuzzy
 #| msgid "Countries"
 msgid "Industries"
 msgstr "Länder"
 
-#: library/models.py:441
+#: library/models.py:457
 #, fuzzy
 #| msgid "Blog Categories"
 msgid "Business categories"
 msgstr "Blog Kategorien"
 
-#: library/models.py:442
+#: library/models.py:458
 #: library/templates/library/business/business_page.html:59
 msgid "Sources"
+msgstr ""
+
+#: library/templates/library/base.html:6
+msgid "Monthly reviews"
 msgstr ""
 
 #: library/templates/library/business/business_page.html:12
@@ -250,8 +293,8 @@ msgstr ""
 #: library/templates/library/business/business_page.html:54
 #: library/templates/library/business/business_page.html:64
 #: library/templates/library/business/index.html:27
-#: library/templates/library/index.html:49
 #: library/templates/library/index.html:51
+#: library/templates/library/index.html:53
 #: library/templates/library/media_page.html:29
 #: library/templates/library/media_page.html:32
 #: library/templates/library/media_page.html:35
@@ -270,12 +313,8 @@ msgstr ""
 msgid "None / Unspecified"
 msgstr ""
 
-#: library/templates/library/business/business_page.html:25
-msgid "Website"
-msgstr ""
-
 #: library/templates/library/business/business_page.html:49
-#: wiki/templates/wiki/index.html:19
+#: wiki/templates/wiki/index.html:23
 msgid "Categories"
 msgstr "Kategorien"
 
@@ -313,15 +352,15 @@ msgstr "Suchen"
 msgid "Filter"
 msgstr ""
 
-#: library/templates/library/index.html:23
+#: library/templates/library/index.html:27
 msgid "results"
 msgstr ""
 
-#: library/templates/library/index.html:38
+#: library/templates/library/index.html:40
 msgid "Year of Publication"
 msgstr ""
 
-#: library/templates/library/index.html:41
+#: library/templates/library/index.html:43
 msgid "Media"
 msgstr ""
 
@@ -336,6 +375,10 @@ msgstr ""
 
 #: library/templates/library/media_page.html:35
 msgid "Year"
+msgstr ""
+
+#: library/templates/library/media_page.html:38
+msgid "Media type"
 msgstr ""
 
 #: library/templates/library/media_page.html:41
@@ -381,7 +424,7 @@ msgstr "Social Media"
 msgid "Wiki categories"
 msgstr "Kategorien"
 
-#: wiki/templates/wiki/index.html:33
+#: wiki/templates/wiki/index.html:37
 #, fuzzy
 #| msgid "Categories"
 msgid "Uncategorized"
@@ -418,9 +461,6 @@ msgstr "Kategorien"
 
 #~ msgid "Blog page"
 #~ msgstr "Blogseite"
-
-#~ msgid "Blog pages"
-#~ msgstr "Blogseiten"
 
 #~ msgid "Donate"
 #~ msgstr "Spenden"
