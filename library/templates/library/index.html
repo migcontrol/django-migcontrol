@@ -2,6 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
 {% load bootstrap_tags %}
 
 {% block sidebar %}
@@ -26,31 +27,21 @@
 
 <h1 class="migcontrol-page-title">{{ page.title }} ({{ media_pages.count }} {% trans "results" %})</h1>
 
-<table class="table table-sm table-bordered table-striped">
+<table class="table table-sm table-bordered">
 
-  <thead>
-  <tr>
-    <th class="table-main-column">
-      {% trans "Title" %}
-    </th>
-    <th>
-      {% trans "Publisher" %}
-    </th>
-    <th class="text-right">
-      {% trans "Year of Publication" %}
-    </th>
-    <th class="text-right">
-      {% trans "Media" %}
-    </th>
-  </tr>
-  </thead>
   <tbody>
   {% for media_page in media_pages %}
   <tr>
-    <td><a href="{{ media_page.url }}">{{ media_page.title }}</a></td>
-    <td>{{ media_page.publisher|default:_("Unspecified") }}</td>
-    <td class="text-right">{{ media_page.first_published_at|date:"Y-m-d" }}</td>
-    <td class="text-right">{{ media_page.media_type|default:_("Unspecified") }}</td>
+    <td>
+      {% if media_page.feature_image %}
+      {% image media_page.feature_image width-400 as tmp_photo %}
+        <img src="{{ tmp_photo.url }}" alt="illustration of {{ media_page.title  }}">
+      {% endif %}
+    </td>
+    <td>
+      <h5><a href="{{ media_page.url }}">{{ media_page.title }}</a></h5>
+      <p>{{ media_page.body|truncatechars:100|safe }}</p>
+    </td>
   </tr>
   {% endfor %}
   </tbody>
