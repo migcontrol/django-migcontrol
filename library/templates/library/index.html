@@ -49,7 +49,7 @@
   <tr>
     <td><a href="{{ media_page.url }}">{{ media_page.title }}</a></td>
     <td>{{ media_page.publisher|default:_("Unspecified") }}</td>
-    <td class="text-right">{{ media_page.first_published_at|date:"Y-m-d" }}</td>
+    <td class="text-right">{{ media_page.year|default:_("Unspecified") }}</td>
     <td class="text-right">{{ media_page.media_type|default:_("Unspecified") }}</td>
   </tr>
   {% endfor %}
