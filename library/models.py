@@ -263,6 +263,7 @@ class MediaPage(Page):
 
     content_panels = Page.content_panels + [
         FieldPanel("body"),
+        FieldPanel("feature_image"),
         FieldPanel("authors"),
         FieldPanel("full_title"),
         FieldPanel("publisher"),
