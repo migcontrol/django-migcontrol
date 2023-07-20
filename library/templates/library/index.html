@@ -10,7 +10,7 @@
 
   <form method="GET">
 
-    {% bootstrap_form filter_form %}
+    {% bootstrap_form filter_form skip_csrf_token=True %}
 
     {% bootstrap_buttons submit=_("Filter") %}
 

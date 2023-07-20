@@ -16,11 +16,6 @@
 
 <h1 class="migcontrol-page-title">{{ page.title }}</h1>
 
-<p class="text-primary">
-  <span class="fa fa-clock"></span>
-  {% trans "Published" %} {{ page.go_live_at|default:page.first_published_at|date:"F jS, Y" }}
-</p>
-
 {{ page.body|richtext }}
 
 <table class="table table-bordered">
