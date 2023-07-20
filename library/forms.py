@@ -1,5 +1,6 @@
 from django import forms
 from django.conf import settings
+from django.db.models import Q
 from django.utils.translation import ugettext_lazy as _
 
 from . import models
@@ -28,6 +29,11 @@ class LibraryFilterForm(forms.Form):
         queryset=models.TopicSnippet.objects.all(),
         required=False,
         label=_("Topic"),
+    )
+
+    search_query = forms.CharField(
+        required=False,
+        label=_("Search description and title"),
     )
 
     order_by = forms.ChoiceField(
@@ -60,6 +66,12 @@ class LibraryFilterForm(forms.Form):
 
         if cd["language"]:
             qs = qs.filter(locale__language_code=cd["language"])
+
+        if cd["search_query"]:
+            qs = qs.filter(
+                Q(title__icontains=cd["search_query"])
+                | Q(body__icontains=cd["search_query"])
+            )
 
         if cd["order_by"]:
             qs = qs.order_by(cd["order_by"])
