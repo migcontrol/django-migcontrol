@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-08 22:33+0000\n"
+"POT-Creation-Date: 2023-08-24 22:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,7 +30,7 @@ msgstr "Nach Sprache filtern"
 msgid "Filter by category"
 msgstr "Nach Kategorie filtern"
 
-#: blog/templates/blog/index.html:60
+#: blog/templates/blog/index.html:66
 #: home/templates/home/blocks/carousel_blog.html:13
 #: home/templates/home/blocks/carousel_page.html:11
 #: home/templates/home/blocks/carousel_raw.html:11
@@ -40,11 +40,11 @@ msgstr "Nach Kategorie filtern"
 msgid "Read more"
 msgstr "Mehr lesen"
 
-#: blog/templates/blog/index.html:71
+#: blog/templates/blog/index.html:77
 msgid "Older"
 msgstr "Älter"
 
-#: blog/templates/blog/index.html:74
+#: blog/templates/blog/index.html:80
 msgid "Newer"
 msgstr "Neuer"
 
@@ -91,7 +91,7 @@ msgid "We have signed you up. Thanks!"
 msgstr ""
 
 #: home/templates/home/newsletter_signup.html:14
-#: migcontrol/templates/base.html:164
+#: migcontrol/templates/base.html:186
 msgid "Subscribe"
 msgstr "Abonnieren"
 
@@ -99,25 +99,34 @@ msgstr "Abonnieren"
 msgid "Submit"
 msgstr ""
 
-#: library/forms.py:16
+#: library/forms.py:17
+msgid "Language"
+msgstr ""
+
+#: library/forms.py:19
+#, fuzzy
+#| msgid "Filter by language"
+msgid "All languages"
+msgstr "Nach Sprache filtern"
+
+#: library/forms.py:26
 msgid "Region"
 msgstr ""
 
-#: library/forms.py:21
+#: library/forms.py:31
 msgid "Topic"
 msgstr ""
 
-#: library/forms.py:26 library/templates/library/index.html:34
+#: library/forms.py:36
+msgid "Search description and title"
+msgstr ""
+
+#: library/forms.py:41 library/templates/library/index.html:34
 msgid "Title"
 msgstr ""
 
-#: library/forms.py:27 library/templates/library/index.html:37
-#: library/templates/library/media_page.html:32
-msgid "Publisher"
-msgstr ""
-
-#: library/forms.py:28
-msgid "Date added"
+#: library/forms.py:42
+msgid "Year published"
 msgstr ""
 
 #: library/models.py:21
@@ -197,7 +206,7 @@ msgstr ""
 msgid "Internal page"
 msgstr ""
 
-#: library/models.py:208 library/models.py:445
+#: library/models.py:208 library/models.py:449
 #, fuzzy
 #| msgid "Author"
 msgid "authors"
@@ -223,57 +232,57 @@ msgstr ""
 msgid "Link (URL)"
 msgstr ""
 
-#: library/models.py:383
+#: library/models.py:387
 msgid "organization type"
 msgstr "Art der Organisation"
 
-#: library/models.py:390 wiki/models.py:102
+#: library/models.py:394 wiki/models.py:102
 msgid "country"
 msgstr "Land"
 
-#: library/models.py:394
+#: library/models.py:398
 msgid "Home country/jurisdiction of the organization (where it's registered)"
 msgstr ""
 
-#: library/models.py:399
+#: library/models.py:403
 msgid "city"
 msgstr ""
 
-#: library/models.py:403
+#: library/models.py:407
 msgid "Home city/jurisdiction of the organization (where it's registered)"
 msgstr ""
 
-#: library/models.py:410
+#: library/models.py:414
 msgid "Branches (subsidiaries)"
 msgstr ""
 
-#: library/models.py:412
+#: library/models.py:416
 msgid ""
 "Use this to name other brands or country offices owned by the same company. "
 "This text is free-form for now and until there is a desired data model for "
 "mapping branches."
 msgstr ""
 
-#: library/models.py:455
+#: library/models.py:459
 #: library/templates/library/business/business_page.html:29
-#: library/templates/library/media_page.html:54
+#: library/templates/library/media_page.html:49
 msgid "Regions"
 msgstr ""
 
-#: library/models.py:456
+#: library/models.py:460
 #: library/templates/library/business/business_page.html:39
 #, fuzzy
 #| msgid "Countries"
 msgid "Industries"
 msgstr "Länder"
 
-#: library/models.py:457
+#: library/models.py:461
 #, fuzzy
 #| msgid "Blog Categories"
 msgid "Business categories"
 msgstr "Blog Kategorien"
 
-#: library/models.py:458
+#: library/models.py:462
 #: library/templates/library/business/business_page.html:59
 msgid "Sources"
 msgstr ""
@@ -294,11 +303,12 @@ msgstr ""
 #: library/templates/library/business/business_page.html:64
 #: library/templates/library/business/index.html:27
 #: library/templates/library/index.html:51
+#: library/templates/library/index.html:52
 #: library/templates/library/index.html:53
-#: library/templates/library/media_page.html:29
-#: library/templates/library/media_page.html:32
-#: library/templates/library/media_page.html:35
-#: library/templates/library/media_page.html:38
+#: library/templates/library/media_page.html:24
+#: library/templates/library/media_page.html:27
+#: library/templates/library/media_page.html:30
+#: library/templates/library/media_page.html:33
 msgid "Unspecified"
 msgstr ""
 
@@ -337,7 +347,7 @@ msgid "Last update:"
 msgstr "Letzte Updates"
 
 #: library/templates/library/business/business_page.html:83
-#: library/templates/library/media_page.html:67
+#: library/templates/library/media_page.html:62
 #: wiki/templates/wiki/wiki_page.html:33
 msgid "Back to index"
 msgstr "Zum Verzeichnis"
@@ -356,6 +366,11 @@ msgstr ""
 msgid "results"
 msgstr ""
 
+#: library/templates/library/index.html:37
+#: library/templates/library/media_page.html:27
+msgid "Publisher"
+msgstr ""
+
 #: library/templates/library/index.html:40
 msgid "Year of Publication"
 msgstr ""
@@ -364,57 +379,59 @@ msgstr ""
 msgid "Media"
 msgstr ""
 
-#: library/templates/library/media_page.html:21
-#: wiki/templates/wiki/wiki_page.html:22
-msgid "Published"
-msgstr ""
-
-#: library/templates/library/media_page.html:29
+#: library/templates/library/media_page.html:24
 msgid "Full title"
 msgstr ""
 
-#: library/templates/library/media_page.html:35
+#: library/templates/library/media_page.html:30
 msgid "Year"
 msgstr ""
 
-#: library/templates/library/media_page.html:38
+#: library/templates/library/media_page.html:33
 msgid "Media type"
 msgstr ""
 
-#: library/templates/library/media_page.html:41
+#: library/templates/library/media_page.html:36
 msgid "Link"
 msgstr ""
 
-#: library/templates/library/media_page.html:41
+#: library/templates/library/media_page.html:36
 msgid "None provided"
 msgstr ""
 
-#: library/templates/library/media_page.html:44
+#: library/templates/library/media_page.html:39
 msgid "Topics"
 msgstr ""
 
-#: library/templates/library/media_page.html:49
-#: library/templates/library/media_page.html:59
+#: library/templates/library/media_page.html:44
+#: library/templates/library/media_page.html:54
 msgid "None added"
 msgstr ""
 
-#: migcontrol/templates/base.html:114
+#: migcontrol/templates/base.html:26 migcontrol/templates/base.html:32
+#: migcontrol/templates/base.html:39 migcontrol/templates/base.html:47
+msgid ""
+"A transnational network of activists, journalists, translators, academics "
+"and anti-racist organisations from Europe and Africa."
+msgstr ""
+
+#: migcontrol/templates/base.html:136
 msgid "Search"
 msgstr "Suchen"
 
-#: migcontrol/templates/base.html:150
+#: migcontrol/templates/base.html:172
 msgid "Subscribe to our monthly review"
 msgstr "Abonniere unsere Presseschau"
 
-#: migcontrol/templates/base.html:152
+#: migcontrol/templates/base.html:174
 msgid "Show all issues"
 msgstr "Alle Ausgaben"
 
-#: migcontrol/templates/base.html:159 migcontrol/templates/base.html:160
+#: migcontrol/templates/base.html:181 migcontrol/templates/base.html:182
 msgid "Email"
 msgstr "Email"
 
-#: migcontrol/templates/base.html:173
+#: migcontrol/templates/base.html:195
 msgid "Social Media"
 msgstr "Social Media"
 
@@ -429,6 +446,10 @@ msgstr "Kategorien"
 #| msgid "Categories"
 msgid "Uncategorized"
 msgstr "Kategorien"
+
+#: wiki/templates/wiki/wiki_page.html:22
+msgid "Published"
+msgstr ""
 
 #, fuzzy
 #~| msgid "Latest updates"
