@@ -181,3 +181,23 @@ def migcontrol_relative_url_path(url_path, locale_id):
 @register.filter()
 def slugify_unicode(words):
     return slugify(words, allow_unicode=True)
+
+
+@register.simple_tag(takes_context=False)
+def get_page_thumbnail(page):
+    """
+    Takes a page object and returns an image object if one exists
+
+    {% get_page_thumbnail page as thumbnail %}
+    """
+    if hasattr(page, "some_image") and page.some_image:
+        return page.some_image
+
+    if not hasattr(page, "body"):
+        return
+
+    for block in page.body:
+        if not hasattr(block, "block_type"):
+            continue
+        if block.block_type == "imagebackground":
+            return block.value.get("image")
