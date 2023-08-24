@@ -55,7 +55,13 @@
             <div class="card-body">
               <h5 class="card-title">{{ blog.title }}</h5>
               <p class="card-text"><small class="text-muted">{{ blog.date|date:"F jS, Y" }}</small></p>
-              <p class="card-text">{{ blog.body_richtext|richtext|striptags|truncatewords_html:30 }}</p>
+              <p class="card-text">
+                {% if blog.search_description %}
+                  {{ blog.search_description|truncatewords:30 }}
+                {% else %}
+                  {{ blog.body_richtext|richtext|striptags|truncatewords_html:30 }}
+                {% endif %}
+              </p>
               <p class="card-text">
                 <a href="{% pageurl blog %}" class="btn btn-primary">{% trans "Read more" %}</a>
               </p>
