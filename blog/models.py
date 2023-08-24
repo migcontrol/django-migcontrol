@@ -437,6 +437,7 @@ BlogPage.content_panels = [
     FieldPanel("header_image"),
     FieldPanel("body_richtext", classname="collapsed"),
     FieldPanel("body_mixed"),
+    InlinePanel("footnotes", label="Footnotes"),
 ]
 
 

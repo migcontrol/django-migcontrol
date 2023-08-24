@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-08 22:33+0000\n"
+"POT-Creation-Date: 2023-05-13 21:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,20 +16,19 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: blog/templates/blog/blog_post.html:12 wiki/templates/wiki/wiki_page.html:24
 msgid "written by"
-msgstr ""
+msgstr "كتب المقال"
 
 #: blog/templates/blog/index.html:9
 msgid "Filter by language"
-msgstr ""
+msgstr "اختيار اللغة"
 
 #: blog/templates/blog/index.html:21
 msgid "Filter by category"
-msgstr ""
+msgstr "‬اختيار الفئة"
 
 #: blog/templates/blog/index.html:60
 #: home/templates/home/blocks/carousel_blog.html:13
@@ -39,15 +38,15 @@ msgstr ""
 #: home/templates/home/blocks/section_card.html:9
 #: library/templates/library/business/index.html:39
 msgid "Read more"
-msgstr ""
+msgstr "إقرأ المزيد"
 
 #: blog/templates/blog/index.html:71
 msgid "Older"
-msgstr ""
+msgstr "الأقدم"
 
 #: blog/templates/blog/index.html:74
 msgid "Newer"
-msgstr ""
+msgstr "الأحدث"
 
 #: home/models.py:167
 msgid ""
@@ -55,16 +54,22 @@ msgid ""
 msgstr ""
 
 #: home/models.py:176
+#, fuzzy
+#| msgid "Organization type"
 msgid "Organization collection"
-msgstr ""
+msgstr "نوع المنظمة"
 
 #: home/models.py:177
+#, fuzzy
+#| msgid "Organization type"
 msgid "Organization collections"
-msgstr ""
+msgstr "نوع المنظّمة"
 
 #: home/models.py:181
+#, fuzzy
+#| msgid "Organization type"
 msgid "Organizations"
-msgstr ""
+msgstr "نوع المنظّمة"
 
 #: home/models.py:195
 msgid ""
@@ -79,196 +84,163 @@ msgstr ""
 
 #: home/templates/home/newsletter_signup.html:5
 msgid "Newsletter signup"
-msgstr ""
+msgstr "الاشتراك في الرسائل الاخبارية"
 
 #: home/templates/home/newsletter_signup.html:8
 msgid "We have signed you up. Thanks!"
-msgstr ""
+msgstr "تم التسجيل بنجاح، شكراً للاشتراك"
 
 #: home/templates/home/newsletter_signup.html:14
 #: migcontrol/templates/base.html:164
 msgid "Subscribe"
-msgstr ""
+msgstr "اشترك"
 
 #: home/templatetags/bootstrap_tags.py:34
 msgid "Submit"
-msgstr ""
+msgstr "إرسال"
 
 #: library/forms.py:16
 msgid "Region"
-msgstr ""
+msgstr "المنطقة"
 
 #: library/forms.py:21
 msgid "Topic"
+msgstr "الموضوع"
+
+#: library/forms.py:25 library/templates/library/media_page.html:38
+msgid "نوع الميديا"
 msgstr ""
 
-#: library/forms.py:26 library/templates/library/index.html:34
+#: library/forms.py:30 library/templates/library/index.html:32
 msgid "Title"
-msgstr ""
+msgstr "العنوان"
 
-#: library/forms.py:27 library/templates/library/index.html:37
+#: library/forms.py:31 library/templates/library/index.html:35
 #: library/templates/library/media_page.html:32
 msgid "Publisher"
-msgstr ""
+msgstr "الناشر"
 
-#: library/forms.py:28
+#: library/forms.py:32
 msgid "Date added"
-msgstr ""
-
-#: library/models.py:21
-msgid "Article"
-msgstr ""
-
-#: library/models.py:22
-#: library/templates/library/business/business_page.html:25
-msgid "Website"
-msgstr ""
+msgstr "تاريخ النشر"
 
 #: library/models.py:23
-msgid "Report / PDF"
-msgstr ""
+#, fuzzy
+#| msgid "location name"
+msgid "region name"
+msgstr "اسم المنطقة"
 
 #: library/models.py:24
-msgid "Essay"
-msgstr ""
-
-#: library/models.py:25
-msgid "Broshure / PDF"
-msgstr ""
-
-#: library/models.py:26
-msgid "Website and Report"
-msgstr ""
-
-#: library/models.py:27
-msgid "Book / PDF"
-msgstr ""
-
-#: library/models.py:28
-msgid "Book"
-msgstr ""
-
-#: library/models.py:29
-msgid "Blog Post"
-msgstr ""
-
-#: library/models.py:30
-msgid "Policy Document"
-msgstr ""
-
-#: library/models.py:38
-msgid "region name"
-msgstr ""
-
-#: library/models.py:39
 msgid "Some geographical area, may intersect with other areas"
 msgstr ""
 
-#: library/models.py:55 library/models.py:72 library/models.py:89
+#: library/models.py:40 library/models.py:57 library/models.py:74
 #: wiki/models.py:26
+#, fuzzy
+#| msgid "location name"
 msgid "topic name"
-msgstr ""
+msgstr "اسم المنطقة"
 
-#: library/models.py:56 library/models.py:73 library/models.py:90
+#: library/models.py:41 library/models.py:58 library/models.py:75
 #: wiki/models.py:27
 msgid "A topic for the library, can intersect with other topics"
 msgstr ""
 
-#: library/models.py:104
+#: library/models.py:89
 msgid "Source Name"
-msgstr ""
+msgstr "اسم المصدر"
 
-#: library/models.py:105
+#: library/models.py:90
 msgid "URL"
-msgstr ""
+msgstr "الرابط"
 
-#: library/models.py:110
+#: library/models.py:95
 msgid "Internal page"
-msgstr ""
+msgstr "صفحة غير منشورة"
 
-#: library/models.py:208 library/models.py:445
+#: library/models.py:193 library/models.py:429
 msgid "authors"
-msgstr ""
+msgstr "المؤلف"
 
-#: library/models.py:215
+#: library/models.py:200
 msgid "full title"
-msgstr ""
+msgstr "العنوان الكامل"
 
-#: library/models.py:222
+#: library/models.py:207
 msgid "publisher or journal"
-msgstr ""
+msgstr "الناشر أو الصحيفة"
 
-#: library/models.py:229
+#: library/models.py:214
 msgid "year of publication"
-msgstr ""
+msgstr "سنة النشر"
 
-#: library/models.py:234
+#: library/models.py:219
 msgid "media type"
-msgstr ""
+msgstr "نوع الميديا"
 
-#: library/models.py:244
+#: library/models.py:228
 msgid "Link (URL)"
-msgstr ""
+msgstr "الرابط"
 
-#: library/models.py:383
+#: library/models.py:367
 msgid "organization type"
-msgstr ""
+msgstr "نوع المنظمة"
 
-#: library/models.py:390 wiki/models.py:102
+#: library/models.py:374 wiki/models.py:102
 msgid "country"
-msgstr ""
+msgstr "الدولة"
 
-#: library/models.py:394
+#: library/models.py:378
 msgid "Home country/jurisdiction of the organization (where it's registered)"
 msgstr ""
 
-#: library/models.py:399
+#: library/models.py:383
 msgid "city"
-msgstr ""
+msgstr "المدينة"
 
-#: library/models.py:403
+#: library/models.py:387
 msgid "Home city/jurisdiction of the organization (where it's registered)"
 msgstr ""
 
-#: library/models.py:410
+#: library/models.py:394
 msgid "Branches (subsidiaries)"
-msgstr ""
+msgstr "الفروع"
 
-#: library/models.py:412
+#: library/models.py:396
 msgid ""
 "Use this to name other brands or country offices owned by the same company. "
 "This text is free-form for now and until there is a desired data model for "
 "mapping branches."
 msgstr ""
 
-#: library/models.py:455
+#: library/models.py:439
 #: library/templates/library/business/business_page.html:29
 #: library/templates/library/media_page.html:54
 msgid "Regions"
-msgstr ""
+msgstr "المناطق"
 
-#: library/models.py:456
+#: library/models.py:440
 #: library/templates/library/business/business_page.html:39
+#, fuzzy
+#| msgid "Countries"
 msgid "Industries"
-msgstr ""
+msgstr "الدول"
 
-#: library/models.py:457
+#: library/models.py:441
+#, fuzzy
+#| msgid "Categories"
 msgid "Business categories"
-msgstr ""
+msgstr "فئة العمل"
 
-#: library/models.py:458
+#: library/models.py:442
 #: library/templates/library/business/business_page.html:59
 msgid "Sources"
-msgstr ""
-
-#: library/templates/library/base.html:6
-msgid "Monthly reviews"
-msgstr ""
+msgstr "المصادر"
 
 #: library/templates/library/business/business_page.html:12
 #: library/templates/library/business/index.html:25
 msgid "Registered office"
-msgstr ""
+msgstr "العنوان المسجل للمكتب"
 
 #: library/templates/library/business/business_page.html:14
 #: library/templates/library/business/business_page.html:34
@@ -276,93 +248,97 @@ msgstr ""
 #: library/templates/library/business/business_page.html:54
 #: library/templates/library/business/business_page.html:64
 #: library/templates/library/business/index.html:27
+#: library/templates/library/index.html:49
 #: library/templates/library/index.html:51
-#: library/templates/library/index.html:53
 #: library/templates/library/media_page.html:29
 #: library/templates/library/media_page.html:32
 #: library/templates/library/media_page.html:35
 #: library/templates/library/media_page.html:38
 msgid "Unspecified"
-msgstr ""
+msgstr "غير محدد"
 
 #: library/templates/library/business/business_page.html:21
 #: library/templates/library/business/index.html:34
 msgid "Other branches"
-msgstr ""
+msgstr "فروع أخرى"
 
 #: library/templates/library/business/business_page.html:22
 #: library/templates/library/business/business_page.html:26
 #: library/templates/library/business/index.html:35
 msgid "None / Unspecified"
-msgstr ""
+msgstr "غير محدد"
+
+#: library/templates/library/business/business_page.html:25
+msgid "Website"
+msgstr "الموقع الالكتروني"
 
 #: library/templates/library/business/business_page.html:49
-#: wiki/templates/wiki/index.html:23
+#: wiki/templates/wiki/index.html:19
 msgid "Categories"
-msgstr ""
+msgstr "فئة المواضيع"
 
 #: library/templates/library/business/business_page.html:70
 msgid "About the company"
-msgstr ""
+msgstr "حول الشركة"
 
 #: library/templates/library/business/business_page.html:73
 msgid "Contribution to the EU border regime"
-msgstr ""
+msgstr "مساهمة الشركة في نظام حدود الاتحاد الأوروبي"
 
 #: library/templates/library/business/business_page.html:74
 msgid "<p>Text in progress</p>"
 msgstr ""
 
 #: library/templates/library/business/business_page.html:78
+#, fuzzy
+#| msgid "Latest updates"
 msgid "Last update:"
-msgstr ""
+msgstr "التحديث الأخير"
 
 #: library/templates/library/business/business_page.html:83
 #: library/templates/library/media_page.html:67
 #: wiki/templates/wiki/wiki_page.html:33
 msgid "Back to index"
-msgstr ""
+msgstr "العودة للمصادر"
 
 #: library/templates/library/index.html:9
+#, fuzzy
+#| msgid "Search"
 msgid "Search filter"
-msgstr ""
+msgstr "بحث"
 
 #: library/templates/library/index.html:15
 msgid "Filter"
-msgstr ""
+msgstr "اختر"
 
-#: library/templates/library/index.html:27
+#: library/templates/library/index.html:23
 msgid "results"
-msgstr ""
+msgstr "النتائج"
 
-#: library/templates/library/index.html:40
+#: library/templates/library/index.html:38
 msgid "Year of Publication"
-msgstr ""
+msgstr "المنشورات"
 
-#: library/templates/library/index.html:43
+#: library/templates/library/index.html:41
 msgid "Media"
-msgstr ""
+msgstr "الوسيلة"
 
 #: library/templates/library/media_page.html:21
 #: wiki/templates/wiki/wiki_page.html:22
 msgid "Published"
-msgstr ""
+msgstr "تاريخ النشر"
 
 #: library/templates/library/media_page.html:29
 msgid "Full title"
-msgstr ""
+msgstr "العنوان الكامل"
 
 #: library/templates/library/media_page.html:35
 msgid "Year"
-msgstr ""
-
-#: library/templates/library/media_page.html:38
-msgid "Media type"
-msgstr ""
+msgstr "السنة"
 
 #: library/templates/library/media_page.html:41
 msgid "Link"
-msgstr ""
+msgstr "الرابط"
 
 #: library/templates/library/media_page.html:41
 msgid "None provided"
@@ -370,7 +346,7 @@ msgstr ""
 
 #: library/templates/library/media_page.html:44
 msgid "Topics"
-msgstr ""
+msgstr "المواضيع"
 
 #: library/templates/library/media_page.html:49
 #: library/templates/library/media_page.html:59
@@ -379,28 +355,91 @@ msgstr ""
 
 #: migcontrol/templates/base.html:114
 msgid "Search"
-msgstr ""
+msgstr "بحث"
 
 #: migcontrol/templates/base.html:150
 msgid "Subscribe to our monthly review"
-msgstr ""
+msgstr "اشترك في مراجعاتنا الصحفية"
 
 #: migcontrol/templates/base.html:152
 msgid "Show all issues"
-msgstr ""
+msgstr "اظهار كل المواضيع"
 
 #: migcontrol/templates/base.html:159 migcontrol/templates/base.html:160
 msgid "Email"
-msgstr ""
+msgstr "e-mail"
 
 #: migcontrol/templates/base.html:173
 msgid "Social Media"
-msgstr ""
+msgstr "مواقع التواصل الاجتماعي"
 
 #: wiki/models.py:156
+#, fuzzy
+#| msgid "Categories"
 msgid "Wiki categories"
-msgstr ""
+msgstr "الفئات"
 
-#: wiki/templates/wiki/index.html:37
+#: wiki/templates/wiki/index.html:33
+#, fuzzy
+#| msgid "Categories"
 msgid "Uncategorized"
-msgstr ""
+msgstr "الفئات"
+
+#, fuzzy
+#~| msgid "Latest updates"
+#~ msgid "Last updated"
+#~ msgstr "آخر تحديث"
+
+#~ msgid "Location"
+#~ msgstr "الموقع"
+
+#~ msgid "Wiki"
+#~ msgstr "Wiki"
+
+#~ msgid "Blog index"
+#~ msgstr "فهرس المدونة"
+
+#~ msgid "Category Name"
+#~ msgstr "اسم الفئة"
+
+#~ msgid "Blog Category"
+#~ msgstr "فئة المدونة"
+
+#~ msgid "Category"
+#~ msgstr "الفئة"
+
+#~ msgid "Post date"
+#~ msgstr "تاريخ النشر"
+
+#~ msgid "Header image"
+#~ msgstr "الصورة الأساسية"
+
+#~ msgid "Blog page"
+#~ msgstr "صفحة المدونة"
+
+#~ msgid "Blog pages"
+#~ msgstr "صفحة المدونة"
+
+#~ msgid "Wagtail image"
+#~ msgstr "Image de Wagtail"
+
+#~ msgid "Donate"
+#~ msgstr "تبرّع"
+
+#~ msgid "Contact"
+#~ msgstr "للتواصل"
+
+#~ msgid "About"
+#~ msgstr "حول عملنا"
+
+#~ msgid "Blog"
+#~ msgstr "المدونة"
+
+#~ msgid "Archive"
+#~ msgstr "المكتبة"
+
+#~ msgid "Imprint"
+#~ msgstr "البصمة"
+
+#~ msgid "Data protection"
+#~ msgstr "حماية البيانات"
