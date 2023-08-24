@@ -326,6 +326,10 @@ class BlogPage(Page):
         FieldPanel("authors"),
     ]
 
+    @property
+    def some_image(self):
+        return self.header_image
+
     def get_body(self):
         if self.body_richtext:
             body = richtext(self.body_richtext)
