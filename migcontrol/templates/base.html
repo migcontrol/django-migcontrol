@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static wagtailcore_tags wagtailuserbar %}
+{% load static wagtailcore_tags wagtailuserbar wagtailimages_tags %}
 {% load i18n %}
 {% load compress %}
 {% load migcontrol_tags %}
@@ -13,7 +13,6 @@
     {% endblock %}
     - Migration Control
   </title>
-  <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <link rel="apple-touch-icon" sizes="180x180" href="{% static "images/apple-touch-icon.png" %}">
@@ -24,6 +23,29 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 
+    <meta name="description" content="{% if page.search_description %}{{ page.search_description }}{% else %}{% if page.body %}{{ page.body|striptags|truncatewords:20 }}{% else %}{% trans "A transnational network of activists, journalists, translators, academics and anti-racist organisations from Europe and Africa." %}{% endif %}{% endif %}"/>
+
+    {# fb #}
+    <meta property="og:url"         content="https://migration-control.info{% block og_url %}{{ request.path }}{% endblock %}" />
+    <meta property="og:type"        content="article" />
+    <meta property="og:title"       content="{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}" />
+    <meta property="og:description" content="{% if page.search_description %}{{ page.search_description }}{% else %}{% if page.body %}{{ page.body|striptags|truncatewords:20 }}{% else %}{% trans "A transnational network of activists, journalists, translators, academics and anti-racist organisations from Europe and Africa." %}{% endif %}{% endif %}" />
+    <meta property="og:image"       content="https://migration-control.info{% block og_image %}{% get_page_thumbnail page as thumbnail %}{% if thumbnail %}{% image thumbnail fill-1200x600 as tmp_photo %}{{ tmp_photo.url }}{% else %}{% static "images/social_media_logo.png" %}{% endif %}{% endblock %}" />
+    <meta property="og:image:width"       content="{% block og_image_width %}{% get_page_thumbnail page as thumbnail %}{% if thumbnail %}1200{% else %}1772{% endif %}{% endblock %}" />
+    <meta property="og:image:height"       content="{% block og_image_height %}{% get_page_thumbnail page as thumbnail %}{% if thumbnail %}627{% else %}1772{% endif %}{% endblock %}" />
+
+    {# google #}
+    <meta itemprop="url" content="https://migration-control.info{{ request.path }}" />
+    <meta itemprop="description" content="{% block google_description %}{% trans "A transnational network of activists, journalists, translators, academics and anti-racist organisations from Europe and Africa." %}{% endblock %}">
+    <meta itemprop="image" content="{% block google_image %}{% get_page_thumbnail page as thumbnail %}{% if thumbnail %}{% image thumbnail fill-1200x627 as tmp_photo %}{{ tmp_photo.url }}{% else %}{% static "images/social_media_logo.png" %}{% endif %}{% endblock %}">
+
+    {# twitter #}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@MigControl">
+    <meta name="twitter:creator" content="@MigControl">
+    <meta name="twitter:title" content="{% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}">
+    <meta name="twitter:description" content="{% if page.search_description %}{{ page.search_description }}{% else %}{% if page.body %}{{ page.body|striptags|truncatewords:20 }}{% else %}{% trans "A transnational network of activists, journalists, translators, academics and anti-racist organisations from Europe and Africa." %}{% endif %}{% endif %}">
+    <meta name="twitter:image" content="https://migration-control.info{% block twitter_image %}{% get_page_thumbnail page as thumbnail %}{% if thumbnail %}{% image thumbnail fill-1200x600 as tmp_photo %}{{ tmp_photo.url }}{% else %}{% static "images/social_media_logo.png" %}{% endif %}{% endblock %}">
 
   {% block extra_css %}
     {# Override this in templates to add extra stylesheets #}

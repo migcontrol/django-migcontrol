@@ -17,7 +17,7 @@ class CarouselBlog(StructBlock):
         from blog.models import BlogPage
 
         context = super().get_context(value, parent_context=parent_context)
-        if value["latest_blog_post"]:
+        if value["latest_blog_post"] and "page" in context:
             context["blog_page"] = (
                 BlogPage.objects.descendant_of(context["page"])
                 .live()

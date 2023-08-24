@@ -251,6 +251,10 @@ class MediaPage(Page):
         RegionSnippet, through=MediaPageRegion, blank=True
     )
 
+    @property
+    def some_image(self):
+        return self.feature_image
+
     def get_display_country(self):
         return ", ".join(map(lambda c: c.name, self.country))
 
