@@ -21,10 +21,7 @@
     <th>{% trans "Other branches" %}</th>
     <td>{{ page.branches|default:_("None / Unspecified")|linebreaksbr }}</td>
   </tr>
-  <tr>
-    <th>{% trans "Website" %}</th>
-    <td>{{ page.website|urlize|default:_("None / Unspecified") }}</td>
-  </tr>
+{% comment %}
   <tr>
     <th>{% trans "Regions" %}</th>
     <td>
@@ -35,6 +32,7 @@
       {% endfor %}
     </td>
   </tr>
+{% endcomment %}
   <tr>
     <th>{% trans "Industries" %}</th>
     <td>
@@ -65,6 +63,10 @@
       {% endfor %}
     </td>
   </tr>
+  <tr>
+    <th>{% trans "Website" %}</th>
+    <td>{{ page.website|urlize|default:_("None / Unspecified") }}</td>
+  </tr>
 </table>
 
 <h2>{% trans "About the company" %}</h2>
@@ -73,11 +75,19 @@
 <h2>{% trans "Contribution to the EU border regime" %}</h2>
 {{ page.eu_border_contribution|default:_("<p>Text in progress</p>")|richtext }}
 
+
 <p>
+  <em>
+    {% trans "Added:" %} {{ page.first_published_at|date:"DATE_FORMAT" }}
+  </em>
+{% if page.last_published_at %}
+  <br>
   <em>
     {% trans "Last update:" %} {{ page.last_published_at|date:"DATETIME_FORMAT" }}
   </em>
+{% endif %}
 </p>
+
 
 <p>
   <a href="{{ page.get_parent.url }}" class="btn btn-outline-primary"><i class="fa fa-angle-double-left"></i> {% trans "Back to index" %}</a>
