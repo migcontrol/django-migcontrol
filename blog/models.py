@@ -13,8 +13,9 @@ from django.db.models import Count
 from django.shortcuts import get_object_or_404
 from django.utils.html import format_html
 from django.utils.text import slugify
+from django.utils.translation import gettext_lazy as _
+from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey
-from modelcluster.tags import ClusterTaggableManager
 from taggit.models import Tag
 from taggit.models import TaggedItemBase
 from wagtail.admin.edit_handlers import FieldPanel
@@ -153,7 +154,7 @@ class BlogIndexPage(ArticleBase, Page):
 
 @register_snippet
 class BlogCategory(TranslatableMixin, models.Model):
-    name = models.CharField(max_length=80, verbose_name=("Category Name"))
+    name = models.CharField(max_length=80, verbose_name=_("Category Name"))
     slug = models.SlugField(unique=True, max_length=80)
     parent = models.ForeignKey(
         "self",
@@ -206,7 +207,7 @@ class BlogCategoryBlogPage(models.Model):
     category = models.ForeignKey(
         BlogCategory,
         related_name="+",
-        verbose_name=("Category"),
+        verbose_name=_("Category"),
         on_delete=models.CASCADE,
     )
     page = ParentalKey("BlogPage", related_name="categories")
@@ -232,7 +233,7 @@ class BlogTag(Tag):
 
 class BlogPage(Page):
     body_richtext = RichTextField(
-        verbose_name=("body (HTML)"),
+        verbose_name=_("body (HTML)"),
         blank=True,
         features=[
             "h1",
@@ -271,13 +272,13 @@ class BlogPage(Page):
 
     add_toc = models.BooleanField(
         default=False,
-        verbose_name=("Display TOC (Table Of Contents)"),
-        help_text=("A TOC can be auto-generated"),
+        verbose_name=_("Display TOC (Table Of Contents)"),
+        help_text=_("A TOC can be auto-generated"),
     )
 
     tags = ClusterTaggableManager(through=BlogPageTag, blank=True)
     date = models.DateField(
-        ("Post date"),
+        _("Post date"),
         default=datetime.datetime.today,
         help_text=(
             "This date may be displayed on the blog post. It is not "
@@ -290,7 +291,7 @@ class BlogPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name="+",
-        verbose_name=("Header image"),
+        verbose_name=_("Header image"),
     )
     authors = models.CharField(
         blank=True,
@@ -413,7 +414,7 @@ class WordpressMapping(models.Model):
         blank=True,
         on_delete=models.SET_NULL,
         related_name="mappings",
-        verbose_name=("Wagtail image"),
+        verbose_name=_("Wagtail image"),
     )
     document = models.ForeignKey(
         get_document_model_string(),
@@ -421,7 +422,7 @@ class WordpressMapping(models.Model):
         blank=True,
         on_delete=models.SET_NULL,
         related_name="+",
-        verbose_name=("Wagtail image"),
+        verbose_name=_("Wagtail image"),
     )
 
 
@@ -430,7 +431,7 @@ BlogPage.content_panels = [
     MultiFieldPanel(
         [
             FieldPanel("tags"),
-            InlinePanel("categories", label=("Categories")),
+            InlinePanel("categories", label=_("Categories")),
         ],
         heading="Tags and Categories",
     ),

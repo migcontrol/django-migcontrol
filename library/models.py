@@ -383,13 +383,6 @@ class BusinessPageBusinessPageSource(models.Model):
 class BusinessPage(Page):
     template = "library/business/business_page.html"
 
-    organization_type = models.CharField(
-        verbose_name=_("organization type"),
-        blank=True,
-        null=True,
-        max_length=255,
-    )
-
     country_jurisdiction = CountryField(
         verbose_name=_("country"),
         blank=True,
@@ -450,9 +443,9 @@ class BusinessPage(Page):
     )
 
     content_panels = Page.content_panels + [
-        FieldPanel("organization_type"),
         FieldPanel("country_jurisdiction"),
         FieldPanel("city_jurisdiction"),
+        FieldPanel("branches"),
         FieldPanel("about"),
         FieldPanel("eu_border_contribution"),
         FieldPanel("website"),
