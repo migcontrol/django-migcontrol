@@ -94,7 +94,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('home', '0003_article'),
-        ('wagtailcore', '0053_locale_model'),
+        ('wagtailcore', '0073_page_latest_revision'),
     ]
 
     operations = [
