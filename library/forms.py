@@ -21,12 +21,12 @@ class LibraryFilterForm(forms.Form):
         + settings.LANGUAGES,
     )
     region = forms.ModelChoiceField(
-        queryset=models.RegionSnippet.objects.all().order_by('name'),
+        queryset=models.RegionSnippet.objects.all().order_by("name"),
         required=False,
         label=_("Region"),
     )
     topic = forms.ModelChoiceField(
-        queryset=models.TopicSnippet.objects.all().order_by('name'),
+        queryset=models.TopicSnippet.objects.all().order_by("name"),
         required=False,
         label=_("Topic"),
     )
