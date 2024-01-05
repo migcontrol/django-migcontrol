@@ -32,7 +32,7 @@
           </tr>
           <tr>
             <th>{% trans "Other branches" %}</th>
-            <td>{{ business_page.branches|default:_("None / Unspecified")|linebreaksbr }}</td>
+            <td>{{ business_page.branches|default:_("None / Unspecified")|richtext }}</td>
           </tr>
         </table>
         {{ business_page.about|richtext|truncatewords_html:100 }}
