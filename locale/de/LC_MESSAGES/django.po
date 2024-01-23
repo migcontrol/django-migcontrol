@@ -80,15 +80,15 @@ msgstr ""
 
 #: home/templates/home/blocks/carousel_blog.html:10
 msgid "No blog pages published"
-msgstr ""
+msgstr "Keine Blogseiten veröffentlich"
 
 #: home/templates/home/newsletter_signup.html:5
 msgid "Newsletter signup"
-msgstr ""
+msgstr "Für den Newsletter anmelden"
 
 #: home/templates/home/newsletter_signup.html:8
 msgid "We have signed you up. Thanks!"
-msgstr ""
+msgstr "Du wurdest angemeldet. Danke"
 
 #: home/templates/home/newsletter_signup.html:14
 #: migcontrol/templates/base.html:186
@@ -123,7 +123,7 @@ msgstr ""
 
 #: library/forms.py:41 library/templates/library/index.html:34
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: library/forms.py:42
 msgid "Year published"
@@ -267,7 +267,7 @@ msgstr ""
 #: library/templates/library/business/business_page.html:29
 #: library/templates/library/media_page.html:49
 msgid "Regions"
-msgstr ""
+msgstr "Regionen"
 
 #: library/models.py:460
 #: library/templates/library/business/business_page.html:39
@@ -280,21 +280,21 @@ msgstr "Länder"
 #, fuzzy
 #| msgid "Blog Categories"
 msgid "Business categories"
-msgstr "Blog Kategorien"
+msgstr "Blog-Kategorien"
 
 #: library/models.py:462
 #: library/templates/library/business/business_page.html:59
 msgid "Sources"
-msgstr ""
+msgstr "Quellen"
 
 #: library/templates/library/base.html:6
 msgid "Monthly reviews"
-msgstr ""
+msgstr "Monatliche Presseschau"
 
 #: library/templates/library/business/business_page.html:12
 #: library/templates/library/business/index.html:25
 msgid "Registered office"
-msgstr ""
+msgstr "Firmensitz"
 
 #: library/templates/library/business/business_page.html:14
 #: library/templates/library/business/business_page.html:34
@@ -310,18 +310,18 @@ msgstr ""
 #: library/templates/library/media_page.html:30
 #: library/templates/library/media_page.html:33
 msgid "Unspecified"
-msgstr ""
+msgstr "Nicht spezifiziert"
 
 #: library/templates/library/business/business_page.html:21
 #: library/templates/library/business/index.html:34
 msgid "Other branches"
-msgstr ""
+msgstr "Andere Bereiche"
 
 #: library/templates/library/business/business_page.html:22
 #: library/templates/library/business/business_page.html:26
 #: library/templates/library/business/index.html:35
 msgid "None / Unspecified"
-msgstr ""
+msgstr "Nicht spezifiziert"
 
 #: library/templates/library/business/business_page.html:49
 #: wiki/templates/wiki/index.html:23
@@ -330,15 +330,15 @@ msgstr "Kategorien"
 
 #: library/templates/library/business/business_page.html:70
 msgid "About the company"
-msgstr ""
+msgstr "Über das Unternehmen"
 
 #: library/templates/library/business/business_page.html:73
 msgid "Contribution to the EU border regime"
-msgstr ""
+msgstr "Beitrag zum EU-Grenzregime"
 
 #: library/templates/library/business/business_page.html:74
 msgid "<p>Text in progress</p>"
-msgstr ""
+msgstr "<p>Text in Bearbeitung</p>"
 
 #: library/templates/library/business/business_page.html:78
 #, fuzzy
@@ -364,32 +364,32 @@ msgstr ""
 
 #: library/templates/library/index.html:27
 msgid "results"
-msgstr ""
+msgstr "Ergebnisse"
 
 #: library/templates/library/index.html:37
 #: library/templates/library/media_page.html:27
 msgid "Publisher"
-msgstr ""
+msgstr "Veröffentlicht von"
 
 #: library/templates/library/index.html:40
 msgid "Year of Publication"
-msgstr ""
+msgstr "Erscheinungsjahr"
 
 #: library/templates/library/index.html:43
 msgid "Media"
-msgstr ""
+msgstr "Medientyp"
 
 #: library/templates/library/media_page.html:24
 msgid "Full title"
-msgstr ""
+msgstr "Vollständiger Titel"
 
 #: library/templates/library/media_page.html:30
 msgid "Year"
-msgstr ""
+msgstr "Jahr"
 
 #: library/templates/library/media_page.html:33
 msgid "Media type"
-msgstr ""
+msgstr "Medientyp"
 
 #: library/templates/library/media_page.html:36
 msgid "Link"
@@ -397,16 +397,16 @@ msgstr ""
 
 #: library/templates/library/media_page.html:36
 msgid "None provided"
-msgstr ""
+msgstr "Keine"
 
 #: library/templates/library/media_page.html:39
 msgid "Topics"
-msgstr ""
+msgstr "Themen"
 
 #: library/templates/library/media_page.html:44
 #: library/templates/library/media_page.html:54
 msgid "None added"
-msgstr ""
+msgstr "Keine hinzugefügt"
 
 #: migcontrol/templates/base.html:26 migcontrol/templates/base.html:32
 #: migcontrol/templates/base.html:39 migcontrol/templates/base.html:47
@@ -449,7 +449,7 @@ msgstr "Kategorien"
 
 #: wiki/templates/wiki/wiki_page.html:22
 msgid "Published"
-msgstr ""
+msgstr "Veröffentlicht"
 
 #, fuzzy
 #~| msgid "Latest updates"
@@ -463,13 +463,13 @@ msgstr ""
 #~ msgstr "Wiki"
 
 #~ msgid "Blog index"
-#~ msgstr "Blog Verzeichnis"
+#~ msgstr "Blog-Verzeichnis"
 
 #~ msgid "Category Name"
 #~ msgstr "Kategorie"
 
 #~ msgid "Blog Category"
-#~ msgstr "Blog Kategorie"
+#~ msgstr "Blog-Kategorie"
 
 #~ msgid "Category"
 #~ msgstr "Kategorie"
