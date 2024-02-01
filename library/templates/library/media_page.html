@@ -24,6 +24,9 @@
     <th>{% trans "Full title" %}</th><td>{{ page.full_title|default:_("Unspecified") }}</td>
   </tr>
   <tr>
+    <th>{% trans "Author" %}</th><td>{{ page.authors|default:_("Unspecified") }}</td>
+  </tr>
+  <tr>
     <th>{% trans "Publisher" %}</th><td>{{ page.publisher|default:_("Unspecified") }}</td>
   </tr>
   <tr>
