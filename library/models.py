@@ -1,5 +1,8 @@
+from django.conf import settings
 from django.db import models
+from django.db.models.functions import Collate
 from django.utils import timezone
+from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 from modelcluster.fields import ParentalKey
@@ -146,7 +149,15 @@ class LibraryIndexPage(Page):
 
         filter_form = LibraryFilterForm(request.GET)
 
-        qs = MediaPage.objects.all().live().order_by("title").specific()
+        if (
+            get_language() == "de"
+            and "postgres" in settings.DATABASES["default"]["ENGINE"]
+        ):
+            ordering = Collate("title", "de-x-icu")
+        else:
+            ordering = "title"
+
+        qs = MediaPage.objects.all().live().order_by(ordering).specific()
 
         if filter_form.is_valid():
             qs = filter_form.apply_filter(qs)
@@ -298,8 +309,16 @@ class BusinessIndexPage(Page):
 
     def get_context(self, request):
         context = super().get_context(request)
+        if (
+            get_language() == "de"
+            and "postgres" in settings.DATABASES["default"]["ENGINE"]
+        ):
+            ordering = Collate("title", "de-x-icu")
+        else:
+            ordering = "title"
+
         context["business_pages"] = (
-            self.get_children().live().type(BusinessPage).specific()
+            self.get_children().live().type(BusinessPage).specific().order_by(ordering)
         )
         return context
 
