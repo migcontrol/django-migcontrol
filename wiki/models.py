@@ -1,6 +1,9 @@
 from bs4 import BeautifulSoup
+from django.conf import settings
 from django.db import models
+from django.db.models.functions import Collate
 from django.utils.text import slugify
+from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 from modelcluster.fields import ParentalKey
@@ -55,6 +58,13 @@ class WikiIndexPage(Page):
     ]
 
     def get_context(self, request):
+        if (
+            get_language() == "de"
+            and "postgres" in settings.DATABASES["default"]["ENGINE"]
+        ):
+            ordering = Collate("title", "de-x-icu")
+        else:
+            ordering = "wikipage__wiki_categories__wiki_category__name"
         context = super().get_context(request)
         context["wiki_pages"] = (
             self.get_children()
@@ -67,7 +77,7 @@ class WikiIndexPage(Page):
                 "locale__language_code",
                 "wikipage__wiki_categories__wiki_category__name",
             )
-            .order_by("wikipage__wiki_categories__wiki_category__name", "title")
+            .order_by("wikipage__wiki_categories__wiki_category__name", ordering)
         )
         return context
 
