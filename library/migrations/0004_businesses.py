@@ -5,8 +5,8 @@ import django.db.models.deletion
 import django_countries.fields
 import modelcluster.fields
 import uuid
-import wagtail.core.blocks
-import wagtail.core.fields
+import wagtail.blocks
+import wagtail.fields
 import wagtail.images.blocks
 
 
@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
             name='BusinessIndexPage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('body', wagtail.core.fields.StreamField([('heading', wagtail.core.blocks.CharBlock(form_classname='full title')), ('paragraph', wagtail.core.blocks.RichTextBlock()), ('image', wagtail.images.blocks.ImageChooserBlock())], blank=True, help_text='The main contents of the page', verbose_name='body')),
+                ('body', wagtail.fields.StreamField([('heading', wagtail.blocks.CharBlock(form_classname='full title')), ('paragraph', wagtail.blocks.RichTextBlock()), ('image', wagtail.images.blocks.ImageChooserBlock())], blank=True, help_text='The main contents of the page', verbose_name='body')),
             ],
             options={
                 'abstract': False,
@@ -49,9 +49,9 @@ class Migration(migrations.Migration):
                 ('organization_type', models.CharField(blank=True, max_length=255, null=True, verbose_name='organization type')),
                 ('country_jurisdiction', django_countries.fields.CountryField(blank=True, default='', help_text="Home country/jurisdiction of the organization (where it's registered)", max_length=2, verbose_name='country')),
                 ('city_jurisdiction', models.CharField(blank=True, help_text="Home city/jurisdiction of the organization (where it's registered)", max_length=512, null=True, verbose_name='city')),
-                ('branches', wagtail.core.fields.RichTextField(blank=True, help_text='Use this to name other brands or country offices owned by the same company. This text is free-form for now and until there is a desired data model for mapping branches.', verbose_name='Branches (subsidiaries)')),
-                ('about', wagtail.core.fields.RichTextField(blank=True)),
-                ('eu_border_contribution', wagtail.core.fields.RichTextField(blank=True)),
+                ('branches', wagtail.fields.RichTextField(blank=True, help_text='Use this to name other brands or country offices owned by the same company. This text is free-form for now and until there is a desired data model for mapping branches.', verbose_name='Branches (subsidiaries)')),
+                ('about', wagtail.fields.RichTextField(blank=True)),
+                ('eu_border_contribution', wagtail.fields.RichTextField(blank=True)),
                 ('website', models.URLField(blank=True, null=True)),
                 ('authors', models.CharField(blank=True, max_length=1024, null=True, verbose_name='authors')),
             ],

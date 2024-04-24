@@ -3,8 +3,8 @@
 from django.db import migrations, models
 import django.db.models.deletion
 import django_countries.fields
-import wagtail.core.blocks
-import wagtail.core.fields
+import wagtail.blocks
+import wagtail.fields
 import wagtail.images.blocks
 
 
@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
             name='WikiIndexPage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('body', wagtail.core.fields.StreamField([('heading', wagtail.core.blocks.CharBlock(form_classname='full title')), ('paragraph', wagtail.core.blocks.RichTextBlock()), ('image', wagtail.images.blocks.ImageChooserBlock())], blank=True, help_text='The main contents of the page', verbose_name='body')),
+                ('body', wagtail.fields.StreamField([('heading', wagtail.blocks.CharBlock(form_classname='full title')), ('paragraph', wagtail.blocks.RichTextBlock()), ('image', wagtail.images.blocks.ImageChooserBlock())], blank=True, help_text='The main contents of the page', verbose_name='body')),
             ],
             options={
                 'abstract': False,
@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
                 ('country', django_countries.fields.CountryField(blank=True, default='', max_length=746, multiple=True, verbose_name='country')),
                 ('short_description', models.TextField(blank=True, null=True)),
                 ('authors', models.CharField(blank=True, help_text='Mention author(s) by the name to be displayed', max_length=255, null=True, verbose_name='author(s)')),
-                ('description', wagtail.core.fields.RichTextField()),
+                ('description', wagtail.fields.RichTextField()),
                 ('header_image', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='+', to='images.customimage', verbose_name='Header image')),
             ],
             options={

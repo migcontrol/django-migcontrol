@@ -3,8 +3,8 @@
 from django.db import migrations, models
 import django.db.models.deletion
 import modelcluster.fields
-import wagtail.core.blocks
-import wagtail.core.fields
+import wagtail.blocks
+import wagtail.fields
 import wagtail.images.blocks
 
 
@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='homepage',
             name='body',
-            field=wagtail.core.fields.StreamField([('heading', wagtail.core.blocks.CharBlock(form_classname='full title')), ('paragraph', wagtail.core.blocks.RichTextBlock()), ('image', wagtail.images.blocks.ImageChooserBlock()), ('feature', wagtail.core.blocks.StructBlock([('headline', wagtail.core.blocks.CharBlock()), ('sub_headline', wagtail.core.blocks.CharBlock()), ('description', wagtail.core.blocks.RichTextBlock()), ('read_more', wagtail.core.blocks.PageChooserBlock())])), ('carousel', wagtail.core.blocks.StreamBlock([('blog', wagtail.core.blocks.StructBlock([('latest_blog_post', wagtail.core.blocks.BooleanBlock(required=False)), ('blog_post', wagtail.core.blocks.PageChooserBlock(page_type=['blog.BlogPage'], required=False))])), ('page', wagtail.core.blocks.StructBlock([('image', wagtail.images.blocks.ImageChooserBlock()), ('page', wagtail.core.blocks.PageChooserBlock())])), ('raw', wagtail.core.blocks.StructBlock([('image', wagtail.images.blocks.ImageChooserBlock()), ('headline', wagtail.core.blocks.CharBlock()), ('description', wagtail.core.blocks.RichTextBlock()), ('read_more', wagtail.core.blocks.PageChooserBlock())]))], template='home/blocks/carousel.html')), ('section_cards', wagtail.core.blocks.StreamBlock([('section', wagtail.core.blocks.StructBlock([('headline', wagtail.core.blocks.CharBlock()), ('description', wagtail.core.blocks.RichTextBlock())]))], template='home/blocks/section_cards.html'))], blank=True, help_text='The main contents of the page', verbose_name='body'),
+            field=wagtail.fields.StreamField([('heading', wagtail.blocks.CharBlock(form_classname='full title')), ('paragraph', wagtail.blocks.RichTextBlock()), ('image', wagtail.images.blocks.ImageChooserBlock()), ('feature', wagtail.blocks.StructBlock([('headline', wagtail.blocks.CharBlock()), ('sub_headline', wagtail.blocks.CharBlock()), ('description', wagtail.blocks.RichTextBlock()), ('read_more', wagtail.blocks.PageChooserBlock())])), ('carousel', wagtail.blocks.StreamBlock([('blog', wagtail.blocks.StructBlock([('latest_blog_post', wagtail.blocks.BooleanBlock(required=False)), ('blog_post', wagtail.blocks.PageChooserBlock(page_type=['blog.BlogPage'], required=False))])), ('page', wagtail.blocks.StructBlock([('image', wagtail.images.blocks.ImageChooserBlock()), ('page', wagtail.blocks.PageChooserBlock())])), ('raw', wagtail.blocks.StructBlock([('image', wagtail.images.blocks.ImageChooserBlock()), ('headline', wagtail.blocks.CharBlock()), ('description', wagtail.blocks.RichTextBlock()), ('read_more', wagtail.blocks.PageChooserBlock())]))], template='home/blocks/carousel.html')), ('section_cards', wagtail.blocks.StreamBlock([('section', wagtail.blocks.StructBlock([('headline', wagtail.blocks.CharBlock()), ('description', wagtail.blocks.RichTextBlock())]))], template='home/blocks/section_cards.html'))], blank=True, help_text='The main contents of the page', verbose_name='body'),
         ),
         migrations.CreateModel(
             name='OrganizationRelation',

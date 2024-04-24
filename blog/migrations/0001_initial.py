@@ -7,8 +7,8 @@ from django.db import migrations, models
 import django.db.models.deletion
 import modelcluster.contrib.taggit
 import modelcluster.fields
-import wagtail.core.blocks
-import wagtail.core.fields
+import wagtail.blocks
+import wagtail.fields
 import wagtail.images.blocks
 import wagtailmarkdown.blocks
 import wagtailmarkdown.fields
@@ -64,7 +64,7 @@ class Migration(migrations.Migration):
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
                 ('body_richtext', models.TextField(blank=True, verbose_name='body (HTML)')),
                 ('body_markdown', wagtailmarkdown.fields.MarkdownField(blank=True, default='', verbose_name='body (Markdown)')),
-                ('body_mixed', wagtail.core.fields.StreamField([('heading', wagtail.core.blocks.CharBlock(form_classname='full title')), ('paragraph', wagtail.core.blocks.RichTextBlock()), ('image', wagtail.images.blocks.ImageChooserBlock()), ('markdown', wagtailmarkdown.blocks.MarkdownBlock())], blank=True, help_text='Avoiding this at first because data might be hard to migrate?', verbose_name='body (mixed)')),
+                ('body_mixed', wagtail.fields.StreamField([('heading', wagtail.blocks.CharBlock(form_classname='full title')), ('paragraph', wagtail.blocks.RichTextBlock()), ('image', wagtail.images.blocks.ImageChooserBlock()), ('markdown', wagtailmarkdown.blocks.MarkdownBlock())], blank=True, help_text='Avoiding this at first because data might be hard to migrate?', verbose_name='body (mixed)')),
                 ('date', models.DateField(default=datetime.datetime.today, help_text='This date may be displayed on the blog post. It is not used to schedule posts to go live at a later date.', verbose_name='Post date')),
                 ('author', models.ForeignKey(blank=True, limit_choices_to=blog.models.limit_author_choices, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='author_pages', to=settings.AUTH_USER_MODEL, verbose_name='Author')),
                 ('blog_categories', models.ManyToManyField(blank=True, through='blog.BlogCategoryBlogPage', to='blog.BlogCategory')),

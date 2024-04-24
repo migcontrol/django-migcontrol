@@ -1,12 +1,12 @@
 Django>=3.2,<3.3
-wagtail>=4.0,<4.1
+wagtail>=5.0,<5.1
 django_libsass
 django-compressor<3
 psycopg2-binary
-wagtail-markdown==0.10
+wagtail-markdown==0.11.1  # Last with wagtail<5.2
 django-countries>=7,<8
-wagtail-localize>=1.4,<1.5
-wagtail-footnotes>=0.8.1,<0.10
+wagtail-localize>=1.8,<1.9  # Last to support wagtail <5.2
+wagtail-footnotes>=0.10,<0.11  # 0.10 adds Wagtail 5 support
 lxml>=4.7
 sorl-thumbnail
 uTidylib==0.8
