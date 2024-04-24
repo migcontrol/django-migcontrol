@@ -64,7 +64,7 @@ class WikiIndexPage(Page):
         ):
             ordering = Collate("title", "de-x-icu")
         else:
-            ordering = "wikipage__wiki_categories__wiki_category__name"
+            ordering = "title"
         context = super().get_context(request)
         context["wiki_pages"] = (
             self.get_children()
