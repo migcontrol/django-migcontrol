@@ -32,3 +32,9 @@ repos:
           (?x)^(
               .*/migrations/.*
           )$
+
+-   repo: https://github.com/adamchainz/django-upgrade
+    rev: "1.16.0"  # replace with latest tag on GitHub
+    hooks:
+    -   id: django-upgrade
+        args: [--target-version, "5.0"]   # Replace with Django version

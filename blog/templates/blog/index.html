@@ -74,10 +74,10 @@
 
     <div class="pagination btn-group">
     {% if blogs.has_next %}
-      <a class="btn btn-outline-info" href="?page={{ blogs.next_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&amp;{{ key }}={{ value }}{% endifnotequal %}{% endfor %}">&larr; {% trans "Older" %}</a>
+      <a class="btn btn-outline-info" href="?page={{ blogs.next_page_number }}{% for key,value in request.GET.items %}{% if key != 'page' %}&amp;{{ key }}={{ value }}{% endif %}{% endfor %}">&larr; {% trans "Older" %}</a>
     {% endif %}
     {% if blogs.has_previous %}
-      <a class="btn btn-outline-info" href="?page={{ blogs.previous_page_number }}{% for key,value in request.GET.items %}{% ifnotequal key 'page' %}&amp;{{ key }}={{ value }}{% endifnotequal %}{% endfor %}">{% trans "Newer" %} &rarr;</a>
+      <a class="btn btn-outline-info" href="?page={{ blogs.previous_page_number }}{% for key,value in request.GET.items %}{% if key != 'page' %}&amp;{{ key }}={{ value }}{% endif %}{% endfor %}">{% trans "Newer" %} &rarr;</a>
     {% endif %}
     </div>
 
