@@ -1,5 +1,5 @@
 Django>=4.2,<5
-wagtail>=5.0,<5.1
+wagtail>=5.2,<6
 django_libsass
 django-compressor<4.5  # 4.4 supports Django 4.2
 psycopg2-binary
