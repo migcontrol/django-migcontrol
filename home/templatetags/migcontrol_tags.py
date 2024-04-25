@@ -8,9 +8,9 @@ from django.utils import translation
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
 from sorl.thumbnail import get_thumbnail
-from wagtail.core.models import Site
-from wagtail.core.templatetags.wagtailcore_tags import pageurl
 from wagtail.models import Page
+from wagtail.models import Site
+from wagtail.templatetags.wagtailcore_tags import pageurl
 
 
 register = template.Library()

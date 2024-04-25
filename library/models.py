@@ -6,17 +6,17 @@ from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 from modelcluster.fields import ParentalKey
-from wagtail.admin.edit_handlers import FieldPanel
-from wagtail.admin.edit_handlers import InlinePanel
-from wagtail.core import blocks
-from wagtail.core.fields import RichTextField
-from wagtail.core.fields import StreamField
-from wagtail.core.models.i18n import TranslatableMixin
-from wagtail.core.templatetags.wagtailcore_tags import richtext
+from wagtail import blocks
+from wagtail.admin.panels import FieldPanel
+from wagtail.admin.panels import InlinePanel
+from wagtail.fields import RichTextField
+from wagtail.fields import StreamField
 from wagtail.images import get_image_model_string
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Page
+from wagtail.models.i18n import TranslatableMixin
 from wagtail.snippets.models import register_snippet
+from wagtail.templatetags.wagtailcore_tags import richtext
 
 
 MEDIA_TYPES = [
@@ -136,6 +136,7 @@ class LibraryIndexPage(Page):
         verbose_name="body",
         blank=True,
         help_text="The main contents of the page",
+        use_json_field=True,
     )
     content_panels = [
         FieldPanel("title", classname="full title"),
@@ -301,6 +302,7 @@ class BusinessIndexPage(Page):
         verbose_name="body",
         blank=True,
         help_text="The main contents of the page",
+        use_json_field=True,
     )
     content_panels = [
         FieldPanel("title", classname="full title"),

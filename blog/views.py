@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib.syndication.views import Feed
 from django.shortcuts import get_object_or_404
 from django.utils.feedgenerator import Atom1Feed
-from wagtail.core.models.i18n import Locale
+from wagtail.models.i18n import Locale
 
 from .models import BlogCategory
 from .models import BlogIndexPage

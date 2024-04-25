@@ -4,12 +4,12 @@ from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from modelcluster.fields import ParentalKey
 from modelcluster.models import ClusterableModel
-from wagtail.admin.edit_handlers import FieldPanel
-from wagtail.admin.edit_handlers import InlinePanel
-from wagtail.core import blocks
-from wagtail.core.fields import StreamField
-from wagtail.core.models import Orderable
+from wagtail import blocks
+from wagtail.admin.panels import FieldPanel
+from wagtail.admin.panels import InlinePanel
+from wagtail.fields import StreamField
 from wagtail.images.blocks import ImageChooserBlock
+from wagtail.models import Orderable
 from wagtail.models import Page
 from wagtail.snippets.models import register_snippet
 
@@ -55,6 +55,7 @@ class HomePage(Page):
             ),
             ("organizations_card", OrganizationsCardBlock()),
         ],
+        use_json_field=True,
         verbose_name="body",
         blank=True,
         help_text="The main contents of the page",
@@ -81,6 +82,7 @@ class ArticleBase(models.Model):
         verbose_name="body",
         blank=True,
         help_text="The main contents of the page",
+        use_json_field=True,
     )
     content_panels = [
         FieldPanel("title", classname="full title"),

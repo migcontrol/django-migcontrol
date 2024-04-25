@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='blogpage',
             name='body_richtext',
-            field=wagtail.core.fields.RichTextField(blank=True, verbose_name='body (HTML)'),
+            field=wagtail.fields.RichTextField(blank=True, verbose_name='body (HTML)'),
         ),
         migrations.AlterField(
             model_name='blogpage',

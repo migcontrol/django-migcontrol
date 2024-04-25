@@ -18,22 +18,22 @@ from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey
 from taggit.models import Tag
 from taggit.models import TaggedItemBase
-from wagtail.admin.edit_handlers import FieldPanel
-from wagtail.admin.edit_handlers import FieldRowPanel
-from wagtail.admin.edit_handlers import InlinePanel
-from wagtail.admin.edit_handlers import MultiFieldPanel
-from wagtail.core import blocks
-from wagtail.core import hooks
-from wagtail.core.fields import RichTextField
-from wagtail.core.fields import StreamField
-from wagtail.core.models.i18n import TranslatableMixin
-from wagtail.core.templatetags.wagtailcore_tags import richtext
+from wagtail import blocks
+from wagtail import hooks
+from wagtail.admin.panels import FieldPanel
+from wagtail.admin.panels import FieldRowPanel
+from wagtail.admin.panels import InlinePanel
+from wagtail.admin.panels import MultiFieldPanel
 from wagtail.documents import get_document_model_string
+from wagtail.fields import RichTextField
+from wagtail.fields import StreamField
 from wagtail.images import get_image_model_string
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.models import Page
+from wagtail.models.i18n import TranslatableMixin
 from wagtail.search import index
 from wagtail.snippets.models import register_snippet
+from wagtail.templatetags.wagtailcore_tags import richtext
 from wagtail_footnotes.blocks import RichTextBlockWithFootnotes
 
 from home.models import ArticleBase
@@ -268,6 +268,7 @@ class BlogPage(Page):
         verbose_name="body (mixed)",
         blank=True,
         help_text="Avoiding this at first because data might be hard to migrate?",
+        use_json_field=True,
     )
 
     add_toc = models.BooleanField(
