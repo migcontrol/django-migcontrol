@@ -2,6 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% load wagtailcore_tags %}
+{% load migcontrol_tags %}
 
 {% block content %}
 
@@ -32,7 +33,7 @@
           </tr>
           <tr>
             <th>{% trans "Other branches" %}</th>
-            <td>{{ business_page.branches|default:_("None / Unspecified")|richtext }}</td>
+            <td>{{ business_page.branches|default:_("None / Unspecified")|to_string|richtext }}</td>
           </tr>
         </table>
         {{ business_page.about|richtext|truncatewords_html:100 }}

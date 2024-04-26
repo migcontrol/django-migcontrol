@@ -171,6 +171,11 @@ def startswith(text, starts):
 
 
 @register.filter()
+def to_string(value):
+    return str(value)
+
+
+@register.filter()
 def migcontrol_relative_url_path(url_path, locale_id):
 
     url_parts = url_path.split("/")
