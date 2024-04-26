@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load static %}
 {% load wagtailcore_tags %}
+{% load migcontrol_tags %}
 
 {% block content %}
 
@@ -19,7 +20,7 @@
   </tr>
   <tr>
     <th>{% trans "Other branches" %}</th>
-    <td>{{ page.branches|default:_("None / Unspecified")|richtext }}</td>
+    <td>{{ page.branches|default:_("None / Unspecified")|to_string|richtext }}</td>
   </tr>
 {% comment %}
   <tr>
