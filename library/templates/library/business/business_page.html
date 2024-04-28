@@ -74,7 +74,7 @@
 {{ page.about|richtext }}
 
 <h2>{% trans "Contribution to the EU border regime" %}</h2>
-{{ page.eu_border_contribution|default:_("<p>Text in progress</p>")|richtext }}
+{{ page.eu_border_contribution|default:_("<p>Text in progress</p>")|to_string|richtext }}
 
 
 <p>
