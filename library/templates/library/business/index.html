@@ -8,7 +8,9 @@
 
 <h1 class="migcontrol-page-title">{{ page.title }}</h1>
 
-<p>This listing will be improved over time.</p>
+{% for block in page.body %}
+  {% include_block block %}
+{% endfor %}
 
 <div class="accordion" id="accordionExample">
 
