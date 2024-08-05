@@ -66,6 +66,7 @@ Right-To-Left notes
 We create an RTL version of the final bootstrap artifact quite manually:
 
 1. Copy the latest generated version of ``main.css`` to ``/css/input.css``.
+   This version is found by running `python manage.py compress --force` and then copying the latest version from `static/CACHE/css/output.XXX.css`
 2. Run ``docker build -f Dockerfile_rtlcss -t rtlcss:latest .``
 3. Run ``docker run --volume $PWD/css:/css rtlcss:latest``
 4. Copy outputs ``cp css/output.min.css migcontrol/static/css/main.rtl.min.css``
