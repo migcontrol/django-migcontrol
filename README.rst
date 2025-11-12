@@ -17,7 +17,6 @@ To get started, run the following commands with uv:
 
     # Create a virtualenv and activate it
     # (remember to always activate it when you run commands)
-    uv venv
     uv sync
     source .venv/bin/activate
 
