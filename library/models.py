@@ -1,11 +1,16 @@
 from django.conf import settings
 from django.db import models
+from django.db.models import TextChoices
 from django.db.models.functions import Collate
 from django.utils import timezone
 from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
 from modelcluster.fields import ParentalKey
+from osm_field.fields import LatitudeField
+from osm_field.fields import LongitudeField
+from osm_field.fields import OSMField
+from osm_field.widgets import OSMWidget
 from wagtail import blocks
 from wagtail.admin.panels import FieldPanel
 from wagtail.admin.panels import InlinePanel
@@ -404,6 +409,10 @@ class BusinessPageBusinessPageSource(models.Model):
 class BusinessPage(Page):
     template = "library/business/business_page.html"
 
+    class Status(TextChoices):
+        ACTIVE = "active", "active"
+        INACTIVE = "inactive", "inactive"
+
     country_jurisdiction = CountryField(
         verbose_name=_("country"),
         blank=True,
@@ -456,11 +465,27 @@ class BusinessPage(Page):
 
     website = models.URLField(blank=True, null=True)
 
+    address = models.TextField(
+        blank=True, null=True, help_text=_("Address of headquarters.")
+    )
+
+    location = OSMField(blank=True, lat_field="latitude", lon_field="longitude")
+    latitude = LatitudeField(default=None, null=True)
+    longitude = LongitudeField(default=None, null=True)
+
+    # This is handled by the map, but don't forget you will probably need
+    # to be able to customize this...
+    zoom_level = models.PositiveSmallIntegerField(default=15)
+
     authors = models.CharField(
         max_length=1024,
         blank=True,
         null=True,
         verbose_name=_("authors"),
+    )
+
+    status = models.CharField(
+        default=Status.ACTIVE, choices=Status.choices, max_length=32
     )
 
     content_panels = Page.content_panels + [
@@ -470,10 +495,23 @@ class BusinessPage(Page):
         FieldPanel("about"),
         FieldPanel("eu_border_contribution"),
         FieldPanel("website"),
+        FieldPanel("status"),
         InlinePanel("businesspage_regions", label=_("Regions")),
         InlinePanel("businesspage_industries", label=_("Industries")),
         InlinePanel("businesspage_categories", label=_("Business categories")),
         InlinePanel("businesspage_sources", label=_("Sources")),
+        FieldPanel(
+            "latitude",
+        ),
+        FieldPanel(
+            "longitude",
+        ),
+        FieldPanel(
+            "location",
+            widget=OSMWidget("latitude", "longitude"),
+            classname="wagtailosm-location",
+            help_text=_("Choose location on map (instead of typing coordinates)"),
+        ),
     ]
 
     meta_panels = Page.promote_panels + ["authors"]
