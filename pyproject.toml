@@ -1,0 +1,22 @@
+[project]
+name = "django-migcontrol"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10,<3.11"
+dependencies = [
+    "django-libsass>=0.9",
+    "django>=4.2,<5",
+    "wagtail>=5.2,<6",
+    "django-compressor<4.5",
+    "psycopg2-binary>=2.9.11",
+    "wagtail-markdown==0.11.1",
+    "django-countries>=7,<8",
+    "wagtail-localize>=1.8,<1.9",
+    "wagtail-footnotes>=0.10,<0.11",
+    "lxml>=4.7",
+    "sorl-thumbnail>=12.11.0",
+    "utidylib==0.8",
+    "django-ratelimit>=4.1.0",
+    "wagtailosm>=0.3.2",
+]

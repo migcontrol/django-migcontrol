@@ -52,6 +52,8 @@ INSTALLED_APPS = [
     "sorl.thumbnail",
     "wagtailmarkdown",
     "modelcluster",
+    "osm_field",
+    "wagtailosm",
     "taggit",
     "compressor",
     "blog",

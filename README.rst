@@ -11,17 +11,14 @@ This website is based on:
 Development
 -----------
 
-To get started, run the following commands:
+To get started, run the following commands with uv:
 
 .. code-block:: console
 
     # Create a virtualenv and activate it
     # (remember to always activate it when you run commands)
-    python3 -m venv .virtualenv
-    source .virtualenv/bin/activate
-
-    # Install dependencies
-    pip install -r requirements.txt
+    uv sync
+    source .venv/bin/activate
 
     # Run migrations (creates the SQLite development database)
     # Remember to always run this step when migrations change
@@ -53,7 +50,7 @@ make sure that your virtualenv is active and then run:
 
 .. code-block:: console
 
-    pip install pre-commit
+    uvx install pre-commit
     pre-commit install
 
 Nothing will happen after this, but in the future your git commits will be
