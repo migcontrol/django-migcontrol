@@ -32,8 +32,8 @@ jobs:
         pre-commit run --all-files
     - name: Check that we can create and use translations
       run: |
-        python manage.py makemessages --all
-        python manage.py compilemessages
+        uv run manage.py makemessages --all
+        uv run manage.py compilemessages
     - name: Run Tests
       run: |
-        python manage.py test
+        uv run manage.py test
