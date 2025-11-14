@@ -205,7 +205,7 @@ requires-dist = [
     { name = "wagtail-footnotes", specifier = ">=0.10,<0.11" },
     { name = "wagtail-localize", specifier = ">=1.8,<1.9" },
     { name = "wagtail-markdown", specifier = "==0.11.1" },
-    { name = "wagtailosm", specifier = ">=0.3.1" },
+    { name = "wagtailosm", specifier = ">=0.3.2" },
 ]
 
 [[package]]
@@ -700,16 +700,16 @@ wheels = [
 
 [[package]]
 name = "wagtailosm"
-version = "0.3.1"
+version = "0.3.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django-osm-field" },
     { name = "wagtail" },
     { name = "wheel" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f0/6b/e4ca5ae2d795c712375c42d259c8bbdf2a89ac6dd179473d53356da66009/wagtailosm-0.3.1.tar.gz", hash = "sha256:0d72c133530d8025b9f519838ae2f38e9e3dac6783d959492fdc56e42b33c4fe", size = 662110 }
+sdist = { url = "https://files.pythonhosted.org/packages/89/d7/583cd82f7244378e913471318de98e4cf90e086142a8af8c10986c327fa6/wagtailosm-0.3.2.tar.gz", hash = "sha256:e419c1fccd2c9a88925be2bde492b11c269e9502bdad491ae8eb79ace335e3eb", size = 660929 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/59/59/5526183dbeadff9cca00bfdd42cc7c076579acb65e3f438092736aab2e51/wagtailosm-0.3.1-py3-none-any.whl", hash = "sha256:df8b8eba947a3805a12ae5faca94df9ef35891f2ecbc3e2e890d315bcb9b9432", size = 4050 },
+    { url = "https://files.pythonhosted.org/packages/86/3e/515a216da48d4e631cb61e8855b82a403e9aee1e35edcd4ada98efb54699/wagtailosm-0.3.2-py3-none-any.whl", hash = "sha256:52596aa4a16fd9a3ffcc792e52da8c0d6f36e302de2a841da89975dbcdd51d78", size = 4053 },
 ]
 
 [[package]]

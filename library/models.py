@@ -510,7 +510,9 @@ class BusinessPage(Page):
             "location",
             widget=OSMWidget("latitude", "longitude"),
             classname="wagtailosm-location",
-            help_text=_("Choose location on map (instead of typing coordinates)"),
+            help_text=_(
+                "Type a search term to choose a location on map (instead of typing coordinates)"
+            ),
         ),
     ]
 
