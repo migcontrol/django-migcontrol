@@ -501,6 +501,13 @@ class BusinessPage(Page):
         InlinePanel("businesspage_categories", label=_("Business categories")),
         InlinePanel("businesspage_sources", label=_("Sources")),
         FieldPanel(
+            "address",
+            help_text=_(
+                "Address of headquarters. Use one line for street, one line for zip code. No need for putting the name "
+                "of the company or the country."
+            ),
+        ),
+        FieldPanel(
             "latitude",
         ),
         FieldPanel(
