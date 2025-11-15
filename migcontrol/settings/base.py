@@ -226,12 +226,44 @@ STATICFILES_DIRS = [
 # ManifestStaticFilesStorage is recommended in production, to prevent outdated
 # JavaScript / CSS assets being served from cache (e.g. after a Wagtail upgrade).
 # See https://docs.djangoproject.com/en/3.2/ref/contrib/staticfiles/#manifeststaticfilesstorage
+# .venv/lib/python3.10/site-packages/wagtail/contrib/modeladmin/apps.py:15: RemovedInWagtail60Warning: wagtail.contrib.modeladmin is deprecated. Use wagtail.snippets or the separate wagtail-modeladmin package instead.
+#   warn(
+# Post-processing 'js/bootstrap.min.js' failed!
+#
+# Traceback (most recent call last):
+#   File "manage.py", line 10, in <module>
+#     execute_from_command_line(sys.argv)
+#   File ".venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 442, in execute_from_command_line
+#     utility.execute()
+#   File ".venv/lib/python3.10/site-packages/django/core/management/__init__.py", line 436, in execute
+#     self.fetch_command(subcommand).run_from_argv(self.argv)
+#   File ".venv/lib/python3.10/site-packages/django/core/management/base.py", line 412, in run_from_argv
+#     self.execute(*args, **cmd_options)
+#   File ".venv/lib/python3.10/site-packages/django/core/management/base.py", line 458, in execute
+#     output = self.handle(*args, **options)
+#   File ".venv/lib/python3.10/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 209, in handle
+#     collected = self.collect()
+#   File ".venv/lib/python3.10/site-packages/django/contrib/staticfiles/management/commands/collectstatic.py", line 154, in collect
+#     raise processed
+#   File ".venv/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 372, in _post_process
+#     content = pattern.sub(converter, content)
+#   File ".venv/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 249, in converter
+#     hashed_url = self._url(
+#   File ".venv/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 182, in _url
+#     hashed_name = hashed_name_func(*args)
+#   File ".venv/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 422, in _stored_name
+#     cache_name = self.clean_name(self.hashed_name(name))
+#   File ".venv/lib/python3.10/site-packages/django/contrib/staticfiles/storage.py", line 143, in hashed_name
+#     raise ValueError(
+# ValueError: The file 'js/bootstrap.min.js.map' could not be found with <django.contrib.staticfiles.storage.ManifestStaticFilesStorage object at 0x7f5f8139f340>.
+
 STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
+        # "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"
     },
 }
 
