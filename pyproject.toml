@@ -19,4 +19,5 @@ dependencies = [
     "utidylib==0.8",
     "django-ratelimit>=4.1.0",
     "wagtailosm>=0.3.2",
+    "django-osm-field==0.6.0",
 ]
