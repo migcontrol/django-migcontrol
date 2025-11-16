@@ -18,6 +18,5 @@ dependencies = [
     "sorl-thumbnail>=12.11.0",
     "utidylib==0.8",
     "django-ratelimit>=4.1.0",
-    "wagtailosm>=0.3.2",
-    "django-osm-field==0.6.0",
+    "wagtailosm>=0.4.0",
 ]

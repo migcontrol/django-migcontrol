@@ -178,7 +178,6 @@ dependencies = [
     { name = "django-compressor" },
     { name = "django-countries" },
     { name = "django-libsass" },
-    { name = "django-osm-field" },
     { name = "django-ratelimit" },
     { name = "lxml" },
     { name = "psycopg2-binary" },
@@ -197,7 +196,6 @@ requires-dist = [
     { name = "django-compressor", specifier = "<4.5" },
     { name = "django-countries", specifier = ">=7,<8" },
     { name = "django-libsass", specifier = ">=0.9" },
-    { name = "django-osm-field", specifier = "==0.6.0" },
     { name = "django-ratelimit", specifier = ">=4.1.0" },
     { name = "lxml", specifier = ">=4.7" },
     { name = "psycopg2-binary", specifier = ">=2.9.11" },
@@ -207,7 +205,7 @@ requires-dist = [
     { name = "wagtail-footnotes", specifier = ">=0.10,<0.11" },
     { name = "wagtail-localize", specifier = ">=1.8,<1.9" },
     { name = "wagtail-markdown", specifier = "==0.11.1" },
-    { name = "wagtailosm", specifier = ">=0.3.2" },
+    { name = "wagtailosm", specifier = ">=0.4.0" },
 ]
 
 [[package]]
@@ -702,16 +700,16 @@ wheels = [
 
 [[package]]
 name = "wagtailosm"
-version = "0.3.2"
+version = "0.4.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django-osm-field" },
     { name = "wagtail" },
     { name = "wheel" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/89/d7/583cd82f7244378e913471318de98e4cf90e086142a8af8c10986c327fa6/wagtailosm-0.3.2.tar.gz", hash = "sha256:e419c1fccd2c9a88925be2bde492b11c269e9502bdad491ae8eb79ace335e3eb", size = 660929 }
+sdist = { url = "https://files.pythonhosted.org/packages/10/8b/654f76d60637743fe6c7b1898cffe2a703b90b7e30bb5212898ac2c883a0/wagtailosm-0.4.0.tar.gz", hash = "sha256:0ea6cf7ec8a3c5f6f0f0b1e1eff427f35c57a24481b6d72a9a341e2a7ec03d0b", size = 656682 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/86/3e/515a216da48d4e631cb61e8855b82a403e9aee1e35edcd4ada98efb54699/wagtailosm-0.3.2-py3-none-any.whl", hash = "sha256:52596aa4a16fd9a3ffcc792e52da8c0d6f36e302de2a841da89975dbcdd51d78", size = 4053 },
+    { url = "https://files.pythonhosted.org/packages/05/b4/4e16e173c1fb9302b202807ff63b91ae38fef9844b5f2140b36f0aef0e30/wagtailosm-0.4.0-py3-none-any.whl", hash = "sha256:f04ab37962c344ec03d2eaff08c907b4de0883efdd96db74cffd9070a321fe65", size = 3708 },
 ]
 
 [[package]]
