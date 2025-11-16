@@ -205,7 +205,7 @@ requires-dist = [
     { name = "wagtail-footnotes", specifier = ">=0.10,<0.11" },
     { name = "wagtail-localize", specifier = ">=1.8,<1.9" },
     { name = "wagtail-markdown", specifier = "==0.11.1" },
-    { name = "wagtailosm", specifier = ">=0.3.2" },
+    { name = "wagtailosm", specifier = ">=0.4.0" },
 ]
 
 [[package]]
@@ -222,14 +222,14 @@ wheels = [
 
 [[package]]
 name = "django-osm-field"
-version = "0.5.0"
+version = "0.6.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/20/d8/3fcef086335bea9a63ccce27d4c194588f4b20ff56386ccdfd784ccfd67e/django-osm-field-0.5.0.tar.gz", hash = "sha256:4652bbf32f3474dda22618a19414e60fb0282644d81092671302fa7f23932296", size = 105420 }
+sdist = { url = "https://files.pythonhosted.org/packages/0e/10/923eeadd272bafd28ab3234a04d75fcb14508e01dfa372538ad087e48c72/django_osm_field-0.6.0.tar.gz", hash = "sha256:6f2118d6eb0d5625d43a755da02e46c143ba41697eaa6cc06d9bb2c5c82f1c7a", size = 91000 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/34/bb/2fa3b1859844624c1b190c883f854e9c35cf9c43392226eea6e167d9bcd0/django_osm_field-0.5.0-py3-none-any.whl", hash = "sha256:4639e9f85b122c2decc882f87ec3c74fcef1621037a0c5e85b4cb98966a41a12", size = 90362 },
+    { url = "https://files.pythonhosted.org/packages/75/57/ab09a954081f48e31f18367f196936c30d2f4f88d931c65bf09b5f62b950/django_osm_field-0.6.0-py3-none-any.whl", hash = "sha256:f47ef5bbc3131b151d91f31638991917788e089cf068c6f5703227bdbb87a18f", size = 91344 },
 ]
 
 [[package]]
@@ -700,16 +700,16 @@ wheels = [
 
 [[package]]
 name = "wagtailosm"
-version = "0.3.2"
+version = "0.4.0"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django-osm-field" },
     { name = "wagtail" },
     { name = "wheel" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/89/d7/583cd82f7244378e913471318de98e4cf90e086142a8af8c10986c327fa6/wagtailosm-0.3.2.tar.gz", hash = "sha256:e419c1fccd2c9a88925be2bde492b11c269e9502bdad491ae8eb79ace335e3eb", size = 660929 }
+sdist = { url = "https://files.pythonhosted.org/packages/10/8b/654f76d60637743fe6c7b1898cffe2a703b90b7e30bb5212898ac2c883a0/wagtailosm-0.4.0.tar.gz", hash = "sha256:0ea6cf7ec8a3c5f6f0f0b1e1eff427f35c57a24481b6d72a9a341e2a7ec03d0b", size = 656682 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/86/3e/515a216da48d4e631cb61e8855b82a403e9aee1e35edcd4ada98efb54699/wagtailosm-0.3.2-py3-none-any.whl", hash = "sha256:52596aa4a16fd9a3ffcc792e52da8c0d6f36e302de2a841da89975dbcdd51d78", size = 4053 },
+    { url = "https://files.pythonhosted.org/packages/05/b4/4e16e173c1fb9302b202807ff63b91ae38fef9844b5f2140b36f0aef0e30/wagtailosm-0.4.0-py3-none-any.whl", hash = "sha256:f04ab37962c344ec03d2eaff08c907b4de0883efdd96db74cffd9070a321fe65", size = 3708 },
 ]
 
 [[package]]
