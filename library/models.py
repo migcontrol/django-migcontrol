@@ -2,6 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.db.models import TextChoices
 from django.db.models.functions import Collate
+from django.shortcuts import get_object_or_404
 from django.utils import timezone
 from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
@@ -324,9 +325,34 @@ class BusinessIndexPage(Page):
         else:
             ordering = "title"
 
-        context["business_pages"] = (
+        pages_qs = (
             self.get_children().live().type(BusinessPage).specific().order_by(ordering)
         )
+
+        context["category"] = None
+
+        # Display all categories with an associated page
+        # TODO: This should resolve the parent page to this very page, but we don't really need that since we only
+        #   have one index...
+        context["categories"] = BusinessCategorySnippet.objects.exclude(businesses=None)
+
+        if request.GET.get("category"):
+            category_id = request.GET.get("category")
+            if category_id.isnumeric():
+                context["category"] = get_object_or_404(
+                    context["categories"], id=category_id
+                )
+                pages_qs = pages_qs.filter(
+                    businesspage__businesspage_categories__business_category_id=category_id
+                )
+
+        hide_inactive = bool(request.GET.get("hide-inactive"))
+        context["hide_inactive"] = hide_inactive
+        if hide_inactive:
+            pages_qs = pages_qs.filter(businesspage__status=BusinessPage.Status.ACTIVE)
+
+        context["business_pages"] = pages_qs
+
         return context
 
 

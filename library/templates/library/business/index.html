@@ -4,6 +4,32 @@
 {% load wagtailcore_tags %}
 {% load migcontrol_tags %}
 
+{% block sidebar %}
+
+    <p>{% trans "Filter by category" %}</p>
+
+    <a class="badge rounded-pill {% if not category %}bg-dark{% else %}bg-secondary{% endif %}" href="?hide-inactive={{ hide_inactive }}">
+        {% trans "All categories" %}
+    </a>
+    {% for list_category in categories %}
+      <a class="badge rounded-pill {% if list_category == category %}bg-dark{% else %}bg-secondary{% endif %}" href="?category={{ list_category.id }}&hide-inactive={{ hide_inactive }}">
+        {{ list_category.name }}
+      </a>
+    {% endfor %}
+
+    <p>{% trans "Show/hide" %}</p>
+
+    <form method="GET">
+        <input type="hidden" name="category" value="{{ category }}">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="hideInactive" name="hide-inactive"{% if hide_inactive %} checked{% endif %} onchange="this.form.submit()">
+          <label class="form-check-label" for="hideInactive">{% trans "Hide inactive profiteers" %}</label>
+        </div>
+    </form>
+
+{% endblock %}
+
+
 {% block content %}
 
 <h1 class="migcontrol-page-title">{{ page.title }}</h1>
