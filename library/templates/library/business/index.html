@@ -60,8 +60,14 @@
             </td>
           </tr>
           <tr>
-            <th>{% trans "Other branches" %}</th>
-            <td>{{ business_page.branches|default:_("None / Unspecified")|to_string|richtext }}</td>
+            <th>{% trans "Categories" %}</th>
+            <td>
+                {% for category in business_page.business_categories.all %}
+                    {{ category.name }}{% if not forloop.last %},{% endif %}
+                  {% empty %}
+                    {% trans "Unspecified" %}
+                {% endfor %}
+            </td>
           </tr>
         </table>
         {{ business_page.about|richtext|truncatewords_html:100 }}
