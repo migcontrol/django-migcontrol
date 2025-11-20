@@ -40,6 +40,23 @@ MEDIA_TYPES = [
 ]
 
 
+# Source: https://stackoverflow.com/a/38017535/405682
+class GroupConcat(models.Aggregate):
+    function = "GROUP_CONCAT"
+    template = "%(function)s(%(expressions)s)"
+
+    def __init__(self, expression, delimiter, **extra):
+        output_field = extra.pop("output_field", models.CharField())
+        delimiter = models.Value(delimiter)
+        super(GroupConcat, self).__init__(
+            expression, delimiter, output_field=output_field, **extra
+        )
+
+    def as_postgresql(self, compiler, connection):
+        self.function = "STRING_AGG"
+        return super(GroupConcat, self).as_sql(compiler, connection)
+
+
 @register_snippet
 class RegionSnippet(TranslatableMixin, models.Model):
 
@@ -350,6 +367,10 @@ class BusinessIndexPage(Page):
         context["hide_inactive"] = hide_inactive
         if hide_inactive:
             pages_qs = pages_qs.filter(businesspage__status=BusinessPage.Status.ACTIVE)
+
+        pages_qs = pages_qs.annotate(
+            category_names=GroupConcat("businesspage__business_categories__name", ", ")
+        )
 
         context["business_pages"] = pages_qs
 

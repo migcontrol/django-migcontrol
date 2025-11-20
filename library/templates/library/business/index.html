@@ -62,11 +62,7 @@
           <tr>
             <th>{% trans "Categories" %}</th>
             <td>
-                {% for category in business_page.business_categories.all %}
-                    {{ category.name }}{% if not forloop.last %},{% endif %}
-                  {% empty %}
-                    {% trans "Unspecified" %}
-                {% endfor %}
+                {{ business_page.category_names|default:_("Unspecified") }}
             </td>
           </tr>
         </table>
