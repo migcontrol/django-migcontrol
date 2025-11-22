@@ -32,7 +32,7 @@ const profiteers = [
     {% for business_page in business_pages_map %}
         {
             name: "{{ business_page.title|escapejs }}",
-            coords: [{{ business_page.latitude|escapejs }}, {{ business_page.longitude|escapejs }}],
+            coords: [{{ business_page.latitude }}, {{ business_page.longitude }}],
             link: "{{ business_page.url|escapejs }}",
             status: "{{ business_page.status|escapejs }}",
             address: "{{ business_page.address|escapejs }}"
