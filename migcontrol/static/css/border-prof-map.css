@@ -1,0 +1,24 @@
+/* styles.css */
+#map {
+    height: 500px;
+    width: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.custom-cluster-icon {
+    background-color: #8B0000;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    box-shadow: none;
+    opacity: 0.8;
+}

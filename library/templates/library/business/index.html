@@ -4,31 +4,14 @@
 {% load wagtailcore_tags %}
 {% load migcontrol_tags %}
 
-{% block sidebar %}
-
-    <p>{% trans "Filter by category" %}</p>
-
-    <a class="badge rounded-pill {% if not category %}bg-dark{% else %}bg-secondary{% endif %}" href="?hide-inactive={{ hide_inactive }}">
-        {% trans "All categories" %}
-    </a>
-    {% for list_category in categories %}
-      <a class="badge rounded-pill {% if list_category == category %}bg-dark{% else %}bg-secondary{% endif %}" href="?category={{ list_category.id }}&hide-inactive={{ hide_inactive }}">
-        {{ list_category.name }}
-      </a>
-    {% endfor %}
-
-    <p>{% trans "Show/hide" %}</p>
-
-    <form method="GET">
-        <input type="hidden" name="category" value="{{ category }}">
-        <div class="form-check form-switch">
-          <input class="form-check-input" type="checkbox" role="switch" id="hideInactive" name="hide-inactive"{% if hide_inactive %} checked{% endif %} onchange="this.form.submit()">
-          <label class="form-check-label" for="hideInactive">{% trans "Hide inactive profiteers" %}</label>
-        </div>
-    </form>
-
+{% block extra_css %}
+    {{ block.super }}
+    <!-- link stylesheets of Leaflet, Marker cluster and own -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="{% static 'css/border-prof-map.css' %}" />
 {% endblock %}
-
 
 {% block content %}
 
@@ -37,6 +20,59 @@
 {% for block in page.body %}
   {% include_block block %}
 {% endfor %}
+
+{% endblock content %}
+
+{% block after_content %}
+
+<div class="map-container">
+<div id="map"></div>
+<script type="text/javascript">
+const profiteers = [
+    {% for business_page in business_pages_map %}
+        {
+            name: "{{ business_page.title }}",
+            coords: [{{ business_page.latitude }}, {{ business_page.longitude }}],
+            link: "{{ business_page.url }}",
+            status: "{{ business_page.status }}",
+            address: "{{ business_page.address }}"
+        }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+];
+</script>
+
+<!-- link scripts of Leaflet, leaflet-providers, Marker Cluster and own -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+<script src="{% static 'js/border-prof-map.js' %}"></script>
+
+</div>
+
+<div class="container">
+
+<form method="GET">
+    <input type="hidden" name="category" value="{{ category }}">
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="hideInactive" name="hide-inactive"{% if hide_inactive %} checked{% endif %} onchange="this.form.submit()">
+      <label class="form-check-label" for="hideInactive">{% trans "Hide inactive profiteers" %}</label>
+    </div>
+</form>
+
+
+<p>{% trans "Filter list and map by category" %}</p>
+
+<p>
+<a class="badge rounded-pill {% if not category %}bg-dark{% else %}bg-secondary{% endif %}" href="?hide-inactive={{ hide_inactive }}">
+    {% trans "All categories" %}
+</a>
+
+{% for list_category in categories %}
+  <a class="badge rounded-pill {% if list_category == category %}bg-dark{% else %}bg-secondary{% endif %}" href="?category={{ list_category.id }}&hide-inactive={{ hide_inactive }}">
+    {{ list_category.name }}
+  </a>
+{% endfor %}
+</p>
 
 <div class="accordion" id="accordionExample">
 
@@ -74,4 +110,5 @@
   {% endfor %}
 </div>
 
-{% endblock content %}
+</div>
+{% endblock after_content %}

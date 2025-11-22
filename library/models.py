@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.db.models import Q
 from django.db.models import TextChoices
 from django.db.models.functions import Collate
 from django.shortcuts import get_object_or_404
@@ -373,6 +374,9 @@ class BusinessIndexPage(Page):
         )
 
         context["business_pages"] = pages_qs
+        context["business_pages_map"] = pages_qs.exclude(
+            Q(businesspage__latitude=None) | Q(businesspage__longitude=None)
+        )
 
         return context
 
