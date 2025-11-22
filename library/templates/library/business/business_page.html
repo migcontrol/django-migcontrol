@@ -4,6 +4,15 @@
 {% load wagtailcore_tags %}
 {% load migcontrol_tags %}
 
+{% block extra_css %}
+    {{ block.super }}
+    <!-- link stylesheets of Leaflet, Marker cluster and own -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="{% static 'migcontrol/static/css/border-prof-map.css' %}" />
+{% endblock %}
+
 {% block content %}
 
 <h1 class="migcontrol-page-title">{{ page.title }}</h1>
