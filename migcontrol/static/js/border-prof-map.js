@@ -23,7 +23,7 @@ const bounds = L.latLngBounds(southWest, northEast);
 
 // Initialize the map
 var map = L.map('map', {
-    maxZoom: 9
+    maxZoom: zoomLevel
 }).setView([40, 15], 4);
 
 
