@@ -34,7 +34,7 @@ const profiteers = [
         {
             name: "{{ business_page.title|escapejs }}",
             coords: [{{ business_page.latitude }}, {{ business_page.longitude }}],
-            link: "{{ business_page.url|escapejs }}",
+            link: "{% fullpageurl business_page %}",
             status: "{{ business_page.status|escapejs }}",
             address: "{{ business_page.address|escapejs }}"
         }{% if not forloop.last %},{% endif %}

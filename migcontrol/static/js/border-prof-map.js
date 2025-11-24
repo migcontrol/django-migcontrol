@@ -23,8 +23,8 @@ const bounds = L.latLngBounds(southWest, northEast);
 
 // Initialize the map
 var map = L.map('map', {
-    maxZoom: zoomLevel
-}).setView([40, 15], 4);
+    maxZoom: 9
+}).setView([40, 15], zoomLevel);
 
 
 // Add Esri tiles to the map
@@ -97,7 +97,7 @@ function createMarkers(profiteers) {
             <b>${profiteer.name}</b><br>
             Address: <i>${profiteer.address}</i><br>
             Status: <i>${profiteer.status}</i><br>
-            <a href="https://${profiteer.link}" target="_blank">More details</a>
+            <a href="${profiteer.link}" target="_blank">More details</a>
         `);
 
         // Add marker to the cluster group
